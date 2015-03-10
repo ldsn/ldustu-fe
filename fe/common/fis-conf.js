@@ -1,4 +1,4 @@
-var receiver = "http://tp.com:8989/fisp.php";
+var receiver = "http://test.wap.ldustu.com/fis/";
 
 fis.config.merge({
 	namespace : 'common',
@@ -22,19 +22,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/static',
-	                // replace : {
-	                //     from : /(\"|\'|\(|bdstatic\.com)\/static\/([^\(\s\r\n\)\{\}\"\']+?(\.(png|jpg|gif|css|js|swf)|\/\"|\/\'))(\?t\=\d+)?/ig,
-	                //     to : function(m){
-	                //         // 如果加了md5，就不需要时间戳
-	                //         if(/(\_[a-zA-Z0-9]{7}\.(png|jpg|gif|css|js)|\/\"|\/\')$/i.test(arguments[2])){
-	                //             return arguments[1] + staticPath + arguments[2];
-	                //         } else {
-	                //             return arguments[1] + staticPath + arguments[2] + '?t=' + currentTime;
-	                //         }
-	                //     }
-	                // },
-	                //某些后缀的文件不进行上传
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/static',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -45,19 +33,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/configs',
-	                // replace : {
-	                //     from : /(\"|\'|\(|bdstatic\.com)\/static\/([^\(\s\r\n\)\{\}\"\']+?(\.(png|jpg|gif|css|js|swf)|\/\"|\/\'))(\?t\=\d+)?/ig,
-	                //     to : function(m){
-	                //         // 如果加了md5，就不需要时间戳
-	                //         if(/(\_[a-zA-Z0-9]{7}\.(png|jpg|gif|css|js)|\/\"|\/\')$/i.test(arguments[2])){
-	                //             return arguments[1] + staticPath + arguments[2];
-	                //         } else {
-	                //             return arguments[1] + staticPath + arguments[2] + '?t=' + currentTime;
-	                //         }
-	                //     }
-	                // },
-	                //某些后缀的文件不进行上传
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/Config',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -68,19 +44,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/Application/Smarty/Plugins/',
-	                // replace : {
-	                //     from : /(\"|\'|\(|bdstatic\.com)\/static\/([^\(\s\r\n\)\{\}\"\']+?(\.(png|jpg|gif|css|js|swf)|\/\"|\/\'))(\?t\=\d+)?/ig,
-	                //     to : function(m){
-	                //         // 如果加了md5，就不需要时间戳
-	                //         if(/(\_[a-zA-Z0-9]{7}\.(png|jpg|gif|css|js)|\/\"|\/\')$/i.test(arguments[2])){
-	                //             return arguments[1] + staticPath + arguments[2];
-	                //         } else {
-	                //             return arguments[1] + staticPath + arguments[2] + '?t=' + currentTime;
-	                //         }
-	                //     }
-	                // },
-	                //某些后缀的文件不进行上传
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/Plugins/',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -91,20 +55,9 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/Application/Home/View/',
-	                // replace : {
-	                //     from : /(\"|\'|\(|bdstatic\.com)\/static\/([^\(\s\r\n\)\{\}\"\']+?(\.(png|jpg|gif|css|js|swf)|\/\"|\/\'))(\?t\=\d+)?/ig,
-	                //     to : function(m){
-	                //         // 如果加了md5，就不需要时间戳
-	                //         if(/(\_[a-zA-Z0-9]{7}\.(png|jpg|gif|css|js)|\/\"|\/\')$/i.test(arguments[2])){
-	                //             return arguments[1] + staticPath + arguments[2];
-	                //         } else {
-	                //             return arguments[1] + staticPath + arguments[2] + '?t=' + currentTime;
-	                //         }
-	                //     }
-	                // },
-	                //某些后缀的文件不进行上传
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/html',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
-	            },]
+	            }
+	        ]
         },
 });

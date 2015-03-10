@@ -49,8 +49,8 @@ var hash = function(name, value) {
 
 var _pri = {
     util: {
-        changeEvent: function () {
-            console.log(1);
+        changeEvent: function (hash, newhash) {
+            //console.log(hash,newhash);
         },
         changeCheck: function () {
             var fnDelay = 100,
@@ -61,7 +61,7 @@ var _pri = {
                 window.setInterval(function(){
                     var newhash = window.location.hash;
                     if(newhash !== hash){
-                        _pri.util.changeEvent();
+                        _pri.util.changeEvent(hash, newhash);
                         hash = newhash;
                     }
                 }, fnDelay);

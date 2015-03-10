@@ -12,21 +12,33 @@
 	right: 0;
 	position: absolute;
 	display: none;
-   }
+}
+.module-edit-article.show {
+	display: block;
+}
 .ldsn-edit-article .edit-article{
 	width: 90%;
 	height: 100%;
-	padding-top: 10%;
 	margin:0 auto;
 }
-.ldsn-edit-article .textTitle{
-	width: 100%;
-	border: 1px solid #A9A9A9;
-	line-height: 35px;
-	font-size: 20px;
-	text-indent: 11px;
+.ldsn-edit-article .input {
+  margin: 10px 0;
+  border-bottom: 1px solid #d5d5d5;
+  background: #fff;
 }
-.ldsn-edit-article #editor{
+.ldsn-edit-article .textTitle{
+	border: none;
+	background: none;
+	text-indent: 0;
+    font-size: 20px;
+    height: 40px;
+	width: 100%;
+	outline: none;
+}
+.ldsn-edit-article .upload{
+	overflow: hidden;
+}
+.ldsn-edit-article .editor{
 	width: 95%;
 	max-height: 50%;
 	min-height: 25%;
@@ -34,6 +46,7 @@
 	border: 1px solid #A9A9A9;
 	padding: 10px;
 	overflow: auto;
+	clear: both;
 }
 .ldsn-edit-article p{
 	margin:10px auto;

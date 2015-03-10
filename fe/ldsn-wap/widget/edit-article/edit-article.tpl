@@ -1,15 +1,16 @@
 <section node-type="module-edit-article" class="module-edit-article">
-	<div class="edit-article">
-		  <p>标题: </p>
-		  <p><input type="text" name="textTitle" class="textTitle"/></p>
-		  <p>正文: <i id="upload-img" class="photo icon"></i></p>
-		  <div id="editor" class="editor" placeholder="这里输入内容" name="textContent" contenteditable="true" autofocus></div>
-		  <div class="ui buttons">
-			  <div class="ui button" node-type="edit-reset">取消</div>
-			  <div class="or"></div>
-			  <div class="ui positive button" node-type="edit-submit">保存</div>
+	<section class="edit-article">
+		<section class="input">
+			<input type="text" name="textTitle" class="textTitle" placeholder="添加标题" />
+		</section>
+		<section class="upload">
+			<i class="photo icon" id="upload-img"></i>
+		</section>
+		<div id="editor" class="editor" name="textContent" contenteditable="true">
 		</div>
-	</div>
+		<click node-type="edit-reset">取消</click>
+		<click node-type="edit-submit">保存</click>
+	</section>
 </section>
 {%script%}
 	require("ldsn-wap:widget/edit-article/edit-article.js");

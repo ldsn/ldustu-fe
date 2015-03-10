@@ -1,4 +1,4 @@
-var receiver = "http://tp.com:8989/fisp.php";
+var receiver = "http://test.wap.ldustu.com/fis/";
 
 fis.config.merge({
 	namespace : 'ldsn-wap',
@@ -6,8 +6,6 @@ fis.config.merge({
     	'pkg/ldsn-wap-all.js': [
     		'static/lib/js/zepto.js',
     		'static/message.js',
-
-
     		'widget/article/*.js',
     		'widget/comment/*.js',
     		'widget/edit-article/*.js',
@@ -34,7 +32,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/static',
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/static',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -45,7 +43,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/configs',
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/Config',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -56,7 +54,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/Application/Smarty/Plugins/',
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/Plugins/',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -67,8 +65,9 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/tp.com/Application/Home/View/',
+	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/html',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
-	            },]
+	            }
+	        ]
         },
 });

@@ -35,11 +35,10 @@ var data = [
         	mod: $('menu[node-type="ldsn-menu"]'),
         	menuList:$('section[node-type="menu-list"]'),
         	menuClick:$("click[node-type='menu-click']"),
-              rightClick:$("click[node-type='right-click']"),
+            rightClick:$("click[node-type='right-click']"),
         	ldsnBox:$("section[node-type='ldsn-box']"),
-              editClick:$('click[node-type="right-click"]'),
         	ldsnMainFrame:$("section[node-type='ldsn-main-frame']"),
-              editArticle:$("section[node-type='module-edit-article']")
+            editArticle:$("section[node-type='module-edit-article']")
         },
         //绑定元素事件
         bindUI: function () {
@@ -47,7 +46,6 @@ var data = [
         	_pri.node.ldsnMainFrame.on("click",_pri.util.clearLeftSlide)//清除菜单
         	_pri.node.ldsnBox.swipeRight(_pri.util.leftSlide);
             _pri.node.ldsnBox.swipeLeft(_pri.util.clearLeftSlide);
-            _pri.node.editClick.on("click",_pri.util.editClick) 
         },
         util: {
         	leftSlide: function(){//左滑事件函数
@@ -58,19 +56,6 @@ var data = [
         		_pri.node.ldsnBox.css("margin-left","-200px");
         		_pri.node.ldsnMainFrame.css("display","none")
         	},
-            editClick:function(){
-                _pri.node.editArticle.css("display","block");
-                window.checkPlupload = false;
-                var script = document.createElement("script");
-                script.src="/static/common/plupload/plupload.min.js";
-                script.type="text/javascript";
-                document.body.appendChild(script);
-                window.setInterval(function () {
-                    if(window.checkPlupload) {
-                        require("ldsn-wap:widget/upload-image/upload-image.js");
-                    }
-                },40);
-              },
         	initMenu: function (){//页面初始化函数
     		_pri.node.mod.css("height", $(window).height());
                             _pri.node.ldsnBox.css("transition","margin-left 1s");

@@ -5,7 +5,7 @@
 				<img src="/static/ldsn-wap/lib/img/topic.png" class="user-topic"/>
 				<section class="article-info">
 					<section class="article-from">
-						<em>Edire</em>转自<em>人人都是人人都是人人都是产品经理</em>
+						<em>Edire</em>
 					</section>
 					<time>19:33</time>
 				</section>
@@ -35,31 +35,37 @@
 						<i class="thumbs up icon"></i>
 						<em class="opa">赞</em>
 					</click>
-					<click class="comment handle">
-						<i class="edit sign icon"></i>
-						<em class="opa">评论</em>
-					</click>
 					<click class="share handle">
 						<i class="share icon"></i>
 						<em class="opa">分享</em>
 					</click>
 				</section>
-				<ul class="article-comment">
-					<li class="comment-item">
-						<img src="/static/ldsn-wap/lib/img/topic.png" alt="" class="comment-topic">
-						<section class="comment-detail">
-							<section class="coment-info">
-								<time class="comment-time">03:21</time>
-								<section class="coment-user-info">
-									小眼睛的春天
+				<section class="comment">
+					<ul class="article-comment" node-type="article-comment">
+						<li class="comment-item">
+							<img src="/static/ldsn-wap/lib/img/topic.png" alt="" class="comment-topic">
+							<section class="comment-detail">
+								<section class="coment-info">
+									<time class="comment-time">03:21</time>
+									<section class="coment-user-info">
+										小眼睛的春天
+									</section>
+								</section>
+								<section class="comment-content">
+									WebAPP和原生APP同为移动端，很少有研究这两项的交互区别，
 								</section>
 							</section>
-							<section class="comment-content">
-								WebAPP和原生APP同为移动端，很少有研究这两项的交互区别，
-							</section>
+						</li>
+					</ul>
+					<section class="edit-comment">
+						<click class="submit">
+							<i class="reply mail icon"></i>
+						</click>
+						<section class="input">
+							<input aid="" type="text" />
 						</section>
-					</li>
-				</ul>
+					</section>
+				</section>
 			</footer>
 		</li>
 		<li class="item">
@@ -67,7 +73,7 @@
 				<img src="/static/ldsn-wap/lib/img/topic.png" class="user-topic"/>
 				<section class="article-info">
 					<section class="article-from">
-						<em>Edire</em>转自<em>人人都是人人都是人人都是产品经理</em>
+						<em>Edire</em>
 					</section>
 					<time>19:33</time>
 				</section>
@@ -91,19 +97,41 @@
 					</li>
 				</ul>
 			</section>
-			<footer class="article-handle">
-				<click class="favour handle">
-					<i class="thumbs up icon"></i>
-					<em class="opa">赞</em>
-				</click>
-				<click class="comment handle">
-					<i class="edit sign icon"></i>
-					<em class="opa">评论</em>
-				</click>
-				<click class="share handle">
-					<i class="share icon"></i>
-					<em class="opa">分享</em>
-				</click>
+			<footer class="article-footer">
+				<section class="article-handle">
+					<click class="favour handle active">
+						<i class="thumbs up icon"></i>
+						<em class="opa">赞</em>
+					</click>
+					<click class="share handle">
+						<i class="share icon"></i>
+						<em class="opa">分享</em>
+					</click>
+				</section>
+				<ul class="article-comment">
+					<li class="comment-item">
+						<img src="/static/ldsn-wap/lib/img/topic.png" alt="" class="comment-topic">
+						<section class="comment-detail">
+							<section class="coment-info">
+								<time class="comment-time">03:21</time>
+								<section class="coment-user-info">
+									小眼睛的春天
+								</section>
+							</section>
+							<section class="comment-content">
+								WebAPP和原生APP同为移动端，很少有研究这两项的交互区别，
+							</section>
+						</section>
+					</li>
+				</ul>
+				<section class="edit-comment">
+					<click class="submit">
+						<i class="reply mail icon"></i>
+					</click>
+					<section class="input">
+						<input aid="" type="text" />
+					</section>
+				</section>
 			</footer>
 		</li>
 	</ul>

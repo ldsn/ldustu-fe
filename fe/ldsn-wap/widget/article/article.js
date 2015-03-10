@@ -25,29 +25,27 @@ var data = {
 var tmpl = require('ldsn-wap:widget/article/article.tpl.js');
 
     //私有方法
-    var _pri = {
+var _pri = {
         //UI元素集合
-        node: {
-        	mod: $('section[node-type="module-article"]'),
-        },
-        //绑定元素事件
-        bindUI: function () {
-          $().on("click",_pri.util.openArticle)
-	
+    node: {
+    	mod: $('section[node-type="module-article"]'),
+    },
+    //绑定元素事件
+    bindUI: function () {
+
 	},
-        util: {
-              openArticle: function (){//页面初始化函数
-              _pri.node.mod.addClass("article-box")
-              _pri.node.mod.append(ldev.tmpl(_pri.tmpl.tmpl,data))
-              },
-        	initBox: function (){//页面初始化函数
-                console.log(111)
-        	}
+    util: {
+        openArticle: function (){//页面初始化函数
+            _pri.node.mod.addClass("article-box")
+            _pri.node.mod.append(ldev.tmpl(_pri.tmpl.tmpl,data))
         },
-        tmpl: {
-              tmpl: tmpl.join('')
-        },
-    }
+    	initBox: function (){//页面初始化函数
+    	}
+    },
+    tmpl: {
+        tmpl: tmpl.join('')
+    },
+}
 
     /**
      * 如果页面需要加载后运行某些函数
@@ -55,7 +53,6 @@ var tmpl = require('ldsn-wap:widget/article/article.tpl.js');
      */
   
       var init = function () {
-      	_pri.util.initBox();
       	_pri.bindUI();
        //_pri.util.openArticle();
     }

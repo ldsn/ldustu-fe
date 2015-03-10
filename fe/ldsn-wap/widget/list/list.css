@@ -182,12 +182,47 @@
     line-height: 18px;
 }
 
-.module-list .coment-user-info {
+.module-list .comment-user-info {
     font-weight: bold;
     overflow: hidden;
 }
 
-.module-list .coment-info {
+.module-list .comment-info {
     display: block;
     margin-bottom: 3px;
+}
+.module-list .edit-comment {
+    margin-top: 5px;
+
+}
+.module-list .edit-comment .input{
+    background: #FFFFFF;
+    overflow: hidden;
+    margin-left: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.module-list .edit-comment .input input {
+    border: none;
+    background-image: none;
+    outline: none;
+    font-size: 14px;
+    text-indent: 8px;
+    width: 100%;
+    vertical-align: baseline;
+}
+
+.module-list .edit-comment click {
+  float: right;
+}
+.module-list .edit-comment click i.reply.mail.icon {
+    margin-left: 6px;
+    margin-right: 9px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.module-list .edit-comment click i.reply.mail.icon:active {
+    color: #5890ff;
 }

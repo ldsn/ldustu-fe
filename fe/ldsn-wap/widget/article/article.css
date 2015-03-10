@@ -1,13 +1,12 @@
-.article-box {
-	z-index: 99;
-	background-color: #fff;
-	position: absolute;
-	top: 40px;
-	bottom: 0;
-	left: 0;
-	right: 0;
+.module-article {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  display: none;
 }
-
 .module-article .user-topic {
     width: 50px;
     height: 50px;
@@ -195,4 +194,36 @@
 .module-article .coment-info {
     display: block;
     margin-bottom: 3px;
+}
+
+.module-article .edit-comment .input{
+    background: #FFFFFF;
+    overflow: hidden;
+    margin-left: 11px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.module-article .edit-comment .input input {
+    border: none;
+    background-image: none;
+    outline: none;
+    font-size: 14px;
+    text-indent: 8px;
+    width: 100%;
+    vertical-align: baseline;
+}
+
+.module-article .edit-comment click {
+  float: right;
+}
+.module-article .edit-comment click i.reply.mail.icon {
+    margin-left: 6px;
+    margin-right: 9px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.module-article .edit-comment click i.reply.mail.icon:active {
+    color: #5890ff;
 }
