@@ -7,6 +7,7 @@
 
 var apiCenter = require('common:widget/api/api.js');
 var listTpl = require('ldsn-wap:widget/list/list.tpl.js');
+var toast = require('ldsn-wap:widget/toast/toast.js');
 
 
 var _pri = {
@@ -30,12 +31,7 @@ var _pri = {
     util: {
         getListErr: function (data) {
             if (data.error != '0') {
-                var con = confirm('出现问题，是否刷新？');
-                if (con) {
-                    location.reload()
-                } else {
-                    return;
-                }
+                toast('error', ldev.errorMessage[data.error])
             }
         },
 

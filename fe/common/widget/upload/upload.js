@@ -31,13 +31,13 @@ var qiniu = new Qiniu();
 var uploader = qiniu.uploader({
     runtimes: 'html5,flash,html4',    //上传模式,依次退化
     browse_button: btnId,       //上传选择的点选按钮，**必需**
-    //uptoken_url: 'http://www.ldustu.com/some.php',
+    uptoken_url: 'http://test.wap.ldustu.com/qiniu/q.php',
         //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
-    uptoken : '-whDl59QdzDoavrzKrQy1YOCRWG6Cho_N5i7IYlf:RddS__V_AsP0ieNW9d4NRiRFwIA=:eyJzY29wZSI6Imxkc252NiIsImRlYWRsaW5lIjoxNDI1ODEwNzIwfQ==',
+    //uptoken : '-whDl59QdzDoavrzKrQy1YOCRWG6Cho_N5i7IYlf:waI5wxYOBnHH5x9iAlpe0RfQwns=:eyJzY29wZSI6Imxkc252NiIsImRlYWRsaW5lIjoxNDI2MjY0Mjc2fQ==',
         //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
     //unique_names: true,
         // 默认 false，key为文件名。若开启该选项，SDK会为每个文件自动生成key（文件名）
-    // save_key: true,
+    save_key: false,
         // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK在前端将不对key进行任何处理
     domain: 'http://ldsnv6.qiniudn.com/',
         //bucket 域名，下载资源时用到，**必需**

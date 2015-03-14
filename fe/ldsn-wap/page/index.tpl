@@ -5,6 +5,18 @@
 {%require name="ldsn-wap:static/lib/js/zepto.js"%}
 {%require name="ldsn-wap:static/message.js"%}
 {%require name="ldsn-wap:static/index/index.css"%}
+
+{%script%}
+
+	window.ldsn = {};
+	var column = '{%$column%}';
+	try {
+		window.ldsn.column = $.parseJSON(column.replace('&qout;', '"'));
+	} catch (e) {
+		window.ldsn.column = $.parseJSON(column.replace('\x22', '"'));
+	}
+
+{%/script%}
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 {%/block%}
 

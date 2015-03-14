@@ -10,8 +10,8 @@ var _pri = {
         ldsnMain: $('section[node-type="ldsn-main"]'),
         ldsnBox: $('section[node-type="ldsn-box"]')
     },
-    bindUI: {
-
+    bindUI: function () {
+        //xxx
     },
     util: {
         renderDom: function () {
@@ -24,6 +24,8 @@ var _pri = {
 
 
 var init = function () {
+    _pri.bindUI();
 	_pri.util.renderDom();
 }
+
 init();

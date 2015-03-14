@@ -6,28 +6,6 @@
      */
     'use strict';
 
-var data = [
-        {
-            "cid": 1,
-            "name": "新闻"
-        },
-        {
-            "cid": 2,
-            "name": "娱乐"
-        },
-        {
-            "cid": 4,
-            "name": "搞笑"
-        },
-        {
-            "cid": 5,
-            "name": "趣事"
-        },
-        {
-            "cid": 7,
-            "name": "频道"
-        }
-    ]
     //私有方法
     var _pri = {
         //UI元素集合
@@ -59,8 +37,8 @@ var data = [
         	initMenu: function (){//页面初始化函数
     		_pri.node.mod.css("height", $(window).height());
                             _pri.node.ldsnBox.css("transition","margin-left 1s");
-	    	for(var i = 0; i < data.length; i++){
-	    		_pri.node.menuList.append("<click cid='"+data[i].cid+"'>"+data[i].name+"</click>");
+	    	for(var i = 0; i < ldsn.column.data.length; i++){
+	    		_pri.node.menuList.append("<click cid='"+ldsn.column.data[i].cid+"'>"+ldsn.column.data[i].name+"</click>");
 	    	}
         	}
         }

@@ -32,7 +32,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/static',
+	                to: '/home/wwwroot/ldustu/server/static/',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -43,7 +43,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/Config',
+	                to: '/home/wwwroot/ldustu/server/Application/Wap/View/Config',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -54,7 +54,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/Plugins/',
+	                to: '/home/wwwroot/ldustu/server/Application/Wap/View/Plugins/',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            },{
 	                //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -65,7 +65,7 @@ fis.config.merge({
 	                subOnly: true,
 	                //保存到远端机器的/home/fis/www/static目录下
 	                //这个参数会跟随post请求一起发送
-	                to: '/home/wwwroot/ldustu/server/Application/Tmpl/html',
+	                to: '/home/wwwroot/ldustu/server/Application/Wap/View/',
 	                exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
 	            }
 	        ]

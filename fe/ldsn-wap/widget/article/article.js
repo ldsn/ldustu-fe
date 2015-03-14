@@ -1,26 +1,26 @@
 /**
-     * 菜单js
-     * @author yuxuan
-     * @date 2015-02-08
-     * @version 1.0.0
-     */
-    'use strict';
+ * 菜单js
+ * @author yuxuan
+ * @date 2015-02-08
+ * @version 1.0.0
+*/
+'use strict';
 
 var data = {
-            "id": "3",              //文章id
-            "uid": "1",             //用户id
-            "cid": "1",             //分类id
-            "visite": "0",          //访问数
-            "favour": "10",         //点赞数
-            "common": "10",         //评论数
-            "username": "用户名",    //用户名
-            "category": "新闻",      //版块名称
-            "ismake": "1",          //审核
-            "title": "",            //题目
-            "description": "",      //简介
-            "time": "" ,             //时间
-            "image": "" ,             //时间
-            "from": "人人都是产品经理"
+    "id": "3",              //文章id
+    "uid": "1",             //用户id
+    "cid": "1",             //分类id
+    "visite": "0",          //访问数
+    "favour": "10",         //点赞数
+    "common": "10",         //评论数
+    "username": "用户名",    //用户名
+    "category": "新闻",      //版块名称
+    "ismake": "1",          //审核
+    "title": "",            //题目
+    "description": "",      //简介
+    "time": "" ,             //时间
+    "image": "" ,             //时间
+    "from": "人人都是产品经理"
 }
 var tmpl = require('ldsn-wap:widget/article/article.tpl.js');
 
@@ -36,7 +36,7 @@ var _pri = {
 	},
     util: {
         openArticle: function (){//页面初始化函数
-            _pri.node.mod.addClass("article-box")
+            _pri.node.mod.addClass("active")
             _pri.node.mod.append(ldev.tmpl(_pri.tmpl.tmpl,data))
         },
     	initBox: function (){//页面初始化函数
