@@ -4,6 +4,7 @@
 }
 .ldsn-box {
 	margin-left: -200px;
+	transition: margin-left 1s;
 }
 
 .ldsn-box.menu {
@@ -54,6 +55,6 @@
 	z-index: 9999;
 }
 
-.ldsn-main-frame.dis {
+.ldsn-main-frame.active {
 	display: block;
 }

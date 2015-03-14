@@ -12,7 +12,7 @@ var event = {
         console.log(up)
         plupload.each(files, function(file) {
             if(file.type != 'image/jpeg' && file.type != 'image/jpg' && file.type != 'image/png' && file.type != 'image/gif'){
-                toast('error', '文件类型错误，请上传图片文件', false);
+                toast('error', '文件类型错误，请上传图片文件', true);
                 up.removeFile(file);
                 up.stop();
             }
@@ -37,6 +37,7 @@ var event = {
         var sourceLink = domain + res.key + '?imageView2/2/w/400/q/50';
         var img = document.createElement('img');
         img.src = sourceLink;
+        $(img).attr('_src', res.key);
         $('<div><br/></div>').appendTo('#editor');
         $(img).appendTo('#editor');
         $('<div><br/></div>').appendTo('#editor');
@@ -53,7 +54,7 @@ var event = {
         // 该配置必须要在 unique_names: false , save_key: false 时才生效
         if(file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'image/gif'){
           var nameSuffix = file.name.substring(file.name.lastIndexOf('.'));
-          var key = 'userUpload/' + Date.parse(new Date()) + nameSuffix;
+          var key = 'userUpload/' + new Date().getTime() + nameSuffix;
           // do something with key here
           return key
         }

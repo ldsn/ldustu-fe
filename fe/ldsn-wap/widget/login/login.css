@@ -1,0 +1,14 @@
+.module-login {
+	position: absolute;
+	width: 250px;
+	height: 100px;
+	left: 50%;
+	top: 50%;
+	margin-top: -50px;
+	margin-left: -125px;
+    background: rgba(0, 0, 0, 0.67);
+	border-radius: 4px;
+}
+.module-login.active {
+	display: block;
+}

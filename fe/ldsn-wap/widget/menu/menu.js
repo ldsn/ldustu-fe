@@ -28,18 +28,18 @@
         util: {
         	leftSlide: function(){//左滑事件函数
         		_pri.node.ldsnBox.css("margin-left","0px");
-                            _pri.node.ldsnMainFrame.css("display","block")
+                _pri.node.ldsnMainFrame.addClass("active");
         	},
         	clearLeftSlide: function(){//清除菜单函数
         		_pri.node.ldsnBox.css("margin-left","-200px");
-        		_pri.node.ldsnMainFrame.css("display","none")
+        		_pri.node.ldsnMainFrame.removeClass("active");
         	},
         	initMenu: function (){//页面初始化函数
-    		_pri.node.mod.css("height", $(window).height());
-                            _pri.node.ldsnBox.css("transition","margin-left 1s");
-	    	for(var i = 0; i < ldsn.column.data.length; i++){
-	    		_pri.node.menuList.append("<click cid='"+ldsn.column.data[i].cid+"'>"+ldsn.column.data[i].name+"</click>");
-	    	}
+        		_pri.node.mod.css("height", $(window).height());
+            	
+                for(var i = 0; i < ldsn.column.data.length; i++){
+            		_pri.node.menuList.append("<click cid='"+ldsn.column.data[i].cid+"'>"+ldsn.column.data[i].name+"</click>");
+            	}
         	}
         }
     }

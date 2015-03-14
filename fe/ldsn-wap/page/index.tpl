@@ -9,12 +9,15 @@
 {%script%}
 
 	window.ldsn = {};
-	var column = '{%$column%}';
-	try {
-		window.ldsn.column = $.parseJSON(column.replace('&qout;', '"'));
-	} catch (e) {
-		window.ldsn.column = $.parseJSON(column.replace('\x22', '"'));
+	if ('{%$column%}') {
+		var column = '{%$column%}';
+		try {
+			window.ldsn.column = $.parseJSON(column.replace('&qout;', '"'));
+		} catch (e) {
+			window.ldsn.column = $.parseJSON(column.replace('\x22', '"'));
+		}
 	}
+
 
 {%/script%}
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
@@ -39,8 +42,9 @@
 	{%widget name="ldsn-wap:widget/edit-article/edit-article.tpl"%}
 {%/block%}
 
-{%block name="ldsn-toast"%}
+{%block name="ldsn-absolute"%}
 	{%widget name="ldsn-wap:widget/toast/toast.tpl"%}
+	{%widget name="ldsn-wap:widget/login/login.tpl"%}
 {%/block%}
 {%block name="else"%}
 <div style="display: none">
