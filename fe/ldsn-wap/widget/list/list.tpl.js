@@ -45,7 +45,7 @@ var listTpl = [
                     '</click>',
                     '<click class="share handle">',
                         '<i class="share icon"></i>',
-                        '<em class="opa">分享</em>',
+                        '<em class="opa"  aid="<%=id%>">分享</em>', 
                     '</click>',
                 '</section>',
                 '<section class="comment" id="comment-<%=id%>">',

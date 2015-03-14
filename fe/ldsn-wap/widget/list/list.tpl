@@ -1,6 +1,6 @@
 <section node-type="module-list" class="module-list">
 	<ul class="item-list" node-type="module-list-item-list">
-		<li class="item">
+		<li class="item" aid="111">
 			<header class="item-header">
 				<img src="/static/ldsn-wap/lib/img/topic.png" class="user-topic"/>
 				<section class="article-info">
@@ -37,7 +37,7 @@
 					</click>
 					<click class="share handle">
 						<i class="share icon"></i>
-						<em class="opa">分享</em>
+						<em class="opa" aid="111">分享</em>
 					</click>
 				</section>
 				<section class="comment">
@@ -68,12 +68,12 @@
 				</section>
 			</footer>
 		</li>
-		<li class="item">
+		<li class="item" aid="222">
 			<header class="item-header">
 				<img src="/static/ldsn-wap/lib/img/topic.png" class="user-topic"/>
 				<section class="article-info">
 					<section class="article-from">
-						<em>Edire</em>
+						<em>Edire</em> 
 					</section>
 					<time>19:33</time>
 				</section>
@@ -105,7 +105,7 @@
 					</click>
 					<click class="share handle">
 						<i class="share icon"></i>
-						<em class="opa">分享</em>
+						<em class="opa" aid="222">分享</em>
 					</click>
 				</section>
 				<ul class="article-comment">

@@ -16,7 +16,8 @@
     }
 
 var _pub = {
-        share: function  (bdText,bdDesc,bdUrl,bdPic) {
+        share: function  (bdText,bdDesc,bdUrl,bdPic) {//分享函数
+                  //分享弹出层html
                   var shtml = "<div id='share_bg'></div><div class='bdsharebuttonbox' data-tag='share_1' id='share'><div class='bdshare'>\
                         <div class='share_mid'><a class='bds_qzone share_img' data-cmd='qzone'></a>\
                         <a class='bds_tsina share_img' data-cmd='tsina'></a>\
@@ -25,44 +26,48 @@ var _pub = {
                         <a class='bds_weixin share_img' data-cmd='weixin'></a>\
                         <a class='bds_copy share_img' data-cmd='copy'></a></div></div>\
                         </div><button id='share_delete'>取消</button>";
-                    var shareDiv = document.createElement('div');
-                           shareDiv.id = "share_box";
-                           document.body.appendChild(shareDiv);
-                           document.getElementById("share_box").innerHTML = shtml;
-                           if(document.getElementById('share_script')){
-                                        document.getElementById('share_script').remove();
+                    //加载
+                     $("body").append('<div id="share_box">'+shtml+'</div>')//插入分享弹层
+                           if($('#share_script')){//删除多余变量
+                                        $('#share_script').remove();
                                         delete _bd_share_config;
                                         delete _bd_share_is_recently_loaded;
                                         delete _bd_share_main;
                             }
-                            window._bd_share_config = {
-                                        common : {
-                                                      bdText :bdText, 
-                                                      bdDesc : bdDesc,  
-                                                      bdUrl :bdUrl,   
-                                                      bdPic : bdPic
+                            window._bd_share_config = {//分享参数设置
+                                        common : {//通用参数
+                                                      bdText :bdText, //文章标题
+                                                      bdDesc : bdDesc,  //文章描述
+                                                      bdUrl :bdUrl, //文章url
+                                                      bdPic : bdPic//文章图片
                                                        },
                                           share : [{
-                                                    "bdSize" : 32
+                                                    "bdSize" : 32//分享按钮尺寸
                                            }]
                                       }
+                            //插入分享js
                             var script = document.createElement('script');
                                     script.src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5);
                                     script.id='share_script';
                                     document.body.appendChild(script);
-                                    document.getElementById("share_bg").addEventListener("click",function () {
-                                            document.getElementById("share_box").remove();
+                                    $("#share_bg").on("click",function () {//点击分享遮罩删除分享弹层
+                                            $("#share_box").remove();
                                     })
-                                    document.getElementById("share_delete").addEventListener("click",function () {
-                                            document.getElementById("share_box").remove();
+                                    $("#share_delete").on("click",function () {//点击取消按钮删除分享弹层
+                                            $("#share_box").remove();
                                     })
-                            var i = 0;
-                            var int = setInterval(delete_css,1);
+                                    // $(".share_img").on("click",function () {//点击分享后删除分享弹层
+                                    //         $("#share_box").remove();
+                                    // })
+                            var int = setInterval(delete_css,1);//删除多余css文件
                             function delete_css () {
-                                    i++;
-                                    if(document.getElementsByTagName('link')[0].href.substr(7,21)=="bdimg.share.baidu.com"){
-                                            document.getElementsByTagName('link')[0].remove();
-                                            clearInterval(int);
+                                    console.log(1)
+                                    for(var i=0; i<$('link').length; i++){
+                                        var cssUrl = $($('link')[i]).attr("href").substr(7,21);
+                                        if(cssUrl=="bdimg.share.baidu.com"){
+                                            $($('link')[i]).remove();
+                                            clearInterval(int)
+                                        }
                                     }
                              }
               }
