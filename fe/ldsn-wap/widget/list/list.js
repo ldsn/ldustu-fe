@@ -10,13 +10,13 @@ var share = require('ldsn-wap:widget/share/share.js');//引入分享组件
 var _pri = {
 	node: {
 		listMod: $('section[node-type="module-list"]'),
-		shareButton: $('.share em'),
+		shareButton: $('.share-click'),
 },
 //绑定元素事件
 	bindUI: function () {    
-		_pri.node.shareButton.on("click",function(event){//分享点击事件
+		_pri.node.listMod.delegate(_pri.node.shareButton,"click",function(){//分享点击事件
 			console.log(11122);
-			var aid = $(this).attr("aid");//获取分享文章aid
+			var aid = $(this).find("em").attr("aid");//获取分享文章aid
 			var shareAid = $('li[aid="'+aid+'"]');
 			var bdText = shareAid.find(".article-title").text()//获取分享文章标题
 			var bdDesc = shareAid.find(".article-description").text()//获取分享文章描述
