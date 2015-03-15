@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-var api = require('common:widget/api/api.js'),
+var api = require('ldsn-wap:widget/api/api.js'),
 	commentTmpl = require('ldsn-wap:widget/comment/comment.tpl.js');
 
 var _pri = {

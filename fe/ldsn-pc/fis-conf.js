@@ -1,6 +1,6 @@
 var receiver = "http://tp.com:8989/fisp.php";
 fis.config.merge({
-	namespace : 'common',
+	namespace : 'ldsn-pc',
     pack : {
         'static/pkg/aio.css' : 'widget/**.css',
         'static/pkg/aio.js' : 'widget/nav/**.js'

@@ -3,11 +3,18 @@ var receiver = "http://test.wap.ldustu.com/fis/";
 fis.config.merge({
 	namespace : 'common',
     pack : {
-    	'pkg/common-widget.js': /^\/widget\/.*\/(.*\.js)$/i,
+    	'pkg/common-async.js': [
+    		'widget/upload/qiniu.js',
+    		'widget/upload/upload.js'
+    	],
         'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
         'pkg/static.css' : /^\/static\/.*\/(.*\.css)$/i,
         'pkg/common-static.js': [
-        	'static/ldev.js'
+        	'widget/error-message/error-message.js',
+        	'widget/hash/hash.js',
+        	'widget/message/message.js',
+        	'widget/temp/baidu.template.js',
+        	'static/ldev.js',
         ]
     },
 	deploy: {

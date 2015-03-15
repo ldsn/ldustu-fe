@@ -8,6 +8,8 @@
 	margin-left: -125px;
     background: rgba(0, 0, 0, 0.67);
 	border-radius: 4px;
+	display: none;
+	z-index: 99999;
 }
 .module-login.active {
 	display: block;

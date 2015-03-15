@@ -10,12 +10,17 @@ fis.config.merge({
     		'widget/comment/*.js',
     		'widget/edit-article/*.js',
     		'widget/header/*.js',
-    		'widget/index/*.js',
-    		'widget/list/*.js',
+    		'widget/list/list.js',
+    		'widget/list/list.tpl.js',
     		'widget/menu/*.js',
     		'widget/share/*.js',
     		'widget/toast/*.js',
 
+    	],
+    	'pkg/fast-index': [
+    		'widget/api/api.js',
+    		'widget/index/index.js',
+    		'widget/list/list-method.js',
     	],
         'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
         'pkg/static.css' : /^\/static\/.*\/(.*\.css)$/i

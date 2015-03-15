@@ -10,7 +10,6 @@
     var tmpl =  require('common:widget/tmpl/baidu.template.js');
     var hash = require('common:widget/hash/hash.js');
     var message = require('common:widget/message/message.js');
-    var api = require('common:widget/api/api.js');
     var errorMessage = require('common:widget/error-message/error-message.js');
     var ldev = {
         tmpl: tmpl,

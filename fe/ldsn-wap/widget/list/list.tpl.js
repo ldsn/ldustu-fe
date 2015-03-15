@@ -6,7 +6,7 @@
  */
 
 var listTpl = [
-		'<li class="item" aid="<%=id%>">',
+		'<li class="item" aid="<%=aid%>">',
             '<header class="item-header">',
                 '<img src="/static/ldsn-wap/lib/img/topic.png" class="user-topic"/>',
                 '<section class="article-info">',
@@ -29,7 +29,7 @@ var listTpl = [
                 '<ul>',
                     '<li>',
                         '<i class="thumbs up icon"></i>',
-                        '<em><%=thumbs%></em>',
+                        '<em><%=favour%></em>',
                     '</li>',
                     '<li>',
                         '<i class="edit sign icon"></i>',
@@ -45,7 +45,7 @@ var listTpl = [
                     '</click>',
                     '<click class="share handle">',
                         '<i class="share icon"></i>',
-                        '<em class="opa"  aid="<%=id%>">分享</em>', 
+                        '<em class="opa" aid="<%=aid%>">分享</em>',
                     '</click>',
                 '</section>',
                 '<section class="comment" id="comment-<%=id%>">',

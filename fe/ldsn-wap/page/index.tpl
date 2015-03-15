@@ -9,14 +9,24 @@
 {%script%}
 
 	window.ldsn = {};
-	if ('{%$column%}') {
-		var column = '{%$column%}';
-		try {
-			window.ldsn.column = $.parseJSON(column.replace('&qout;', '"'));
-		} catch (e) {
-			window.ldsn.column = $.parseJSON(column.replace('\x22', '"'));
-		}
-	}
+
+    {%if isset($column)%}
+		ldsn.column = $.parseJSON('{%$column%}');
+	{%else%}
+		ldsn.column = '';
+	{%/if%}
+	
+    {%if isset($userResult)%}
+		ldsn.user = $.parseJSON('{%$userResult%}');
+	{%else%}
+		ldsn.user = '';
+	{%/if%}
+
+
+    {%script%}
+        require.async("/static/common/plupload/plupload.js");
+        require.async("ldsn-wap:widget/upload-image/upload-image.js");
+    {%/script%}
 
 
 {%/script%}
@@ -26,7 +36,9 @@
 {%block name="ldsn-header"%}
 	{%widget name="ldsn-wap:widget/header/header.tpl"%}
 {%/block%}
-
+{%block name="ldsn-menu"%}
+sdfsa
+{%/block%}
 {%block name="ldsn-menu"%}
 	{%widget name="ldsn-wap:widget/menu/menu.tpl"%}
 {%/block%}
@@ -46,8 +58,10 @@
 	{%widget name="ldsn-wap:widget/toast/toast.tpl"%}
 	{%widget name="ldsn-wap:widget/login/login.tpl"%}
 {%/block%}
+{%*
 {%block name="else"%}
 <div style="display: none">
 <script src="http://s95.cnzz.com/stat.php?id=1254184808&web_id=1254184808" language="JavaScript"></script>
 </div>
 {%/block%}
+*%}

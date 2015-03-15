@@ -4,14 +4,13 @@
 }
 .ldsn-box {
 	margin-left: -200px;
-	transition: margin-left 1s;
+	transition: margin-left 0.4s;
 }
 
-.ldsn-box.menu {
+.ldsn-box.active {
+	margin-left: 0;
 }
 
-.ldsn-box.right {
-}
 
 
 .ldsn-main {

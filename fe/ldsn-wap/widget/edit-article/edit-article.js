@@ -6,6 +6,8 @@
      */
  
 'use strict';
+
+var login = require('ldsn-wap:widget/login/login.js');
 //私有方法
 var _pri = {
     //UI元素集合
@@ -59,18 +61,10 @@ var _pri = {
             _pri.node.editModule.removeClass('show');
         },
         editClick:function(){
+            login.alertLogin();
             _pri.util.show();
-            window.checkPlupload = false;
-            var script = document.createElement("script");
-            script.src="/static/common/plupload/plupload.min.js";
-            script.type="text/javascript";
-            document.body.appendChild(script);
-            window.setInterval(function () {
-                if(window.checkPlupload) {
-                    require("ldsn-wap:widget/upload-image/upload-image.js");
-                }
-            },40);
-            //ldev.hash('page','editor');
+            
+                        //ldev.hash('page','editor');
         }
     }
 }

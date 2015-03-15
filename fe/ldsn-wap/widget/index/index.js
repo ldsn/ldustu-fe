@@ -5,6 +5,8 @@
  * create by fanmingfei 2015-02-01
 */
 
+var listMethod = require('ldsn-wap:widget/list/list-method.js');
+
 var _pri = {
     node : {
         ldsnMain: $('section[node-type="ldsn-main"]'),
@@ -18,14 +20,19 @@ var _pri = {
             $('.ldsn-content').css("height",$(window).height()-40);
             $('.ldsn-box').css("width",$(window).width()+300);
             $('.ldsn-main').css("width",$(window).width());
+        },
+        renderIndex: function () {
+            listMethod.toColumn(0);
         }
     }
 };
 
 
+
 var init = function () {
     _pri.bindUI();
 	_pri.util.renderDom();
+    _pri.util.renderIndex();
 }
 
 init();
