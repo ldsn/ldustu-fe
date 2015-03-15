@@ -17,7 +17,7 @@ var _pri = {
 		_pri.node.shareButton.on("click",function(event){//分享点击事件
 			console.log(11122);
 			var aid = $(this).attr("aid");//获取分享文章aid
-			var shareAid = $('[aid="'+aid+'"]');
+			var shareAid = $('li[aid="'+aid+'"]');
 			var bdText = shareAid.find(".article-title").text()//获取分享文章标题
 			var bdDesc = shareAid.find(".article-description").text()//获取分享文章描述
 			var bdUrl = _pri.init.getUrl();//获取分享文章url
