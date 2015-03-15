@@ -16,5 +16,5 @@
 	</section>
 </section>
 {%script%}
-	require("ldsn-wap:widget/menu/menu.js");
+	require('ldsn-wap:widget/menu/menu.js');
 {%/script%}

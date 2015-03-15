@@ -8,6 +8,7 @@
 'use strict';
 
 var login = require('ldsn-wap:widget/login/login.js');
+var toast = require('ldsn-wap:widget/toast/toast.js');
 //私有方法
 var _pri = {
     //UI元素集合
@@ -26,7 +27,14 @@ var _pri = {
         _pri.node.editSubmit.on("click",function(){
             _pri.util.articleRelease();
         });
-        _pri.node.editClick.on("click",_pri.util.editClick);
+        _pri.node.editClick.on("click",function () {
+            if(ldsn.user && ldsn.user.id) {
+                _pri.util.editClick()
+            } else {
+                toast('tip', '发表文章需要登录哦~')
+                login.alertLogin();
+            }
+        });
     },
     util: {
         articleRelease:function(){
@@ -61,9 +69,9 @@ var _pri = {
             _pri.node.editModule.removeClass('show');
         },
         editClick:function(){
-            login.alertLogin();
             _pri.util.show();
-            
+        
+            require("ldsn-wap:widget/upload-image/upload-image.js");
                         //ldev.hash('page','editor');
         }
     }

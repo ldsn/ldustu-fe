@@ -34,5 +34,6 @@ var init = function () {
 	_pri.util.renderDom();
     _pri.util.renderIndex();
 }
-
-init();
+$(document).ready(function () {
+	init();
+})

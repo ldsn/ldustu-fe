@@ -5,5 +5,5 @@
 </section>
 
 {%script%}
-	require("ldsn-wap:widget/index/index.js");
+	require("ldsn-wap:widget/header/header.js");
 {%/script%}

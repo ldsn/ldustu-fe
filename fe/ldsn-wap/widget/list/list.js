@@ -4,7 +4,7 @@
 * @date 2015-03-14
 * @version 1.0.0
 */
- 'use strict';
+'use strict';
 var share = require('ldsn-wap:widget/share/share.js');//引入分享组件
 //私有方法
 var _pri = {

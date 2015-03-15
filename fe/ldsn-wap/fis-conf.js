@@ -19,7 +19,7 @@ fis.config.merge({
     	],
     	'pkg/fast-index': [
     		'widget/api/api.js',
-    		'widget/index/index.js',
+    		'static/index/index.js',
     		'widget/list/list-method.js',
     	],
         'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
