@@ -3,6 +3,7 @@
 {%block name="title"%}鲁大学生网{%/block%}
 {%block name="head"%}
 {%require name="ldsn-wap:static/lib/js/zepto.js"%}
+{%require name="ldsn-wap:static/lib/js/index.js"%}
 {%require name="ldsn-wap:static/message.js"%}
 {%require name="ldsn-wap:static/index/index.css"%}
 
@@ -25,7 +26,6 @@
 
     {%script%}
         require.async("/static/common/plupload/plupload.js");
-        require.async("ldsn-wap:widget/upload-image/upload-image.js");
     {%/script%}
 
 
@@ -37,7 +37,7 @@
 	{%widget name="ldsn-wap:widget/header/header.tpl"%}
 {%/block%}
 {%block name="ldsn-menu"%}
-sdfsa
+	{%widget name="ldsn-wap:widget/menu/menu.tpl"%}
 {%/block%}
 {%block name="ldsn-menu"%}
 	{%widget name="ldsn-wap:widget/menu/menu.tpl"%}

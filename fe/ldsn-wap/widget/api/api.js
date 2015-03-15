@@ -7,7 +7,8 @@
 
 var api = {
     getArcList: '/article/getarticle',
-    getComment: '/comment/getComment'
+    getComment: '/comment/getComment',
+    setComment: '/comment/commentin'
 };
 
 module.exports = api;
