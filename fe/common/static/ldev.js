@@ -23,8 +23,14 @@
             curMinutes = cur.getMinutes(),
             curSeconds = cur.getSeconds();
 
-        var time = new Date(param * 1000),
-            timeYear = time.getFullYear(),
+        if(param.toString().length == 10) {
+            var time = new Date(param * 1000);
+        } else if (param.toString().length == 13) {
+            var time = new Date(param);
+        } else {
+            return;
+        }
+        var timeYear = time.getFullYear(),
             timeMonth = time.getMonth(),
             timeDay = time.getDay(),
             timeHours = time.getHours(),

@@ -81,8 +81,6 @@ var tmpl = {
                 '</section>',
             '</footer>',
         '</li>'
-    ],
-    comTpl: [
     ]
 
 

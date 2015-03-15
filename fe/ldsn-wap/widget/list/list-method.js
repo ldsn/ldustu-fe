@@ -26,8 +26,7 @@ var _pri = {
 
     },
     tmpl: {
-        listTpl: listTpl.listTpl.join(''),
-        comTpl: listTpl.comTpl.join('')
+        listTpl: listTpl.listTpl.join('')
     },
     util: {
         getListErr: function (data) {
