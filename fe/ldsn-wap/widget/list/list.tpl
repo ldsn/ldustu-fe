@@ -6,3 +6,6 @@
 {%script%}
 	require("ldsn-wap:widget/list/list.js");
 {%/script%}
+{%script%}
+	require("ldsn-wap:widget/comment/commentin.js");
+{%/script%}

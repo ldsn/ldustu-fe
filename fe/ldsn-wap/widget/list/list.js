@@ -13,7 +13,7 @@ var _pri = {
 },
 //绑定元素事件
 	bindUI: function () {    
-		_pri.node.listMod.delegate('.share-click',"click",function(){//分享点击事件
+		_pri.node.listMod.delegate('.share-click',"click",function () {//分享点击事件
 			console.log(11122);
 			var aid = $(this).find("em").attr("aid");//获取分享文章aid
 			var shareAid = $('li[aid="'+aid+'"]');
@@ -25,14 +25,10 @@ var _pri = {
 			}
 			share.share(bdText,bdDesc,bdUrl,bdPic)//传递参数到分享组件
 		});
-		_pri.node.listMod.delegate('.submit',"click",function(){//评论点击事件
-			console.log(22222);
-			
-		});
 
 	},
 	init: {
-		getUrl: function(){//获取分享url函数
+		getUrl: function () {//获取分享url函数
 			console.log("hello world!")
 		}
 	}
