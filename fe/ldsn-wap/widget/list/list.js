@@ -10,11 +10,10 @@ var share = require('ldsn-wap:widget/share/share.js');//引入分享组件
 var _pri = {
 	node: {
 		listMod: $('section[node-type="module-list"]'),
-		shareButton: $('.share-click'),
 },
 //绑定元素事件
 	bindUI: function () {    
-		_pri.node.listMod.delegate(_pri.node.shareButton,"click",function(){//分享点击事件
+		_pri.node.listMod.delegate('.share-click',"click",function(){//分享点击事件
 			console.log(11122);
 			var aid = $(this).find("em").attr("aid");//获取分享文章aid
 			var shareAid = $('li[aid="'+aid+'"]');
@@ -25,7 +24,12 @@ var _pri = {
 				var bdPic = shareAid.find(".article-image").attr("src");//获取分享文章图片url
 			}
 			share.share(bdText,bdDesc,bdUrl,bdPic)//传递参数到分享组件
-		})
+		});
+		_pri.node.listMod.delegate('.submit',"click",function(){//评论点击事件
+			console.log(22222);
+			
+		});
+
 	},
 	init: {
 		getUrl: function(){//获取分享url函数
