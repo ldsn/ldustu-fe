@@ -43,7 +43,7 @@ var listTpl = [
                         '<i class="thumbs up icon"></i>',
                         '<em class="opa">赞</em>',
                     '</click>',
-                    '<click class="share handle">',
+                    '<click class="share handle share-click">',
                         '<i class="share icon"></i>',
                         '<em class="opa" aid="<%=aid%>">分享</em>',
                     '</click>',
