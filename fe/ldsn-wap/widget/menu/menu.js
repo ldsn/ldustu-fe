@@ -34,7 +34,7 @@ var _pri = {
             }
         });
         _pri.node.menuList.delegate('click', 'click', function () {
-            var cid = $(this).attr('cid')
+            var cid = $(this).attr('cid');
             listMethod.toColumn(cid);
             _pri.util.clearLeftSlide();
         });

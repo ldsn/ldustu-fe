@@ -175,6 +175,7 @@
     font-size: 14px;
     vertical-align: middle;
     float: right;
+    margin-right: 5px;
 }
 
 .module-list .comment-content {

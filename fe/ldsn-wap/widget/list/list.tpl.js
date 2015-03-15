@@ -4,9 +4,10 @@
  * @date 2015-02-10
  * @version 1.0.0
  */
+var tmpl = {
 
-var listTpl = [
-		'<li class="item" aid="<%=aid%>">',
+    listTpl: [
+    	'<li class="item" aid="<%=aid%>">',
             '<header class="item-header">',
                 '<img src="/static/ldsn-wap/lib/img/topic.png" class="user-topic"/>',
                 '<section class="article-info">',
@@ -50,6 +51,24 @@ var listTpl = [
                 '</section>',
                 '<section class="comment" id="comment-<%=id%>">',
                     '<ul class="article-comment">',
+                    '<%if(cominfo){%>',
+                        '<%for(var i=0;i<cominfo.length;i++){%>',
+                            '<li class="comment-item" comment-id="<%=cominfo[i].id%>">',
+                                '<img src="/static/ldsn-wap/lib/img/topic.png" alt="<%=cominfo[i].uid%>" class="comment-topic">',
+                                '<section class="comment-detail">',
+                                    '<section class="coment-info">',
+                                        '<time class="comment-time"><%=ldev.timeFormat(cominfo[i].time)%></time>',
+                                        '<section class="coment-user-info">',
+                                            '<%=cominfo[i].uid%>',
+                                        '</section>',
+                                    '</section>',
+                                    '<section class="comment-content">',
+                                        '<%=cominfo[i].content%>',
+                                    '</section>',
+                                '</section>',
+                            '</li>',
+                        '<%}%>',
+                    '<%}%>',
                     '</ul>',
                     '<section class="edit-comment">',
                         '<click class="submit">',
@@ -62,7 +81,11 @@ var listTpl = [
                 '</section>',
             '</footer>',
         '</li>'
-        ];
+    ],
+    comTpl: [
+    ]
 
 
-module.exports = listTpl;
+}
+
+module.exports = tmpl;

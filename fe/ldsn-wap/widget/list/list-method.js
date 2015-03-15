@@ -26,7 +26,8 @@ var _pri = {
 
     },
     tmpl: {
-        listTpl: listTpl.join('')
+        listTpl: listTpl.listTpl.join(''),
+        comTpl: listTpl.comTpl.join('')
     },
     util: {
         getListErr: function (data) {
@@ -77,8 +78,10 @@ var _pri = {
         render: function (data) {
             var tpl = '';
             data.forEach(function (item){
-                console
-                tpl += ldev.tmpl(_pri.tmpl.listTpl, item);
+                item.time = ldev.timeFormat(item.time);
+                var curTpl = ldev.tmpl(_pri.tmpl.listTpl, item);
+                tpl += curTpl;
+
             });
             _pri.node.itemList.append($(tpl));
         },
@@ -104,7 +107,7 @@ var _pri = {
                 _pri.util.getList(_pri.conf.currentPage * _pri.conf.pageSize, _pri.conf.pageSize, _pri.conf.currentColumn, _pri.util.render);
             }
             toast('tip', '已经到最后一页拉！');
-        }
+        },
 
     }
 };
