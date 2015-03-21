@@ -11,7 +11,7 @@ var tmpl = [
 		'<input name="password" placeholder="密码 用于登陆" type="password"/>',
 		'<input name="email" placeholder="邮箱 用于找回密码" type="text"/>',
 		'<input name="qq" placeholder="QQ号码" type="text"/>',
-		'<click node-type="register-submit" style="height:44px; background: #ccc">提交</click>',
+		'<click node-type="register-submit">注&nbsp&nbsp册</click>',
 	'</section>'
 ];
 
