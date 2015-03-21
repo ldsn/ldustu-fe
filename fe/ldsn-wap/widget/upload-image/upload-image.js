@@ -21,7 +21,7 @@ var event = {
     },
     'BeforeUpload': function(up, file) {
        // 每个文件上传前,处理相关的事情
-        toast('tip', '正在上传中，请稍后...', false);
+        toast('tip', '正在上传中，请稍后...', true);
     },
     'UploadProgress': function(up, file) {
         // 每个文件上传时,处理相关的事情

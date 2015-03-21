@@ -1,0 +1,14 @@
+.module-panel {
+	position: absolute;
+	top: 46px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #FFFFFF;
+	overflow: auto;
+	display: none;
+	z-index: 999999;
+}
+.module-panel.active {
+	display: block;
+}

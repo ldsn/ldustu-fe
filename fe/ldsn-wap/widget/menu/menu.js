@@ -7,6 +7,7 @@
 'use strict';
 
 var listMethod = require('ldsn-wap:widget/list/list-method.js');
+var api = require('ldsn-wap:widget/api/api.js');
 //私有方法
 var _pri = {
     //UI元素集合
@@ -17,7 +18,8 @@ var _pri = {
         rightClick:$("click[node-type='right-click']"),
     	ldsnBox:$("section[node-type='ldsn-box']"),
     	ldsnMainFrame:$("section[node-type='ldsn-main-frame']"),
-        editArticle:$("section[node-type='module-edit-article']")
+        editArticle:$("section[node-type='module-edit-article']"),
+        logOut: $('click[node-type="logout"]')
     },
     //绑定元素事件
     bindUI: function () {
@@ -38,6 +40,9 @@ var _pri = {
             listMethod.toColumn(cid);
             _pri.util.clearLeftSlide();
         });
+        _pri.node.logOut.on('click', function () {
+            ldev.message.trigger('logout');
+        });
     },
     util: {
     	leftSlide: function(){//左滑事件函数
@@ -50,10 +55,11 @@ var _pri = {
     	},
     	initMenu: function (){//页面初始化函数
     		_pri.node.mod.css("height", $(window).height());
-        	
-            for(var i = 0; i < ldsn.column.data.length; i++){
-        		_pri.node.menuList.append("<click cid='"+ldsn.column.data[i].id+"'>"+ldsn.column.data[i].name+"</click>");
-        	}
+        	if (ldsn && ldsn.column) {
+                for(var i = 0; i < ldsn.column.length; i++){
+                    _pri.node.menuList.append("<click cid='"+ldsn.column[i].column_id+"'>"+ldsn.column[i].column_name+"</click>");
+                }
+            }
     	}
     }
 }

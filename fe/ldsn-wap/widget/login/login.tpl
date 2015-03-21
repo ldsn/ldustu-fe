@@ -1,10 +1,10 @@
 <section class="module-login" node-type="module-login">
-	<div node-type="login-qq" style="color:#fff">登陆</div>
-
-<script type="text/javascript">
-</script>
-
+	<p class="tip">
+		目前只支持qq登陆
+	</p>
+	<div class="login-qq" node-type="login-qq"></div>
 </section>
 {%script%}
 	require('ldsn-wap:widget/login/login.js');
 {%/script%}
+

@@ -6,7 +6,7 @@
 {%require name="ldsn-wap:static/lib/js/index.js"%}
 {%require name="ldsn-wap:static/message.js"%}
 {%require name="ldsn-wap:static/index/index.css"%}
-
+<meta property="qc:admins" content="17473743144671064453456375" />
 {%script%}
 
 	window.ldsn = {};
@@ -17,10 +17,12 @@
 		ldsn.column = '';
 	{%/if%}
 	
-    {%if isset($userResult)%}
-		ldsn.user = $.parseJSON('{%$userResult%}');
+    {%if isset($user_info)%}
+		ldsn.user = $.parseJSON('{%$user_info%}');
+		ldsn.loginStatus = true;
 	{%else%}
 		ldsn.user = '';
+		ldsn.loginStatus = false;
 	{%/if%}
 
 
@@ -57,6 +59,7 @@
 {%block name="ldsn-absolute"%}
 	{%widget name="ldsn-wap:widget/toast/toast.tpl"%}
 	{%widget name="ldsn-wap:widget/login/login.tpl"%}
+	{%widget name="ldsn-wap:widget/panel/panel.tpl"%}
 {%/block%}
 {%*
 {%block name="else"%}

@@ -7,4 +7,6 @@
 
 //以一下方式创建事件
 
-ldev.message.create('test');
+ldev.message.create('check-login');
+ldev.message.create('login-status');
+ldev.message.create('logout');

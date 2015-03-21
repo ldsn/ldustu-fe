@@ -22,18 +22,14 @@ var _pri = {
     //绑定元素事件
     bindUI: function () {
         _pri.node.editReset.on("click",function(){
-            _pri.node.editModule.css("display","none")
+            _pri.node.editModule.css("display","none");
         });
         _pri.node.editSubmit.on("click",function(){
             _pri.util.articleRelease();
         });
         _pri.node.editClick.on("click",function () {
-            if(ldsn.user && ldsn.user.id) {
-                _pri.util.editClick()
-            } else {
-                toast('tip', '发表文章需要登录哦~')
-                login.alertLogin();
-            }
+            ldev.message.trigger('check-login','该操作需要登录哦~');
+            if(ldsn.loginStatus) _pri.util.editClick();
         });
     },
     util: {
@@ -82,7 +78,8 @@ var _pri = {
  * 需要定义init()代表初始化 并执行
  */
 
-  var init = function () {
+var init = function () {
     _pri.bindUI();
 }
+
 init();

@@ -8,7 +8,11 @@
 var api = {
     getArcList: '/article/getarticle',
     getComment: '/comment/getComment',
-    setComment: '/comment/commentin'
+    setComment: '/comment/commentin',
+    checkOpenId: '/login/auth',
+    login: '/login/auth',
+    register: '/register/save',
+    logout: '/login/logout'
 };
 
 module.exports = api;

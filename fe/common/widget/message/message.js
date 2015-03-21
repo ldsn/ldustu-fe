@@ -68,6 +68,7 @@ var _pub = {
             }
 
             var args = [].slice.call(arguments);
+            args.shift();
 
             _pri.events[eventName].forEach(function (eventFunc) {
                 eventFunc.apply(undefined, args);

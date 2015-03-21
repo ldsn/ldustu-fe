@@ -14,6 +14,7 @@
 	<section class="menu-list" node-type="menu-list">
 		<click cid="0">首页</click>
 	</section>
+	<click node-type="logout">退出登录</click>
 </section>
 {%script%}
 	require('ldsn-wap:widget/menu/menu.js');

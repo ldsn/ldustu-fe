@@ -247,28 +247,35 @@ function QiniuJsSDK() {
         var reset_chunk_size = function() {
             var ie = that.detectIEVersion();
             var BLOCK_BITS, MAX_CHUNK_SIZE, chunk_size;
-            var isSpecialSafari = (mOxie.Env.browser === "Safari" && mOxie.Env.version <= 5 && mOxie.Env.os === "Windows" && mOxie.Env.osVersion === "7") || (mOxie.Env.browser === "Safari" && mOxie.Env.os === "iOS" && mOxie.Env.osVersion === "7");
-            if (ie && ie <= 9 && op.chunk_size && op.runtimes.indexOf('flash') >= 0) {
-                //  link: http://www.plupload.com/docs/Frequently-Asked-Questions#when-to-use-chunking-and-when-not
-                //  when plupload chunk_size setting is't null ,it cause bug in ie8/9  which runs  flash runtimes (not support html5) .
-                op.chunk_size = 0;
-
-            } else if (isSpecialSafari) {
-                // win7 safari / iOS7 safari have bug when in chunk upload mode
-                // reset chunk_size to 0
-                // disable chunk in special version safari
-                op.chunk_size = 0;
-            } else {
-                BLOCK_BITS = 20;
-                MAX_CHUNK_SIZE = 4 << BLOCK_BITS; //4M
-
-                chunk_size = plupload.parseSize(op.chunk_size);
-                if (chunk_size > MAX_CHUNK_SIZE) {
-                    op.chunk_size = MAX_CHUNK_SIZE;
+            var isSpecialSafari;
+            var mOxieTime = setInterval(function() {
+                if ((window.mOxie && window.mOxie.Env && window.mOxie.Env.browser && window.mOxie.Env.version && window.mOxie.Env.os && window.mOxie.Env.osVersion) || (window.mOxie && window.mOxie.Env.browser && window.mOxie.Env.os && window.mOxie.Env.osVersion)) {
+                    clearInterval(mOxieTime);
+                    isSpecialSafari = (window.mOxie.Env.browser === "Safari" && mOxie.Env.version <= 5 && mOxie.Env.os === "Windows" && mOxie.Env.osVersion === "7") || (mOxie.Env.browser === "Safari" && mOxie.Env.os === "iOS" && mOxie.Env.osVersion === "7");
                 }
-                // qiniu service  max_chunk_size is 4m
-                // reset chunk_size to max_chunk_size(4m) when chunk_size > 4m
-            }
+            
+                if (ie && ie <= 9 && op.chunk_size && op.runtimes.indexOf('flash') >= 0) {
+                    //  link: http://www.plupload.com/docs/Frequently-Asked-Questions#when-to-use-chunking-and-when-not
+                    //  when plupload chunk_size setting is't null ,it cause bug in ie8/9  which runs  flash runtimes (not support html5) .
+                    op.chunk_size = 0;
+
+                } else if (isSpecialSafari) {
+                    // win7 safari / iOS7 safari have bug when in chunk upload mode
+                    // reset chunk_size to 0
+                    // disable chunk in special version safari
+                    op.chunk_size = 0;
+                } else {
+                    BLOCK_BITS = 20;
+                    MAX_CHUNK_SIZE = 4 << BLOCK_BITS; //4M
+
+                    chunk_size = plupload.parseSize(op.chunk_size);
+                    if (chunk_size > MAX_CHUNK_SIZE) {
+                        op.chunk_size = MAX_CHUNK_SIZE;
+                    }
+                    // qiniu service  max_chunk_size is 4m
+                    // reset chunk_size to max_chunk_size(4m) when chunk_size > 4m
+                }
+            },300);
         };
         reset_chunk_size();
 
