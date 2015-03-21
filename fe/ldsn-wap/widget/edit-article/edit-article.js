@@ -66,7 +66,6 @@ var _pri = {
         },
         editClick:function(){
             _pri.util.show();
-        
             require("ldsn-wap:widget/upload-image/upload-image.js");
                         //ldev.hash('page','editor');
         }

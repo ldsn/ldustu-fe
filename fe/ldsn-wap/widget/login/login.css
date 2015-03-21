@@ -43,7 +43,7 @@
 }
 .module-panel click[node-type="register-submit"] {
 	background: #3197E0;
-	margin-top: 5%;
+	margin-top: 10px;
 	text-align: center;
 	line-height: 44px;
 	font-size: 20px;

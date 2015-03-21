@@ -39,7 +39,6 @@
 	overflow: hidden;
 }
 .ldsn-edit-article .editor{
-	width: 95%;
 	max-height: 50%;
 	min-height: 25%;
 	margin-top: 15px;
@@ -63,4 +62,18 @@
 }
 .ldsn-edit-article .editor img{
 	width: 100%;
+}
+
+.ldsn-edit-article click[node-type="edit-submit"] {
+    background: #3197E0;   
+    margin-top: 10px;   text-align: center;   
+    line-height: 40px;   
+    font-size: 14px;   color: #fff;
+}
+
+.ldsn-edit-article click[node-type="edit-reset"] {
+    background: #969696;   
+    margin-top: 10px;   text-align: center;   
+    line-height: 40px;   
+    font-size: 14px;   color: #fff;
 }

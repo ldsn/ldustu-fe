@@ -8,18 +8,26 @@
 
 var listMethod = require('ldsn-wap:widget/list/list-method.js');
 var api = require('ldsn-wap:widget/api/api.js');
+var userInfoTpl = require('ldsn-wap:widget/menu/menu.tpl.js');
 //私有方法
 var _pri = {
     //UI元素集合
     node: {
     	mod: $('menu[node-type="ldsn-menu"]'),
-    	menuList:$('section[node-type="menu-list"]'),
-    	menuClick:$("click[node-type='menu-click']"),
-        rightClick:$("click[node-type='right-click']"),
-    	ldsnBox:$("section[node-type='ldsn-box']"),
-    	ldsnMainFrame:$("section[node-type='ldsn-main-frame']"),
-        editArticle:$("section[node-type='module-edit-article']"),
-        logOut: $('click[node-type="logout"]')
+    	menuList: $('section[node-type="menu-list"]'),
+    	menuClick: $("click[node-type='menu-click']"),
+        rightClick: $("click[node-type='right-click']"),
+    	ldsnBox: $('section[node-type="ldsn-box"]'),
+        ldsnMenu: $('section[node-type="module-menu"]'),
+    	ldsnMainFrame: $('section[node-type="ldsn-main-frame"]'),
+        editArticle: $('section[node-type="module-edit-article"]'),
+        userInfo: 'header[node-type="user-info"]',
+        logout: 'click[node-type="logout"]',
+        loginBtn: 'click[node-type="login-btn"]',
+
+    },
+    tmpl: {
+        userInfo: userInfoTpl.join('')
     },
     //绑定元素事件
     bindUI: function () {
@@ -40,8 +48,23 @@ var _pri = {
             listMethod.toColumn(cid);
             _pri.util.clearLeftSlide();
         });
-        _pri.node.logOut.on('click', function () {
+        _pri.node.ldsnMenu.delegate( _pri.node.logout, 'click', function () {
             ldev.message.trigger('logout');
+            _pri.util.clearLeftSlide();
+        });
+        _pri.node.ldsnMenu.delegate( _pri.node.loginBtn, 'click', function () {
+            ldev.message.trigger('check-login');
+            _pri.util.clearLeftSlide();
+        });
+    },
+    bindListener: function () {
+        ldev.message.listen('login_end', function (flag) {
+            _pri.util.setLogout();
+            _pri.util.setUserInfo();
+        });
+        ldev.message.listen('logout_end', function (flag) {
+            _pri.util.setLogout();
+            _pri.util.setUserInfo();
         });
     },
     util: {
@@ -60,7 +83,30 @@ var _pri = {
                     _pri.node.menuList.append("<click cid='"+ldsn.column[i].column_id+"'>"+ldsn.column[i].column_name+"</click>");
                 }
             }
-    	}
+            if (ldsn.loginStatus) {
+                _pri.util.setLogout(true);
+            }
+            _pri.util.setUserInfo();
+    	},
+        setLogout: function (flag) {
+            if (ldsn.loginStatus) {
+                var html = '<click node-type="logout">退出登录</click>';
+                _pri.node.ldsnMenu.append($(html));
+            } else {
+                _pri.node.ldsnMenu.find(_pri.node.logout).remove();
+            }
+        },
+        setUserInfo: function () {
+            if (ldsn.loginStatus) {
+                _pri.node.ldsnMenu.find(_pri.node.loginBtn).remove();
+                var html = ldev.tmpl(_pri.tmpl.userInfo, ldsn.user);
+                _pri.node.ldsnMenu.prepend($(html));
+            } else {
+                _pri.node.ldsnMenu.find(_pri.node.userInfo).remove();
+                var html = '<click node-type="login-btn" class="login-btn">登陆</click>';
+                _pri.node.ldsnMenu.prepend($(html));
+            }
+        }
     }
 }
 
@@ -72,6 +118,7 @@ var _pri = {
   var init = function () {
   	_pri.util.initMenu();
   	_pri.bindUI();
+    _pri.bindListener();
 }
 
 init();

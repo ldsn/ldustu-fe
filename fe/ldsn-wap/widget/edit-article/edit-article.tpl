@@ -8,8 +8,8 @@
 		</section>
 		<div id="editor" class="editor" name="textContent" contenteditable="true">
 		</div>
-		<click node-type="edit-reset">取消</click>
 		<click node-type="edit-submit">保存</click>
+		<click node-type="edit-reset">返回</click>
 	</section>
 </section>
 {%script%}

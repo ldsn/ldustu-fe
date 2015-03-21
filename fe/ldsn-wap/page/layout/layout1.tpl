@@ -25,10 +25,10 @@
 			<section node-type="ldsn-edit-article" class="ldsn-edit-article">
 				{%block name="ldsn-edit-article"%}{%/block%}
 			</section>
+			{%block name="ldsn-absolute"%}{%/block%}
+			{%/block%}
 		</section>
 	</section>
 </section>
-{%block name="ldsn-absolute"%}{%/block%}
-{%/block%}
 {%block name="else"%}
 {%/block%}

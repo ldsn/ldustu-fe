@@ -15,9 +15,10 @@ fis.config.merge({
     		'widget/menu/*.js',
     		'widget/share/*.js',
     		'widget/toast/*.js',
-
+    		'widget/panel/*.js',
+    		'widget/login/*.js',
     	],
-    	'pkg/fast-index': [
+    	'pkg/fast-index.js': [
     		'widget/api/api.js',
     		'static/index/index.js',
     		'widget/list/list-method.js',
