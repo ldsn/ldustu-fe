@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-var apiCenter = require('ldsn-wap:widget/api/api.js');
+var api = require('ldsn-wap:widget/api/api.js');
 var listTpl = require('ldsn-wap:widget/list/list.tpl.js');
 var toast = require('ldsn-wap:widget/toast/toast.js');
 
@@ -17,54 +17,43 @@ var _pri = {
     conf: {
         order: 'time',
         currentColumn: null,
-        pageSize: 20,
-        currentPage: 0,
+        currentPage: 1,
         isEnd: false
-    },
-    api: {
-        getList: apiCenter.getArcList
-
     },
     tmpl: {
         listTpl: listTpl.listTpl.join('')
     },
     util: {
-        getListErr: function (data) {
-            if (data.error != '0') {
-                toast('error', ldev.errorMessage[data.error])
-                return true
-            }
-            return false;
-        },
-
         /**
          * 获取文章列表
-         * @param  {number} start 开始的id
-         * @param  {number} count 取多少文章
-         * @param  {nuber} cid   取哪个版块
-         * @return {object}       获取到的数据
+         * @param  number start 开始的id
+         * @param  number count 取多少文章
+         * @param  nuber cid   取哪个版块
+         * @return object       获取到的数据
          */
-        getList: function (startid, count, cid, callback) {
+        getList: function () {
             var sendData = {
-                startid: startid,
-                count: count,
-                cid: cid || '',
+                column_id: _pri.conf.currentColumn,
+                p: _pri.conf.currentPage
             };
             $.ajax({
-                url: _pri.api.getList,
+                url: api.getArcList,
                 dataType: 'json',
                 data: sendData,
-                ansyc: false,
+                type: 'post',
                 success: function (data) {
-                    if(_pri.util.getListErr(data)) {
-                        return;
+                    if (data.data.page.total_page == _pri.conf.currentPage) {
+                        _pri.conf.isEnd = true;
                     }
-                    _pri.conf.isEnd = data.artEnd;
-                    callback(data.data);
+                    if (data.status == 0) {
+                        toast('error', '没有获取到数据！');
+                        return;
+                    } else if (data.status == 1) {
+                        _pri.util.render(data);
+                    }
                 },
                 error: function (xhr, errType, err) {
-                    var data = {error:-1,data:err};
-                    _pri.util.getListErr(data);
+                    toast('error', '服务器错误，请稍后');
                 }
             });
         },
@@ -76,8 +65,9 @@ var _pri = {
          */
         render: function (data) {
             var tpl = '';
+            data = data.data.list;
             data.forEach(function (item){
-                item.time = ldev.timeFormat(item.time);
+                item.create_time = ldev.timeFormat(item.create_time);
                 var curTpl = ldev.tmpl(_pri.tmpl.listTpl, item);
                 tpl += curTpl;
 
@@ -91,19 +81,23 @@ var _pri = {
          */
         toColumn: function (cid) {
             _pri.util.initList();
-            _pri.currentColumn = cid;
-            _pri.util.getList(0, _pri.conf.pageSize, cid, _pri.util.render);
+            _pri.conf.currentColumn = cid;
+            _pri.util.getList();
         },
 
         initList: function () {
             _pri.node.itemList.empty();
-            _pri.conf.currentPage = 0;
+            _pri.conf.currentPage = 1;
         },
 
         getMore: function () {
+            if (_pri.conf.isEnd) {
+                toast('error', '已经加载到最后一页');
+                return;
+            }
             _pri.conf.currentPage ++;
             if (!_pri.conf.isEnd){
-                _pri.util.getList(_pri.conf.currentPage * _pri.conf.pageSize, _pri.conf.pageSize, _pri.conf.currentColumn, _pri.util.render);
+                _pri.util.getList(_pri.conf.currentColumn, _pri.conf.currentPage);
             }
             toast('tip', '已经到最后一页拉！');
         },
@@ -126,7 +120,7 @@ var _pub = {
          * 刷新当前板块
          */
         refresh: function() {
-            _pri.util.toColumn(_pri.conf.currentColumn);
+            _pri.util.toColumn(_pri.conf.currentColumn, 1);
         },
 
 

@@ -110,9 +110,6 @@
 .module-list .article-handle .handle.active {
     color: #5890ff;
 }
-.module-list .article-handle .handle:active {
-    color: #5890ff;
-}
 
 .module-list .article-handle .handle {
     position: relative;
@@ -190,7 +187,8 @@
 
 .module-list .comment-info {
     display: block;
-    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-bottom: 1px;
 }
 .module-list .edit-comment {
     margin-top: 5px;
