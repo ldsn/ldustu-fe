@@ -37,6 +37,7 @@ var event = {
         var sourceLink = domain + res.key + '?imageView2/2/w/400/q/50';
         var img = document.createElement('img');
         img.src = sourceLink;
+        img.className = "article-image";
         $(img).attr('_src', res.key);
         $('<div><br/></div>').appendTo('#editor');
         $(img).appendTo('#editor');
