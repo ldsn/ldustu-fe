@@ -23,6 +23,7 @@
     border-radius: 50%;
     width: 50px;
     float: left;
+    height: 50px;
 }
 .user-info-text{
     overflow: hidden;
@@ -30,6 +31,9 @@
     padding-left: 11px;
 }
 .user-handle{
+}
+.fav-num {
+    margin-left: 4px;
 }
 .user-name{
 }

@@ -46,14 +46,16 @@ var _pri = {
         _pri.node.menuList.delegate('click', 'click', function () {
             var cid = $(this).attr('cid');
             listMethod.toColumn(cid);
+            ldev.message.trigger('clear_frame');
             _pri.util.clearLeftSlide();
         });
         _pri.node.ldsnMenu.delegate( _pri.node.logout, 'click', function () {
             ldev.message.trigger('logout');
+            ldev.message.trigger('clear_frame');
             _pri.util.clearLeftSlide();
         });
         _pri.node.ldsnMenu.delegate( _pri.node.loginBtn, 'click', function () {
-            ldev.message.trigger('check-login');
+            ldev.message.trigger('check_login');
             _pri.util.clearLeftSlide();
         });
     },
