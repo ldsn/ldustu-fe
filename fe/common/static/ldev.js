@@ -33,9 +33,8 @@
         var timeYear = time.getFullYear(),
             timeMonth = time.getMonth(),
             timeDay = time.getDay(),
-            timeHours = time.getHours(),
-            timeMinutes = time.getMinutes(),
-            timeSeconds = time.getSeconds();
+            timeHours = time.getHours() > 9 ? time.getHours() : '0' + time.getHours(),
+            timeMinutes = time.getMinutes() > 9 ? time.getMinutes() : '0' + time.getMinutes();
         var date;
         if(curYear != timeYear) {
             date = timeYear + '年'
@@ -50,8 +49,7 @@
                  + timeMinutes;
         } else {
             date = timeHours + ':'
-                 + timeMinutes + ':'
-                 + timeSeconds;
+                 + timeMinutes
         }
         return date;
     };
