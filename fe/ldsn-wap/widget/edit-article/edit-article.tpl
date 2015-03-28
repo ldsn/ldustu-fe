@@ -3,6 +3,8 @@
 		<section class="input">
 			<input type="text" name="textTitle" class="textTitle" placeholder="添加标题" />
 		</section>
+		<select class="column" name="column" node-type="select-column">
+		</select>
 		<section class="upload">
 			<i class="photo icon" id="upload-img"></i>
 		</section>

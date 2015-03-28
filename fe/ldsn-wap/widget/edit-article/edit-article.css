@@ -57,6 +57,14 @@
 	font-size: 22px;
 	float: right;
 }
+.ldsn-edit-article .column{
+	width: 100%;
+	height: 40px;
+	background: #FFF;
+	border: 1px solid #ccc;
+	outline: none;
+	margin-bottom: 10px;
+}
 .ldsn-edit-article .editor {
 	line-height: 22px;
 }
@@ -70,7 +78,9 @@
     line-height: 40px;   
     font-size: 14px;   color: #fff;
 }
-
+.ldsn-edit-article click[node-type="edit-submit"].cancel {
+	background: #969696;
+}
 .ldsn-edit-article click[node-type="edit-reset"] {
     background: #969696;   
     margin-top: 10px;   text-align: center;   
