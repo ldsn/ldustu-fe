@@ -38,7 +38,7 @@ var _pri = {
 
     },
     bindListener: function () {
-        ldev.message.listen('check-login', function (errWord) {
+        ldev.message.listen('check_login', function (errWord) {
             if(!ldsn.loginStatus){
                 _pri.util.alertLogin();
                 toast('error', errWord);
@@ -172,13 +172,12 @@ var _pri = {
                         return;
                     }
                     toast('success', errMessage.register[d.status]);
-                    ldsn.user = data.data;
-                    ldsn.loginStatus = true;
+                    ldsn.user = d.data;
                     panel.close();
                     ldev.message.trigger('login_end');
                 },
                 error: function(err) {
-                    toast('error', errMessage.register[err.status], true);
+                    toast('error', '请求错误，请稍后再试。', true);
                 }
             });
         },
@@ -197,11 +196,10 @@ var _pri = {
                 success: function(d) {
                     toast('success', '账号已退出');
                     ldsn.user = '';
-                    ldsn.loginStatus = false;
                     ldev.message.trigger('logout_end');
                 },
                 error: function(err) {
-                    toast('error', errMessage.register[err.status], true);
+                    toast('error', '请求错误，请稍后再试。', true);
                 }
             });
         }
