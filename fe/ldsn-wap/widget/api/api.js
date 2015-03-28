@@ -6,13 +6,16 @@
  */
 
 var api = {
-    getArcList: '/article/getarticle',
+    getArcList: '/article/getlist',
     getComment: '/comment/getComment',
-    setComment: '/comment/commentin',
     checkOpenId: '/login/auth',
     login: '/login/auth',
     register: '/register/save',
-    logout: '/login/logout'
+    logout: '/login/logout',
+    publishArc: '/article/publish',
+    favour: '/public/favour',
+    addComment: '/comment/add',
+    getArticle: '/article/show'
 };
 
 module.exports = api;
