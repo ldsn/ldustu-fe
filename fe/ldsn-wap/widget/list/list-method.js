@@ -77,7 +77,6 @@ var _pri = {
         render: function (data) {
             var tpl = '';
             data.forEach(function (item){
-                console
                 tpl += ldev.tmpl(_pri.tmpl.listTpl, item);
             });
             _pri.node.itemList.append($(tpl));
