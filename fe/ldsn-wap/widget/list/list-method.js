@@ -82,7 +82,6 @@ var _pri = {
                 item.create_time = ldev.timeFormat(item.create_time);
                 var curTpl = ldev.tmpl(_pri.tmpl.listTpl, item);
                 tpl += curTpl;
-
             });
             _pri.node.itemList.append($(tpl));
             if (!_pri.conf.isEnd) {
