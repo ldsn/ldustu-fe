@@ -12,7 +12,9 @@ var toast = require('ldsn-wap:widget/toast/toast.js');
 
 var _pri = {
     node: {
-        itemList: $('ul[node-type="module-list-item-list"]')
+        listMod: $('section[node-type="module-list"]'),
+        itemList: $('ul[node-type="item-list"]'),
+        getMoreList: 'click[node-type="get-more-list"]'
     },
     conf: {
         order: 'time',
@@ -31,7 +33,7 @@ var _pri = {
          * @param  nuber cid   取哪个版块
          * @return object       获取到的数据
          */
-        getList: function () {
+        getList: function (callback) {
             var sendData = {
                 column_id: _pri.conf.currentColumn,
                 p: _pri.conf.currentPage
@@ -42,15 +44,24 @@ var _pri = {
                 data: sendData,
                 type: 'post',
                 success: function (data) {
-                    if (data.data.page.total_page == _pri.conf.currentPage) {
-                        _pri.conf.isEnd = true;
+                    if (typeof callback == 'function') {
+                        callback();
                     }
                     if (data.status == 0) {
+                        _pri.node.listMod.find(_pri.node.getMoreList).remove();
                         toast('error', '没有获取到数据！');
                         return;
-                    } else if (data.status == 1) {
-                        _pri.util.render(data);
                     }
+                    if (data.status != 1) {
+                        _pri.node.listMod.find(_pri.node.getMoreList).text('获取更多文章');
+                        toast('error', '获取错误请重试！');
+                        return;
+                    }
+
+                    if (data.data.page.total_page == _pri.conf.currentPage) {
+                        _pri.conf.isEnd = true;
+                    } 
+                        _pri.util.render(data);
                 },
                 error: function (xhr, errType, err) {
                     toast('error', '服务器错误，请稍后');
@@ -64,6 +75,7 @@ var _pri = {
          * @param  {object} data 列表数据
          */
         render: function (data) {
+            _pri.node.listMod.find(_pri.node.getMoreList).remove();
             var tpl = '';
             data = data.data.list;
             data.forEach(function (item){
@@ -73,6 +85,10 @@ var _pri = {
 
             });
             _pri.node.itemList.append($(tpl));
+            if (!_pri.conf.isEnd) {
+                var getMoreList = $('<click class="get-more-list" node-type="get-more-list">获取更多文章</click>');
+                _pri.node.listMod.append(getMoreList);
+            }
         },
 
         /**
@@ -88,18 +104,18 @@ var _pri = {
         initList: function () {
             _pri.node.itemList.empty();
             _pri.conf.currentPage = 1;
+            _pri.conf.isEnd = false;
         },
 
-        getMore: function () {
+        getMore: function (callback) {
             if (_pri.conf.isEnd) {
                 toast('error', '已经加载到最后一页');
+                callback(true);
                 return;
             }
+            _pri.node.listMod.find(_pri.node.getMoreList).text('正在加载...');
             _pri.conf.currentPage ++;
-            if (!_pri.conf.isEnd){
-                _pri.util.getList(_pri.conf.currentColumn, _pri.conf.currentPage);
-            }
-            toast('tip', '已经到最后一页拉！');
+            _pri.util.getList(callback);
         },
 
     }
@@ -114,6 +130,9 @@ var _pub = {
          */
         toColumn: function (cid) {
             _pri.util.toColumn(cid);
+            if (cid) {
+                ldev.hash('column', cid);
+            }
         },
 
         /**
@@ -124,8 +143,8 @@ var _pub = {
         },
 
 
-        getMore: function () {
-            _pri.util.getMore();
+        getMore: function (callback) {
+            _pri.util.getMore(callback);
         }
 };
 

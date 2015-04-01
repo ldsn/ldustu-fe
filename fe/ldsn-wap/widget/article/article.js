@@ -21,23 +21,33 @@ var _pri = {
         articleItem: 'section[node-type="module-article"]',
         commentList: 'ul[node-type="comment-list"]',
         submitComment: 'click[node-type="submit-comment"]',
-        commentInput: 'input[node-type="comment-input"]'
+        commentInput: 'input[node-type="comment-input"]',
+        getMoreComment: 'click[node-type="get-more-comment"]'
+    },
+    conf: {
+        currentArticle: 0,
+        currentPage: 0,
+        commentPage: 0
     },
     //绑定元素事件
     bindUI: function () {
         _pri.node.articleMod.delegate(_pri.node.favourBtn, 'click', _pri.util.setFavour);
         _pri.node.articleMod.delegate(_pri.node.submitComment, 'click', _pri.util.setComment);
+        _pri.node.articleMod.delegate(_pri.node.getMoreComment, 'click', _pri.util.getMoreComment);
 	},
     bindListener: function () {
         ldev.message.listen('to_article', function (id) {
             _pri.util.toArticle(id);
+            ldev.hash('column', null);
+            ldev.hash('article', id);
+            _pri.conf.currentArticle = id;
+            _pri.conf.currentPage = 0;
         });
         ldev.message.listen('clear_frame', function () {
             _pri.util.hide();
-        })
+        });
     },
     util: {
-
         setFavour: function () {
             if (!ldsn.loginStatus) {
                 ldev.message.trigger('check_login');
@@ -116,8 +126,11 @@ var _pri = {
                     }
                     var commentData = {
                         comment_id: data.data,
-                        content: content
-                    }
+                        content: content,
+                        head_pic: ldsn.user.head_pic,
+                        time: ldev.timeFormat(new Date().getTime()),
+                        username: ldsn.user.username
+                    };
                     var html = ldev.tmpl(_pri.tmpl.comment, commentData);
                     $(html).appendTo($(_pri.node.commentList + '[aid="' + aid + '"]'));
                 },
@@ -127,6 +140,7 @@ var _pri = {
             });
         },
         toArticle: function (id) {
+            _pri.util.empty();
             _pri.util.getArticle(id);
             _pri.util.show();
         },
@@ -144,6 +158,7 @@ var _pri = {
                         toast('error', '获取错误，请重试!');
                         return;
                     }
+                    _pri.conf.commentPage = Math.ceil(data.data.comment_num / 20);
                     _pri.util.renderArticle(data.data);
                 },
                 error: function () {
@@ -154,14 +169,74 @@ var _pri = {
         renderArticle: function (data) {
             var html = ldev.tmpl(_pri.tmpl.article, data);
             _pri.node.articleMod.html(html);
+
+            if (_pri.node.articleMod.find(_pri.node.getMoreComment).length > 0) {
+                _pri.util.getMoreComment();
+            }
         },
-    	initBox: function (){//页面初始化函数
-    	},
         hide: function () {
             _pri.node.articleMod.removeClass("active");
         },
         show: function () {
             _pri.node.articleMod.addClass("active");
+        },
+        empty: function () {
+            _pri.node.articleMod.empty();
+        },
+        autoArticle: function () {
+            var aid = ldev.hash('article');
+            if (aid) {
+                ldev.message.trigger('to_article', aid);
+            }
+        },
+        getMoreComment: function () {
+            if (_pri.node.articleMod.find(_pri.node.getMoreComment).hasClass('disable')) {
+                return;
+            }
+            _pri.node.articleMod.find(_pri.node.getMoreComment).text('正在加载...');
+            _pri.conf.currentPage ++ ;
+            var data = {
+                aid: _pri.conf.currentArticle,
+                p: _pri.conf.currentPage
+            };
+            $.ajax({
+                url: api.getMoreComment,
+                type: 'post',
+                data: data,
+                dataType: 'json',
+                success: function (data) {
+
+                    _pri.node.articleMod.find(_pri.node.getMoreComment).text('加载更多评论');
+
+                    if (data.status != 1) {
+                        toast('error', '获取新评论失败！');
+                        _pri.node.articleMod.find(_pri.node.getMoreComment).hide();
+                        return;
+                    }
+
+                    if (_pri.conf.currentPage === _pri.conf.commentPage) {
+                        _pri.node.articleMod.find(_pri.node.getMoreComment).hide();
+                    }
+                    _pri.util.renderList(data.data);
+                },
+                error: function () {
+                    toast('error', '获取新评论失败！');
+                }
+            });
+        },
+        renderList: function (data) {
+            var html = '';
+            data.forEach(function (d) {
+                var commentData = {
+                    comment_id: d.comment_id,
+                    content: d.content,
+                    head_pic: d.user_info.head_pic,
+                    time: ldev.timeFormat(d.create_time),
+                    username: d.user_info.username
+                }
+                html += ldev.tmpl(_pri.tmpl.comment, commentData);
+            });
+            $(html).appendTo(_pri.node.articleMod.find(_pri.node.commentList));
         }
     },
     tmpl: {
@@ -173,7 +248,7 @@ var _pri = {
 var init = function () {
   	_pri.bindUI();
     _pri.bindListener();
-   //_pri.util.openArticle();
+    _pri.util.autoArticle();
 }
 
-    init();
+init();

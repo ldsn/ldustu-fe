@@ -14,6 +14,7 @@ var tmpl = require('ldsn-wap:widget/list/list.tpl.js');
 var _pri = {
     node: {
         listMod: $('section[node-type="module-list"]'),
+        itemList: 'ul[node-type="item-list"]',
         favourNum: 'em[node-type="favour-num"]',
         favourBtn: 'click[node-type="favour-button"]',
         listItem: 'li[node-type="list-item"]',
@@ -21,40 +22,66 @@ var _pri = {
         commentList: 'ul[node-type="comment-list"]',
         submitComment: 'click[node-type="submit-comment"]',
         commentInput: 'input[node-type="comment-input"]',
-        articleDetail: 'section[node-type="article-detail"]'
+        articleDetail: 'section[node-type="article-detail"]',
+        shareBtn: 'click[node-type="share-btn"]',
+        title: 'h2[node-type="article-title"]',
+        description: 'article[node-type="article-description"]',
+        pic: 'img[node-type="article-image"]',
+        getMoreList: 'click[node-type="get-more-list"]'
     },
     tmpl: {
         comment: tmpl.comment.join('')
     },
+    conf: {
+        geting: false,
+        isLast: false
+    },
     //绑定元素事件
     bindUI: function () {
-        _pri.node.listMod.delegate('.share-click', "click", function () { //分享点击事件
-            console.log(11122);
-            var aid = $(this).find("em").attr("aid"); //获取分享文章aid
-            var shareAid = $('li[aid="' + aid + '"]');
-            var bdText = shareAid.find(".article-title").text() //获取分享文章标题
-            var bdDesc = shareAid.find(".article-description").text() //获取分享文章描述
-            var bdUrl = _pri.init.getUrl(); //获取分享文章url
-            if (shareAid.find(".article-image")) { //判断文章是否有图片
-                var bdPic = shareAid.find(".article-image").attr("src"); //获取分享文章图片url
-            }
-            share.share(bdText, bdDesc, bdUrl, bdPic) //传递参数到分享组件
-        });
+        _pri.node.listMod.delegate(_pri.node.shareBtn, "click", _pri.util.createShare);
         _pri.node.listMod.delegate(_pri.node.favourBtn, 'click', _pri.util.setFavour);
         _pri.node.listMod.delegate(_pri.node.submitComment, 'click', _pri.util.setComment);
         _pri.node.listMod.delegate(_pri.node.articleDetail, 'click', function () {
             ldev.message.trigger('to_article', $(this).attr('aid'));
         });
-
+        _pri.node.listMod.on('scroll', function () {
+            var h = _pri.node.listMod.height() * 2;
+            var scrollTop = _pri.node.listMod.scrollTop();
+            var itemListHeight = _pri.node.listMod.find(_pri.node.itemList).height();
+            if (itemListHeight - h < 0) {
+                return;
+            }
+            if (scrollTop > itemListHeight - h) {
+                _pri.util.getMoreList();
+            }
+        });
+        _pri.node.listMod.delegate(_pri.node.getMoreList, 'click', _pri.util.getMoreList);
     },
     bindListener: function () {
-        ldev.message.listen('refresh_list', function (page) {
-            listMethod.toColumn(page);
-        })
+        ldev.message.listen('refresh_list', function (cid) {
+            listMethod.toColumn(cid);
+        });
+        ldev.message.listen('to_column', function (cid) {
+            _pri.node.listMod.scrollTop(0);
+            _pri.conf.isLast = false;
+            listMethod.toColumn(cid);
+        });
     },
     util: {
-        getUrl: function () { //获取分享url函数
-            console.log("hello world!")
+        createShare: function () {
+            var item = $(this).closest(_pri.node.listItem);
+            var desc = item.find(_pri.node.description).text();
+            var title = item.find(_pri.node.title).text();
+            var pics = ldev.context.IMG_DOMAIN + item.find(_pri.node.pic).attr('_src');
+            var obj = {
+                url:location.href,
+                summary: desc,
+                desc: '在鲁大学生网上看到一篇文章很赞哦~',
+                title: title,
+                site:'http://www.ldustu.com',
+                pics: pics
+            }
+            ldev.message.trigger('open_share_panel', obj);
         },
         setFavour: function () {
         	if (!ldsn.loginStatus) {
@@ -134,7 +161,10 @@ var _pri = {
                     }
                     var commentData = {
                         comment_id: data.data,
-                        content: content
+                        content: content,
+                        head_pic: ldsn.user.head_pic,
+                        time: ldev.timeFormat(new Date().getTime()),
+                        username: ldsn.user.username
                     }
                     var html = ldev.tmpl(_pri.tmpl.comment, commentData);
                     $(html).appendTo($(_pri.node.commentList + '[aid="' + aid + '"]'));
@@ -143,6 +173,23 @@ var _pri = {
                     toast('error', '网络问题，请重试');
                 }
             });
+        },
+        getMoreList: function () {
+            if (_pri.conf.geting || _pri.conf.isLast) {
+                return;
+            }
+            _pri.conf.geting = true;
+            listMethod.getMore(_pri.util.afterGetMore);
+        },
+        afterGetMore: function (flag) {
+            if (flag) {
+                _pri.conf.isLast = true;
+            }
+            _pri.conf.geting = false;
+        },
+        autoColumn: function () {
+            var cid = ldev.hash('column') || 0;
+            ldev.message.trigger('to_column',cid);
         }
     }
 }
@@ -155,6 +202,7 @@ var _pri = {
 var init = function () {
     _pri.bindUI();
     _pri.bindListener();
+    _pri.util.autoColumn();
 }
 
 init();

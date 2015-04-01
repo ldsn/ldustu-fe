@@ -6,9 +6,17 @@
  */
 
 var _pri = {
+    hashStringName: {},
+
     util: {
+        pushHashEvent: function (func) {
+            
+            if (typeof func === 'function') {
+
+            }
+        }
         changeEvent: function () {
-            console.log(1);
+
         },
         changeCheck: function () {
             var fnDelay = 100,

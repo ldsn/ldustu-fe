@@ -6,7 +6,8 @@
     float: left;
     line-height: 45px;
     font-size: 26px;
-    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: #FFFFFF;
 }
 

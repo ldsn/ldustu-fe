@@ -25,7 +25,6 @@
 		ldsn.loginStatus = false;
 	{%/if%}
 
-
     {%script%}
         require.async("/static/common/plupload/plupload.js");
     {%/script%}

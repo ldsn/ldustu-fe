@@ -1,4 +1,10 @@
 .module-list {
+    position: absolute;
+    overflow: auto;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 20px 10px;
     background: #dcdee3;
 }
@@ -224,4 +230,12 @@
 }
 .module-list .edit-comment click i.reply.mail.icon:active {
     color: #5890ff;
+}
+
+.module-list .get-more-list {
+    line-height: 40px;
+    text-align: center;
+    border-radius: 2px;
+    background: #FFF;
+    color: #868686;
 }

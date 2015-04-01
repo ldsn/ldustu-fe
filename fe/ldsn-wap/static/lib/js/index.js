@@ -20,9 +20,6 @@ var _pri = {
             $('.ldsn-content').css("height",$(window).height()-40);
             $('.ldsn-box').css("width",$(window).width()+300);
             $('.ldsn-main').css("width",$(window).width());
-        },
-        renderIndex: function () {
-            listMethod.toColumn(0);
         }
     }
 };
@@ -32,7 +29,6 @@ var _pri = {
 var init = function () {
     _pri.bindUI();
 	_pri.util.renderDom();
-    _pri.util.renderIndex();
 }
 $(document).ready(function () {
 	init();

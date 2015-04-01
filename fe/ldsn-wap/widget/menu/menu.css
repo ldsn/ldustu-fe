@@ -38,14 +38,15 @@
 .user-name{
 }
 .menu-list{
-
+    margin-top: 20px;
 }
 .menu-list click{
     display: block;
-    margin: 20px auto;
     text-align: center;
     font-size: 16px;
     color: #C5C7CA;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .ldsn-menu click[node-type="logout"] {
     position: absolute;

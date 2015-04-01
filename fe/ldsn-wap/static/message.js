@@ -11,9 +11,14 @@ ldev.message.create('check_login');
 ldev.message.create('logout');
 ldev.message.create('login_end');
 ldev.message.create('logout_end');
+// 清除所有浮层
 ldev.message.create('clear_frame');
 ldev.message.create('refresh_list');
 ldev.message.create('to_article');
+ldev.message.create('to_column');
+ldev.message.create('share');
+ldev.message.create('open_share_panel');
+
 
 //下面是公用message
 

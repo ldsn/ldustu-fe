@@ -1,5 +1,5 @@
 <section node-type="module-list" class="module-list">
-	<ul class="item-list" node-type="module-list-item-list">
+	<ul class="item-list" node-type="item-list">
 
 	</ul>
 </section>

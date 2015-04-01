@@ -34,10 +34,10 @@ var event = {
     'FileUploaded': function(up, file, info) {
         var domain = up.getOption('domain')
         var res = $.parseJSON(info);
-        var sourceLink = domain + res.key + '?imageView2/2/w/400/q/50';
+        var sourceLink = domain + res.key + ldev.context.IMG_400_50;
         var img = document.createElement('img');
         img.src = sourceLink;
-        img.className = "article-image";
+        img.className = "article-wap-image";
         $(img).attr('_src', res.key);
         $('<div><br/></div>').appendTo('#editor');
         $(img).appendTo('#editor');

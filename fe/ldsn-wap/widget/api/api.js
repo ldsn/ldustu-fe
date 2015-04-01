@@ -7,7 +7,6 @@
 
 var api = {
     getArcList: '/article/getlist',
-    getComment: '/comment/getComment',
     checkOpenId: '/login/auth',
     login: '/login/auth',
     register: '/register/save',
@@ -15,7 +14,8 @@ var api = {
     publishArc: '/article/publish',
     favour: '/public/favour',
     addComment: '/comment/add',
-    getArticle: '/article/show'
+    getArticle: '/article/show',
+    getMoreComment: '/comment/get'
 };
 
 module.exports = api;

@@ -87,6 +87,7 @@ var _pri = {
                     _pri.node.editBox.empty();
                     _pri.util.hide();
                     ldev.message.trigger('refresh_list', 0);
+                    ldev.message.trigger('clear_frame');
                     toast('success', '发布成功！');
                     _pri.node.editSubmit.removeClass('cancel');
                 },

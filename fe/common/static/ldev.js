@@ -54,12 +54,20 @@
         return date;
     };
 
+    var context = {
+        IMG_DOMAIN: 'http://ldsnv6.qiniudn.com/',
+        IMG_400_20: '?imageView2/2/w/400/q/20',
+        IMG_400_50: '?imageView2/2/w/400/q/20',
+        IMG_100_50: '?imageView2/2/w/100/q/50'
+    }
+
     var ldev = {
         tmpl: tmpl,
         hash: hash,
         message: message,
         errorMessage: errorMessage,
-        timeFormat: timeFormat
+        timeFormat: timeFormat,
+        context: context
     };
 
     window.ldev = ldev;

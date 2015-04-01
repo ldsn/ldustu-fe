@@ -1,12 +1,13 @@
 .module-article {
   position: absolute;
-  top: 46px;
+  top: 45px;
   left: 0;
   right: 0;
   bottom: 0;
   background: #FFFFFF;
   overflow: auto;
   display: none;
+
 }
 
 .module-article.active { 
@@ -67,13 +68,15 @@
     font-size: 20px;
     margin: 10px;
 }
-.module-article .article-image {
+.module-article .article-wap-image {
     width: 80%;
     margin: 0 auto;
     display: block;
     margin-bottom: 10px;
 }
-
+.module-article img {
+    max-width: 80%;
+}
 .module-article .article-content {
     padding: 10px;
     line-height: 24px;
@@ -239,4 +242,13 @@
 }
 .module-article .edit-comment click i.reply.mail.icon:active {
     color: #5890ff;
+}
+.module-article .add-more-comment {
+    background: #FFF;
+    width: 90%;
+    margin: 10px auto;
+    line-height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    color: #5E5E5E;
 }

@@ -6,7 +6,6 @@
  */
 'use strict';
 
-var listMethod = require('ldsn-wap:widget/list/list-method.js');
 var api = require('ldsn-wap:widget/api/api.js');
 var userInfoTpl = require('ldsn-wap:widget/menu/menu.tpl.js');
 //私有方法
@@ -45,7 +44,8 @@ var _pri = {
         });
         _pri.node.menuList.delegate('click', 'click', function () {
             var cid = $(this).attr('cid');
-            listMethod.toColumn(cid);
+            ldev.message.trigger('to_column',cid);
+            ldev.hash('article', null);
             ldev.message.trigger('clear_frame');
             _pri.util.clearLeftSlide();
         });
@@ -108,7 +108,7 @@ var _pri = {
                 var html = '<click node-type="login-btn" class="login-btn">登陆</click>';
                 _pri.node.ldsnMenu.prepend($(html));
             }
-        }
+        },
     }
 }
 

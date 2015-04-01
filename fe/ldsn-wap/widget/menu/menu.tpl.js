@@ -1,6 +1,6 @@
 var tmpl = [
     '<header class="user-info" node-type="user-info">',
-        '<img src="http://ldsnv6.qiniudn.com/<%=head_pic%>?imageView2/2/w/100/q/50" alt="" class="user-topic">',
+        '<img src="' + ldev.context.IMG_DOMAIN + '<%=head_pic%>' + ldev.context.IMG_100_50 + '" alt="" class="user-topic">',
         '<section class="user-info-text">',
             '<h4 class="user-name"><%=username%></h4>',
             '<section class="user-handle">',
