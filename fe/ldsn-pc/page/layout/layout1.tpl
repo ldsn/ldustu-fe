@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 {%extends file="common/page/base.tpl"%}
 {%block name="title"%}
 {%/block%}
@@ -17,4 +15,3 @@
 	</section>
 </section>
 {%/block%}
->>>>>>> bd1004ed1ce60053fda06213dc09883081996a3d
