@@ -5,7 +5,7 @@
      * @version 1.0.0
 **/
 .LD_nav{width:200px;float:left;background:#fff;position: relative;min-height: 580px;}
-.LD_nav .nav_wrap{position:fixed;top:0;}
+.LD_nav .nav_wrap{position:fixed;top:0;background: #fff;z-index: 9;height: 100%;}
 .LD_nav .logo .logo_img{width:128px;height:100px;display: block;padding:20px 36px;}
 .LD_nav .nav_list{overflow: hidden;padding-bottom:20px;}
 .LD_nav .list .category{width:100%;display: block;height:40px;line-height: 40px;border-left:8px solid #fff;font-size:18px;padding-left:28px;}

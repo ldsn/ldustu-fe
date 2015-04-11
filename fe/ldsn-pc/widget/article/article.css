@@ -25,7 +25,7 @@
 .LD_article .c_news_list ul li a.c_n_l_img{ padding-left:42px; background:url(/static/common/images/common/sp.png) no-repeat 0 -19px;}
 
 
-.LD_article .content_box{float:left; width:660px; display:block; margin-bottom:20px; background-color: #fff;}
+.LD_article .content_box{overflow:hidden; width:660px; display:block; margin-bottom:20px; background-color: #fff;}
 .LD_article .fc_c_m{ margin-left:-10px;}
 .LD_article .fc_c_m img{ width:324px; height:170px;}
 .LD_article .fc_c_l,.LD_article .fc_c_r{height:170px; width:324px; position:relative; float:left; margin-left:10px; _margin-left:5px;}
@@ -34,3 +34,32 @@
 .LD_article .fc_c_l:hover .t_box,.LD_article .fc_c_r:hover .t_box{ background:#734ba9}
 
 .LD_article .fc_c_l .t_box a,.LD_article .fc_c_r .t_box a{ color:#fff;}
+
+.LD_article .today_update{overflow: hidden;*zoom:1;background:#fff;}
+.LD_article .today_update .today_tit{border-bottom:2px solid #734ba9;}
+.LD_article .today_update .today_tit .txt{background: #734ba9;width:130px;height:35px;line-height: 35px;display: block;font-size: 18px;color:#fff;text-align:center;}
+.LD_article .today_list .list{width:100%;padding:18px 10px;overflow: hidden;*zoom:1;border-bottom: 2px solid #f8f8f8;}
+.LD_article .today_list .list .l_img{width:180px;height:134px;}
+.LD_article .today_list .list .l_link{float: left;}
+.LD_article .today_list .list .r_wrap{overflow: hidden;*zoom:1;padding:0 20px;}
+.LD_article .list .r_wrap .arc_title{margin-top:10px;}
+.LD_article .today_list .list .arc_link{color: #322725;font-weight: bold;font-size: 20px;}
+.LD_article .today_list .list a.arc_link:hover{color:#734ba9;}
+.LD_article .list .r_wrap .arc_info{margin-top:10px;color:#999;}
+.LD_article .list .r_wrap .arc_info b{margin-left:5px;}
+.LD_article .list .r_wrap .arc_description{margin-top:10px;color:#000;line-height:20px;height:40px;font-size:12px;font-family: arial, SimSun, Verdana, Geneva, Helvetica;display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+.LD_article .list .r_wrap .arc_read{margin-top:10px;color:#999;}
+.LD_article .list .r_wrap .up_from{margin-left:20px;}
+.LD_article .list .icon_uptime{width:15px;height:15px;display:inline-block;background: url(/static/common/images/common/sp.png) 0 -102px no-repeat;vertical-align:-3px;}
+.LD_article .list .icon_upfrom{width:15px;height:15px;display:inline-block;background: url(/static/common/images/common/sp.png) 0 -138px no-repeat;vertical-align:-2px;}
+.LD_article .list .icon_read{width:15px;height:15px;display:inline-block;background: url(/static/common/images/common/sp.png) 0 -162px no-repeat;vertical-align:-3px;margin-right:5px;}
+
+
+
+
+
+
+
+
+
+

@@ -5,12 +5,12 @@
 {%/block%}
 {%block name="body"%}
 <section class="LD_wrap">
-	{%block name="nav"%}
+	{%block name="nav-module"%}
 	{%/block%}
 	<section class="content">
-	{%block name="article"%}
+	{%block name="article-module"%}
 	{%/block%}
-	{%block name="aside"%}
+	{%block name="aside-module"%}
 	{%/block%}
 	</section>
 </section>

@@ -1,0 +1,28 @@
+/**
+     * article css
+     * @author xinwu
+     * @date 2015-03-15
+     * @version 1.0.0
+**/
+.LD_aside{width:320px;float:right;overflow: hidden;}
+.LD_aside .search_wrap{border:1px solid #9375bc;background: #fff;margin-bottom:20px;}
+.LD_aside .search_wrap input{width: 260px;padding: 0 5px;height: 36px;line-height: 36px;border: 0;display: inline;color: #666;}
+.LD_aside .aside_ad{margin-bottom:20px;}
+.LD_aside .aside_ad .ad_img{width:320px;height:auto;}
+
+.LD_aside .hot_arc{overflow: hidden;background: #fff;}
+.LD_aside .hot_arc .title{height: 36px;line-height: 36px;background: #734ba9;font-size: 18px;color: #fff;text-indent: 10px;}
+.LD_aside .hot_arc .arc_list{padding:10px;font-size:14px;}
+.LD_aside .hot_arc .list .arc_link{height:30px;line-height: 30px;color:#666;}
+.LD_aside .hot_arc .list a.arc_link:hover{color:#3c9ccf}
+
+
+
+
+
+
+
+
+
+
+
