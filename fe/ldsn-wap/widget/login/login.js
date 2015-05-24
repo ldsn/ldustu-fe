@@ -61,7 +61,7 @@ var _pri = {
             var checkReady = setInterval(function () {
                 if (window.QC) {
                     clearInterval(checkReady);
-                    QC.Login.showPopup({appId:"101199587", redirectURI: 'http://test.wap.ldustu.com/'})
+                    QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com/'})
                 }
             },400);
 
