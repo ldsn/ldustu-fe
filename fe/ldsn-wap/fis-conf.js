@@ -1,4 +1,4 @@
-var receiver = "http://test.wap.ldustu.com/fis/";
+var receiver = "http://www.ldustu.com/fis/";
 
 fis.config.merge({
     namespace : 'ldsn-wap',

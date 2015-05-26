@@ -1,4 +1,4 @@
-var receiver = "http://test.wap.ldustu.com/fis/";
+var receiver = "http://www.ldustu.com/fis/";
 fis.config.merge({
 	namespace : 'ldsn-pc',
     pack : {
@@ -50,7 +50,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Pc/',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 }
             ]

@@ -15,7 +15,7 @@
 
 .LD_article .c_news_listc ul{ width:304px; padding:5px 10px; float:left; display:block; background:#fff;}
 .LD_article .c_news_listc ul li{ width:290px;overflow:hidden; padding-left:15px; line-height:26px; height:26px; background:url(/static/common/images/common/sp.png) no-repeat 0 12px; }
-.LD_article .c_news_listc ul li a{ display:block; font-size:14px; color:#555; font-family:"微软雅黑", "Microsoft Yahei"}
+.LD_article .c_news_listc ul li a{ display:block; font-size:14px; color:#555; font-family:"微软雅黑", "Microsoft Yahei";  white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 .LD_article .c_news_listc ul li a.c_n_l_img{ padding-left:42px; background:url(/static/common/images/common/sp.png) no-repeat 0 -19px;}
 
 
@@ -53,13 +53,3 @@
 .LD_article .list .icon_uptime{width:15px;height:15px;display:inline-block;background: url(/static/common/images/common/sp.png) 0 -102px no-repeat;vertical-align:-3px;}
 .LD_article .list .icon_upfrom{width:15px;height:15px;display:inline-block;background: url(/static/common/images/common/sp.png) 0 -138px no-repeat;vertical-align:-2px;}
 .LD_article .list .icon_read{width:15px;height:15px;display:inline-block;background: url(/static/common/images/common/sp.png) 0 -162px no-repeat;vertical-align:-3px;margin-right:5px;}
-
-
-
-
-
-
-
-
-
-

@@ -12,24 +12,11 @@
 	<div class="hot_arc">
 		<h4 class="title">热门文章</h4>
 		<ul class="arc_list">
+			{%foreach from=$hotList item=hotList_item%}
 			<li class="list">
-				<a href="#" class="arc_link">25条超实用的简约原则第三趴</a>
+				<a href="/arc/{%$hotList_item['article_id']%}" title="{%$hotList_item['title']%}" target="_blank" class="arc_link">{%$hotList_item['title']%}</a>
 			</li>
-			<li class="list">
-				<a href="#" class="arc_link">25条超实用的简约原则第三趴</a>
-			</li>
-			<li class="list">
-				<a href="#" class="arc_link">25条超实用的简约原则第三趴</a>
-			</li>
-			<li class="list">
-				<a href="#" class="arc_link">25条超实用的简约原则第三趴</a>
-			</li>
-			<li class="list">
-				<a href="#" class="arc_link">25条超实用的简约原则第三趴</a>
-			</li>
-			<li class="list">
-				<a href="#" class="arc_link">25条超实用的简约原则第三趴</a>
-			</li>
+			{%/foreach%}
 
 		</ul>
 	</div>

@@ -16,8 +16,7 @@
 	{%else%}
 		ldsn.column = '';
 	{%/if%}
-	
-    {%if isset($user_info)%}
+    {%if $user_info != 'null'%}
 		ldsn.user = $.parseJSON('{%$user_info%}');
 		ldsn.loginStatus = true;
 	{%else%}

@@ -2,3 +2,5 @@ server/Application/Runtime/
 output/
 .DS_Store
 .idea/
+wap.sh
+pc.sh

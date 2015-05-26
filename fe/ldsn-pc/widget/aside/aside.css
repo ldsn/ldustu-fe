@@ -15,6 +15,7 @@
 .LD_aside .hot_arc .arc_list{padding:10px;font-size:14px;}
 .LD_aside .hot_arc .list .arc_link{height:30px;line-height: 30px;color:#666;}
 .LD_aside .hot_arc .list a.arc_link:hover{color:#3c9ccf}
+.LD_aside .hot_arc .arc_list .list {white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 
 
 

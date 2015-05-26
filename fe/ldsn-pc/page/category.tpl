@@ -8,7 +8,7 @@
 {%widget name="ldsn-pc:widget/nav/nav.tpl"%}
 {%/block%}
 {%block name="article-module"%}
-{%widget name="ldsn-pc:widget/index/index.tpl"%}
+{%widget name="ldsn-pc:widget/category/category.tpl"%}
 {%/block%}
 {%block name="aside-module"%}
 {%widget name="ldsn-pc:widget/aside/aside.tpl"%}
