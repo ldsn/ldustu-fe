@@ -19,7 +19,6 @@ fis.config.merge({
 //             'widget/login/*.js'
 //         ],
 //         'pkg/fast-index.js': [
-//             'widget/api/api.js',
 //             'static/index/index.js',
 //             'widget/list/list-method.js'
 //         ],

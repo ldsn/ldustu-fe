@@ -6,7 +6,7 @@
  */
 'use strict';
 
-var api = require('ldsn-wap:widget/api/api.js');
+var api = require('common:widget/api/api.js');
 var userInfoTpl = require('ldsn-wap:widget/menu/menu.tpl.js');
 //私有方法
 var _pri = {

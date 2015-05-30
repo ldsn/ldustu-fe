@@ -15,7 +15,8 @@ var api = {
     favour: path + '/public/favour',
     addComment: path + '/comment/add',
     getArticle: path + '/article/show',
-    getMoreComment: path + '/comment/get'
+    getMoreComment: path + '/comment/get',
+    removeArticle: path + '/article/remove'
 };
 
 module.exports = api;

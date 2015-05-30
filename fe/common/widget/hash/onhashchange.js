@@ -14,7 +14,7 @@ var _pri = {
             if (typeof func === 'function') {
 
             }
-        }
+        },
         changeEvent: function () {
 
         },

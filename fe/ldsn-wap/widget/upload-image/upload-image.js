@@ -55,7 +55,7 @@ var event = {
         // 该配置必须要在 unique_names: false , save_key: false 时才生效
         if(file.type == 'image/jpeg' || file.type == 'image/jpg' || file.type == 'image/png' || file.type == 'image/gif'){
           var nameSuffix = file.name.substring(file.name.lastIndexOf('.'));
-          var key = 'userUpload/' + new Date().getTime() + nameSuffix;
+          var key = 'userUpload/' + new Date().getTime() + '_' + ldsn.user.user_id + nameSuffix;
           // do something with key here
           return key
         }

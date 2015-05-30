@@ -7,7 +7,7 @@
 'use strict';
 
 var tmpl = require('ldsn-wap:widget/article/article.tpl.js');
-var api = require('ldsn-wap:widget/api/api.js');
+var api = require('common:widget/api/api.js');
 var toast = require('ldsn-wap:widget/toast/toast.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 

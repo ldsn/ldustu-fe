@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-var api = require('ldsn-wap:widget/api/api.js');
+var api = require('common:widget/api/api.js');
 var listTpl = require('ldsn-wap:widget/list/list.tpl.js');
 var toast = require('ldsn-wap:widget/toast/toast.js');
 

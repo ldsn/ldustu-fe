@@ -1,50 +1,60 @@
-<section class="LD_article">
-	<a class="ad1" href="#" title="#"><img src="/static/common/images/_temp/qidianxueyuan.jpg" class="ad_img" /></a>
-	<section class="top_arc_wrap">
-		<a href="#" class="top_arc" style="margin-left:0px;"><img src="/static/common/images/_temp/jd0311.jpg" class="top_arcimg" /><span class="title">鲁大学生网新版上线</span></a>
-		<a href="#" class="top_arc"><img src="/static/common/images/_temp/jd0311.jpg" class="top_arcimg" /><span class="title">鲁大学生网新版上线</span></a>
-	</section>
-	<section class="content_box">
-      <div class="c_news_listc l">
-        <ul>  
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
+    <section class="top_arc_wrap">
+        {%foreach from=$head_pic_two item=article_item%}
+        <a href="/arc/{%$article_item['article_id']%}" class="top_arc" style="" title="{%$article_item['title']%}"><img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/300/q/100" class="top_arcimg" alt="{%$article_item['title']%}" /><span class="title">{%$article_item['title']%}</span></a>
+        {%/foreach%}
+
+    </section>
+    <section class="content_box">
+        <ul class="head_article">  
+            {%foreach from=$head_article item=article_item%}
+            <li>
+                <a href="/arc/{%$article_item['article_id']%}" title="{%$article_item['title']%}">{%$article_item['title']%}</a>
+            </li>
+            {%/foreach%}
         </ul>
-      </div>
-      <div class="c_news_listc r">
-        <ul>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-			<li><a href="#"  title="#">鲁大学生网新版上线</a></li>
-        </ul>
-      </div>
     </section>
     <section class="today_update">
-    	<h2 class="today_tit"><span class="txt">最新文章</span></h2>
-		<ul class="today_list">
-			{%foreach from=$articleList item=article_item%}
-				<li class="list">
-				<a href="/arc/{%$article_item['article_id']%}" target="_blank" class="l_link">
-					<img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
-				</a>
-				<div class="r_wrap">
-					<h3 class="arc_title"><a href="/arc/{%$article_item['article_id']%}" target="_blank" class="arc_link">{%$article_item['title']%}</a></h3>
-					<div class="arc_info">
-						<span class="up_time"><i class="icon_uptime"></i>{%$article_item['create_time_string']%}</span>
-						<span class="up_from"><i class="icon_upfrom"></i><b>{%$article_item['column_name']%}</b></span>
-					</div>
-					<p class="arc_description">{%$article_item['description']%}</p>
-					<div class="arc_read">
-						<span class="read_num"><i class="icon_read"></i><b>围观{%$article_item['view_num']%}次</b></span>
-					</div>
-				</div>
-			</li>
-			{%/foreach%}
-		</ul>
+        <h2 class="today_tit"><span class="txt">最新文章</span></h2>
+        <ul class="article_list" node-type="article-list">
+            {%foreach from=$articleList item=article_item%}
+                <li class="list" node-type="article-model" data-id="{%$article_item['article_id']%}">
+                <a href="/arc/{%$article_item['article_id']%}" target="_blank" class="l_link">
+                    <img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
+                </a>
+                <div class="r_wrap">
+                    <h3 class="arc_title"><a href="/arc/{%$article_item['article_id']%}" target="_blank" class="arc_link">{%$article_item['title']%}</a></h3>
+                    <div class="arc_info">
+                        <div class="user_info">
+                            <a href="#">
+                                <img src="http://ldsnv6.qiniudn.com/{%$article_item['user_info']['head_pic']%}?imageView2/2/w/80/q/100" />
+                                <span class="user_name">
+                                    {%$article_item['user_info']['username']%}
+                                </span>
+                            </a>
+                        </div>
+                        <span class="up_time"><i class="refresh icon"></i>{%$article_item['create_time_string']%}</span>
+                        <a class="up_from" href="/category/{%$article_item['column_id']%}"><i class="category icon"></i><b>{%$article_item['column_name']%}</b></a>
+                    </div>
+                    <p class="arc_description">{%$article_item['description']%}</p>
+                    <div class="arc_read">
+                        <span class="read_num"><i class="unhide icon"></i><b>围观{%$article_item['view_num']%}次</b></span>
+                        <span class="thumb_num" node-type="favour-article" data-id="{%$article_item['article_id']%}"><i class="thumbs up icon"></i><b>
+                            {%if ($article_item['favour_info'])%}
+                            已赞 ({%$article_item['favour_num']%})
+                            {%else if%}
+                            赞 ({%$article_item['favour_num']%})
+                            {%/if%}
+                        </b></span>
+                        <a class="comment_num" href="/arc/{%$article_item['article_id']%}" target="_blank"><i class="edit icon"></i><b>评论 ({%$article_item['comment_num']%})</b></a>
+                    </div>
+                </div>
+                {%if ($level_status > 0)%}
+                <div class="arc_manager">
+                    <a href="javascript:;" class="modify" node-type="modify-article" data-id="{%$article_item['article_id']%}"><i class="edit icon"></i></a>
+                    <a href="javascript:;" class="delete" node-type="delete-article" data-id="{%$article_item['article_id']%}"><i class="remove icon"></i></a>
+                </div>
+                {%/if%}
+            </li>
+            {%/foreach%}
+        </ul>
     </section>
-</section>

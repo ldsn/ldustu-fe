@@ -1,6 +1,6 @@
 /**
  * 菜单
- * @author fanmingfeo
+ * @author fanmingfei
  * @date 2015-05-16
  * @version 1.0.0
 */

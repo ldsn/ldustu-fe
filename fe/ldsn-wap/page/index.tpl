@@ -9,55 +9,61 @@
 <meta property="qc:admins" content="17473743144671064453456375" />
 {%script%}
 
-	window.ldsn = {};
+    window.ldsn = {};
 
     {%if isset($column)%}
-		ldsn.column = $.parseJSON('{%$column%}');
-	{%else%}
-		ldsn.column = '';
-	{%/if%}
+        ldsn.column = $.parseJSON('{%$column%}');
+    {%else%}
+        ldsn.column = '';
+    {%/if%}
     {%if $user_info != 'null'%}
-		ldsn.user = $.parseJSON('{%$user_info%}');
-		ldsn.loginStatus = true;
-	{%else%}
-		ldsn.user = '';
-		ldsn.loginStatus = false;
-	{%/if%}
+        ldsn.user = $.parseJSON('{%$user_info%}');
+        ldsn.loginStatus = true;
+    {%else%}
+        ldsn.user = '';
+        ldsn.loginStatus = false;
+    {%/if%}
 
     {%script%}
         require.async("/static/common/plupload/plupload.js");
     {%/script%}
 
-
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        ldsn.isWechat =  true;
+    } else {
+        ldsn.isWechat = false;
+    }
+    
 {%/script%}
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 {%/block%}
 
 {%block name="ldsn-header"%}
-	{%widget name="ldsn-wap:widget/header/header.tpl"%}
+    {%widget name="ldsn-wap:widget/header/header.tpl"%}
 {%/block%}
 {%block name="ldsn-menu"%}
-	{%widget name="ldsn-wap:widget/menu/menu.tpl"%}
+    {%widget name="ldsn-wap:widget/menu/menu.tpl"%}
 {%/block%}
 {%block name="ldsn-menu"%}
-	{%widget name="ldsn-wap:widget/menu/menu.tpl"%}
+    {%widget name="ldsn-wap:widget/menu/menu.tpl"%}
 {%/block%}
 
 {%block name="ldsn-content"%}
-	{%widget name="ldsn-wap:widget/list/list.tpl"%}
-	{%widget name="ldsn-wap:widget/article/article.tpl"%}
+    {%widget name="ldsn-wap:widget/list/list.tpl"%}
+    {%widget name="ldsn-wap:widget/article/article.tpl"%}
 {%/block%}
 {%block name="ldsn-share"%}
-	{%widget name="ldsn-wap:widget/share/share.tpl"%}
+    {%widget name="ldsn-wap:widget/share/share.tpl"%}
 {%/block%}
 {%block name="ldsn-edit-article"%}
-	{%widget name="ldsn-wap:widget/edit-article/edit-article.tpl"%}
+    {%widget name="ldsn-wap:widget/edit-article/edit-article.tpl"%}
 {%/block%}
 
 {%block name="ldsn-absolute"%}
-	{%widget name="ldsn-wap:widget/toast/toast.tpl"%}
-	{%widget name="ldsn-wap:widget/login/login.tpl"%}
-	{%widget name="ldsn-wap:widget/panel/panel.tpl"%}
+    {%widget name="ldsn-wap:widget/toast/toast.tpl"%}
+    {%widget name="ldsn-wap:widget/login/login.tpl"%}
+    {%widget name="ldsn-wap:widget/panel/panel.tpl"%}
 {%/block%}
 {%*
 {%block name="else"%}

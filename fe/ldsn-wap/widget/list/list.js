@@ -6,7 +6,7 @@
  */
 var share = require('ldsn-wap:widget/share/share.js'); //引入分享组件
 var listMethod = require('ldsn-wap:widget/list/list-method.js');
-var api = require('ldsn-wap:widget/api/api.js');
+var api = require('common:widget/api/api.js');
 var toast = require('ldsn-wap:widget/toast/toast.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 var tmpl = require('ldsn-wap:widget/list/list.tpl.js');

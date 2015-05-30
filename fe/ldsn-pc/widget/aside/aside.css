@@ -14,16 +14,54 @@
 .LD_aside .hot_arc .title{height: 36px;line-height: 36px;background: #734ba9;font-size: 18px;color: #fff;text-indent: 10px;}
 .LD_aside .hot_arc .arc_list{padding:10px;font-size:14px;}
 .LD_aside .hot_arc .list .arc_link{height:30px;line-height: 30px;color:#666;}
-.LD_aside .hot_arc .list a.arc_link:hover{color:#3c9ccf}
+.LD_aside .hot_arc .list a.arc_link:hover{color:#734ba9}
 .LD_aside .hot_arc .arc_list .list {white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 
+.LD_aside .user_info .head-pic {
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+    float: left;
+    margin-right: 16px;
+}
+
+.LD_aside .user_info {
+    padding: 5px 20px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 20px;
+    line-height: 50px;
+    color: #666;
+}
+
+.LD_aside .user_info .username {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.LD_aside .user_info .user-center {
+    float: right;
+    margin-left: 20px;
+}
 
 
 
-
-
-
-
-
-
-
+.LD_aside .login-register {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.LD_aside .login-register .login, .login-register .register {
+    float: right;
+    display: block;
+    padding: 14px 20px;
+    background-color: rgb(115, 75, 169);
+    margin-right: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+.LD_aside .login-register .login:hover, .login-register .register:hover {
+    background-color: #9471C1;
+}

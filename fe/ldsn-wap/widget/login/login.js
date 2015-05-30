@@ -7,7 +7,7 @@
 
 var toast = require('ldsn-wap:widget/toast/toast.js');
 var errMessage = require('common:widget/error-message/error-message.js');
-var api = require('ldsn-wap:widget/api/api.js');
+var api = require('common:widget/api/api.js');
 var regTpl = require('ldsn-wap:widget/login/register.tpl.js');
 var panel = require('ldsn-wap:widget/panel/panel.js');
 

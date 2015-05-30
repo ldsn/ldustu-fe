@@ -253,7 +253,7 @@ i.basic.icon.layout.block:before {
 
 /* '' */
 
-i.basic.icon.layout.list:before {
+i.basic.icon.layout.category:before {
   content: '\e80b';
 }
 
@@ -725,7 +725,7 @@ i.basic.icon.to-start:before {
 
 /* '' */
 
-i.basic.icon.top.list:before {
+i.basic.icon.top.category:before {
   content: '🏆';
 }
 
@@ -1912,7 +1912,7 @@ i.icon.layout.grid:before {
   content: "\f00a";
 }
 
-i.icon.layout.list:before {
+i.icon.layout.category:before {
   content: "\f00b";
 }
 
@@ -1952,15 +1952,15 @@ i.icon.linux:before {
   content: "\f17c";
 }
 
-i.icon.list.ordered:before {
+i.icon.category.ordered:before {
   content: "\f0cb";
 }
 
-i.icon.list.unordered:before {
+i.icon.category.unordered:before {
   content: "\f0ca";
 }
 
-i.icon.list:before {
+i.icon.category:before {
   content: "\f03a";
 }
 

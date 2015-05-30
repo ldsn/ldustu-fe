@@ -9,7 +9,7 @@
 
 var login = require('ldsn-wap:widget/login/login.js');
 var toast = require('ldsn-wap:widget/toast/toast.js');
-var api = require('ldsn-wap:widget/api/api.js');
+var api = require('common:widget/api/api.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 //私有方法
 var _pri = {
