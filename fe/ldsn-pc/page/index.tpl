@@ -15,7 +15,7 @@
 {%widget name="ldsn-pc:widget/top-ad/top-ad.tpl"%}
 {%widget name="ldsn-pc:widget/push-image/push-image.tpl"%}
 {%widget name="ldsn-pc:widget/push-article/push-article.tpl"%}
-{%widget name="ldsn-pc:widget/index/index.tpl"%}
+{%widget name="ldsn-pc:widget/list/list.tpl"%}
 </section>
 {%/block%}
 {%block name="aside-module"%}
