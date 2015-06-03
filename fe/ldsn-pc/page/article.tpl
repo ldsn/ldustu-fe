@@ -6,6 +6,11 @@
 {%require name="ldsn-pc:static/lib/css/common.css"%}
 {%require name="ldsn-pc:static/lib/css/list.css"%}
 <meta name="description" content="{%$article['description']%}" />
+{%script%}
+	window.article = {};
+	article.commentNum = {%$article['comment_num']%}
+	article.id = {%$article['article_id']%}
+{%/script%}
 {%/block%}
 {%block name="nav-module"%}
 {%widget name="ldsn-pc:widget/nav/nav.tpl"%}

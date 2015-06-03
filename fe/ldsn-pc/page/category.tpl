@@ -12,6 +12,7 @@
 {%block name="article-module"%}
 <section class="LD_article">
 {%widget name="ldsn-pc:widget/top-ad/top-ad.tpl"%}
+{%widget name="ldsn-pc:widget/push-image/push-image.tpl"%}
 {%widget name="ldsn-pc:widget/category/category.tpl"%}
 </section>
 {%/block%}

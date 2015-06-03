@@ -6,7 +6,6 @@
 {%script%}
 	(function () {
 		var hash = location.hash;
-		debugger
 		if (hash.indexOf('article') > -1) {
 			var start = hash.indexOf('article') + 8;
 			var num = hash.substring(start);
@@ -53,6 +52,7 @@
 	{%block name="aside-module"%}
 	{%/block%}
 	</section>
+	{%widget name="ldsn-pc:widget/toast/toast.tpl"%}
 </section>
 	{%widget name="ldsn-pc:widget/footer/footer.tpl"%}
 	{%require name="ldsn-pc:static/lib/js/list.js"%}

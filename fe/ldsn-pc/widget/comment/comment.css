@@ -1,7 +1,7 @@
 .article-comment {
-	margin-top: 20px;
-	background: #FFF;
-	padding: 20px;
+  margin-top: 20px;
+  background: #FFF;
+  padding: 20px;
 
 }
 .article-comment .user_info {
@@ -39,7 +39,7 @@
 }
 
 .article-comment .comment-ul li:last-child {
-	border-bottom: none;
+  border-bottom: none;
 }
 .article-comment .comment-ul li {
     margin: 20px 0;
@@ -48,7 +48,7 @@
 }
 
 .article-comment .edit-comment {
-	overflow: hidden;
+  overflow: hidden;
 }
 .article-comment .comment-textarea {
     overflow: hidden;
@@ -61,13 +61,34 @@
 }
 .article-comment .comment-submit {
     float: right;
-	margin-right: 10px;
+  margin-right: 10px;
     padding: 12px 25px;
-    background-color: #734BA9;
+    background-color: #0078d7;
     color: #fff;
     border-radius: 5px;
     margin-top: 10px;
 }
 .article-comment .comment-submit:hover {
-    background-color: #9471C1;
+    background-color: #0c8ef5;
+}
+
+.article-comment .load-more {
+  display: none;
+  line-height: 29px;
+  text-align: center;
+  background: #f8f8f9;
+  background-color: #f1f1f2;
+  background-image: -moz-linear-gradient(top,#f8f8f9,#e6e6e8);
+  background-image: -ms-linear-gradient(top,#f8f8f9,#e6e6e8);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#f8f8f9),to(#e6e6e8));
+  background-image: -webkit-linear-gradient(top,#f8f8f9,#e6e6e8);
+  background-image: -o-linear-gradient(top,#f8f8f9,#e6e6e8);
+  background-image: linear-gradient(top,#f8f8f9,#e6e6e8);
+  background-repeat: repeat-x;
+  text-shadow: 0 1px 0 #fff;
+  border: 1px solid #bbb;
+  color: #626262!important;
+  box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
+  border-radius: 4px;
+  margin-bottom: 20px;
 }

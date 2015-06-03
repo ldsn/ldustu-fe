@@ -1,7 +1,7 @@
 html{height:100%;}
 body{background:#f8f8f8;font-family: "微软雅黑", "Microsoft Yahei";font-size: 12px;height: 100%;}
 .LD_wrap{width:1220px;margin: 0 auto;overflow: hidden;margin-top:20px;}
-.LD_wrap.LD_container{min-height:100%;margin-top: -120px;}
+.LD_wrap.LD_container{min-height:100%;margin-top: -120px; position: relative;}
 .LD_wrap .content{float: right;width:1000px;margin-top: 130px;}
 a{color:#666}
-a:hover{color:#734ba9}
+a:hover{color:#0078d7}

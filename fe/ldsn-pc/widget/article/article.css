@@ -19,7 +19,7 @@
 }
 .article_main .info .user_info {float: left;margin-right: 20px;line-height: 30px; color: #999;}
 .article_main .info .user_info a{display: block;color: #999;}
-.article_main .info .user_info a:hover{color: #734ba9;}
+.article_main .info .user_info a:hover{color: #0078d7;}
 .article_main .info .user_info img{width: 30px;height:30px;display: block;float: left;margin-right: 8px;border-radius: 50%;}
 .article_main .info .user_info .user_name{display: inline-block;float: left;}
 .article_main .info .user_info a.user_name_a{display: block;float: left; margin-right: 50px}

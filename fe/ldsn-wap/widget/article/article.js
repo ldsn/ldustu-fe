@@ -158,7 +158,7 @@ var _pri = {
                         toast('error', '获取错误，请重试!');
                         return;
                     }
-                    _pri.conf.commentPage = Math.ceil(data.data.comment_num / 20);
+                    _pri.conf.commentPage = Math.ceil((data.data.comment_num - 10) / 20);
                     _pri.util.renderArticle(data.data);
                 },
                 error: function () {
@@ -169,7 +169,10 @@ var _pri = {
         renderArticle: function (data) {
             var html = ldev.tmpl(_pri.tmpl.article, data);
             _pri.node.articleMod.html(html);
-
+            if (data.comment_list.length == data.comment_num) {
+                _pri.node.articleMod.find(_pri.node.getMoreComment).hide();
+                return;
+            }
             if (_pri.node.articleMod.find(_pri.node.getMoreComment).length > 0) {
                 _pri.util.getMoreComment();
             }
@@ -193,8 +196,8 @@ var _pri = {
             if (_pri.node.articleMod.find(_pri.node.getMoreComment).hasClass('disable')) {
                 return;
             }
-            _pri.node.articleMod.find(_pri.node.getMoreComment).text('正在加载...');
             _pri.conf.currentPage ++ ;
+            _pri.node.articleMod.find(_pri.node.getMoreComment).text('正在加载...');
             var data = {
                 aid: _pri.conf.currentArticle,
                 p: _pri.conf.currentPage
@@ -209,8 +212,8 @@ var _pri = {
                     _pri.node.articleMod.find(_pri.node.getMoreComment).text('加载更多评论');
 
                     if (data.status != 1) {
+                        _pri.conf.currentPage --;
                         toast('error', '获取新评论失败！');
-                        _pri.node.articleMod.find(_pri.node.getMoreComment).hide();
                         return;
                     }
 
@@ -220,6 +223,7 @@ var _pri = {
                     _pri.util.renderList(data.data);
                 },
                 error: function () {
+                    _pri.conf.currentPage --;
                     toast('error', '获取新评论失败！');
                 }
             });

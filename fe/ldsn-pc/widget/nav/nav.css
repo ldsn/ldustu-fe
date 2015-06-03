@@ -5,9 +5,9 @@
      * @version 1.0.0
 **/
 .LD_nav{width:200px;float:left;background:#fff;position: relative;}
-.LD_nav .nav_wrap{position:fixed;top:0;background: #fff;z-index: 9;bottom: 120px;}
+.LD_nav .nav_wrap{position:fixed;top:0;background: #fff;;bottom: 120px;z-index:999999}
 .LD_nav .logo .logo_img{width:128px;height:100px;display: block;padding:20px 36px;}
 .LD_nav .nav_list{overflow: hidden;padding-bottom:20px;}
 .LD_nav .list .category{width:100%;display: block;height:40px;line-height: 40px;border-left:8px solid #fff;font-size:18px;padding-left:28px;}
 .LD_nav .cursor .category,
-.LD_nav .list:hover .category{border-left:8px solid #734ba9;background:#f8f8f8;font-weight:bold;color:#734ba9;}
+.LD_nav .list:hover .category{border-left:8px solid #0078d7;background:#f8f8f8;font-weight:bold;color:#0078d7;}

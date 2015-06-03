@@ -11,10 +11,10 @@
 .LD_aside .aside_ad .ad_img{width:320px;height:auto;}
 
 .LD_aside .hot_arc{overflow: hidden;background: #fff;}
-.LD_aside .hot_arc .title{height: 36px;line-height: 36px;background: #734ba9;font-size: 18px;color: #fff;text-indent: 10px;}
+.LD_aside .hot_arc .title{height: 36px;line-height: 36px;background: #0078d7;font-size: 18px;color: #fff;text-indent: 10px;}
 .LD_aside .hot_arc .arc_list{padding:10px;font-size:14px;}
 .LD_aside .hot_arc .list .arc_link{height:30px;line-height: 30px;color:#666;}
-.LD_aside .hot_arc .list a.arc_link:hover{color:#734ba9}
+.LD_aside .hot_arc .list a.arc_link:hover{color:#0078d7}
 .LD_aside .hot_arc .arc_list .list {white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 
 .LD_aside .user_info .head-pic {
@@ -57,11 +57,11 @@
     float: right;
     display: block;
     padding: 14px 20px;
-    background-color: rgb(115, 75, 169);
+    background-color: #0078d7;
     margin-right: 10px;
-    color: rgb(255, 255, 255);
+    color: #FFF;
     font-size: 14px;
 }
 .LD_aside .login-register .login:hover, .login-register .register:hover {
-    background-color: #9471C1;
+    background-color: #0c8ef5;
 }

@@ -1,18 +1,3 @@
-    <section class="top_arc_wrap">
-        {%foreach from=$head_pic_two item=article_item%}
-        <a href="/arc/{%$article_item['article_id']%}" class="top_arc" style="" title="{%$article_item['title']%}"><img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/300/q/100" class="top_arcimg" alt="{%$article_item['title']%}" /><span class="title">{%$article_item['title']%}</span></a>
-        {%/foreach%}
-
-    </section>
-    <section class="content_box">
-        <ul class="head_article">  
-            {%foreach from=$head_article item=article_item%}
-            <li>
-                <a href="/arc/{%$article_item['article_id']%}" title="{%$article_item['title']%}">{%$article_item['title']%}</a>
-            </li>
-            {%/foreach%}
-        </ul>
-    </section>
     <section class="today_update">
         <h2 class="today_tit"><span class="txt">最新文章</span></h2>
         <ul class="article_list" node-type="article-list">
