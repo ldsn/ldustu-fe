@@ -4,7 +4,7 @@ var tmpl = [
             '<a href="#" class="user_name_a">',
                 '<img src="' + ldev.context.IMG_DOMAIN + '<%=head_pic%>' + ldev.context.IMG_100_50 + '">',
                 '<span class="user_name">',
-                    '<%=user_name%>',
+                    '<%=username%>',
                 '</span>',
             '</a>',
             '<span class="create_time">',

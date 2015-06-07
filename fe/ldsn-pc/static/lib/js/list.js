@@ -5,7 +5,9 @@
  * @version 1.0.0
 */
 var api = require('common:widget/api/api.js');
-var login = require('ldsn-pc:widget/login/login.js');
+if (window.ldsn && window.ldsn.user && window.ldsn.user.level_status) {
+    var updateArticle = require('ldsn-pc:widget/update-article/update-article.js');
+}
 
 $(document).ready(function(){
     var _pri = {
@@ -29,10 +31,6 @@ $(document).ready(function(){
                 _pri.util.deleteArticle(articleId);
             });
             $(_pri.node.articleModify).on('click', function () {
-                if ($(this).find('.icon').hasClass('disabled')) {
-                    return;
-                }
-                $(this).find('.icon').addClass('disabled');
                 var articleId = $(this).attr('data-id');
                 _pri.util.modifyArticle(articleId);
             });
@@ -82,7 +80,7 @@ $(document).ready(function(){
 
             },
             modifyArticle: function (id) {
-                
+                updateArticle(id);
             },
             favourArticle: function (id) {
                 $.ajax({

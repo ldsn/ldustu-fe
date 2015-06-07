@@ -1,14 +1,14 @@
 <section class="LD_aside">
 {%if $user_info %}
 <div class="user_info">
-    <img src="http://ldsnv6.qiniudn.com/userUpload/1426954345687.jpg?imageView2/2/w/80/q/100" class="head-pic">
-    <a class="user-center" href="#">个人中心</a>
-    <a class="username" href="#">{%$user_info['username']%}</a>
+    <img src="http://ldsnv6.qiniudn.com/{%$user_info['head_pic']%}?imageView2/2/w/80/q/100" class="head-pic">
+    <a class="user-center" href="/publish">发表文章</a>
+    <a class="username" href="javascript:;">{%$user_info['username']%}</a>
 </div>
 {%else if%}
 <div class="login-register">
-    <a class="register" href="javascript:;">注册</a>
-    <a class="login" href="javascript:;">登录</a>
+    <!-- <a class="register" href="javascript:;" node-type="">注册</a> -->
+    <a class="login" href="javascript:;" node-type="login">QQ登录</a>
 </div>
 {%/if%}
     <!-- <div class="search_wrap">
@@ -34,4 +34,5 @@
 </section>
 {%script%}
     require("ldsn-pc:widget/aside/aside.js");
+    require('ldsn-pc:widget/login/login.js');
 {%/script%}

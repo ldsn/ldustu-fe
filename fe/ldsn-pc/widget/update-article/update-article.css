@@ -1,0 +1,73 @@
+.module-update {
+    width: 1000px;
+    height: 90%;
+    position: fixed;
+    background-color: #FFF;
+    top: 20px;
+    left: 110px;
+    overflow-y: scroll;
+    z-index:200;
+    display: none;
+}
+
+.module-update h3 {
+    font-size: 15px;
+    border-bottom: 2px solid #0078d7;
+    overflow: hidden;
+}
+
+.module-update h3 .box{
+    background: #0078d7;
+    padding: 8px 25px;
+    display: block;
+    float: left;
+    color: #fff;
+    font-weight: inherit;
+}
+.module-update header .title {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.module-update header .title input {
+    border: 0;
+    line-height: 30px;
+    display: block;
+    margin: 2px;
+    width: 90%;
+    text-indent: 5px;
+}
+.module-update .submit {
+    float: right;
+    display: block;
+    padding: 14px 20px;
+    background-color: #0078d7;
+    margin-right: 10px;
+    color: #FFF;
+    font-size: 14px;
+    margin: 12px;
+}
+.module-update .submit {
+    background-color: #0c8ef5;
+}
+.module-update .close {
+    display: block;
+    padding: 8px;
+    float: right;
+    cursor: pointer;
+}
+.module-update .info {
+    overflow: hidden;
+    margin: 10px;
+}
+
+.module-update .column {
+    float: left;
+    display: block;
+    height: 38px;
+    background: none;
+    width: 150px;
+    margin-right: 10px;
+}

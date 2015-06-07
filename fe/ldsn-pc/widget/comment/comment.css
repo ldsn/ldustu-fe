@@ -71,7 +71,9 @@
 .article-comment .comment-submit:hover {
     background-color: #0c8ef5;
 }
-
+.article-comment .comment-submit.disabled {
+  background-color: #838383;
+}
 .article-comment .load-more {
   display: none;
   line-height: 29px;

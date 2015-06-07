@@ -1,6 +1,6 @@
 <section class="LD_nav">
     <div class="nav_wrap">
-        <a class="logo" href="#" title="#"><img class="logo_img" src="/static/common/images/common/logo.png" alt="#" /></a>
+        <a class="logo" href="/"><img class="logo_img" src="/static/common/images/common/logo.png" alt="鲁大学生网" /></a>
         <ul class="nav_list">
             <li class="list {%if $column_id == 0%}cursor{%/if%}" node-type="nav_list" data-id="0">
                 <a class="category" href="/">首页</a>

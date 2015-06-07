@@ -239,3 +239,8 @@
     background: #FFF;
     color: #868686;
 }
+.module-list .article-image-box {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}

@@ -65,6 +65,17 @@ fis.config.merge({
                     //这个参数会跟随post请求一起发送
                     to: '/home/wwwroot/ldustu/server/Application/Pc/View/',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
+                },{
+                    //如果配置了receiver，fis会把文件逐个post到接收端上
+                    receiver: receiver,
+                    //从产出的结果的static目录下找文件
+                    from: '/static/common/ueditor/php',
+                    //上传目录从static下一级开始不包括static目录
+                    subOnly: true,
+                    //保存到远端机器的/home/fis/www/static目录下
+                    //这个参数会跟随post请求一起发送
+                    to: '/home/wwwroot/ldustu/server/ueditor',
+                    exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 }
             ]
         },

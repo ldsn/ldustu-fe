@@ -30,7 +30,7 @@
 	{%else%}
 		ldsn.column = '';
 	{%/if%}
-    {%if $json_user_info%}
+    {%if $json_user_info != 'null'%}
 		ldsn.user = $.parseJSON('{%$json_user_info%}');
 		ldsn.loginStatus = true;
 	{%else%}
@@ -53,7 +53,12 @@
 	{%/block%}
 	</section>
 	{%widget name="ldsn-pc:widget/toast/toast.tpl"%}
+	{%if ($level_status > 0)%}
+		{%widget name="ldsn-pc:widget/update-article/update-article.tpl"%}
+	{%/if%}
 </section>
 	{%widget name="ldsn-pc:widget/footer/footer.tpl"%}
-	{%require name="ldsn-pc:static/lib/js/list.js"%}
+	{%if $json_user_info == 'null'%}
+	<script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" charset="utf-8" data-appid="101199587" data-redirecturi="http://test.wap.ldustu.com/"></script>
+	{%/if%}
 {%/block%}

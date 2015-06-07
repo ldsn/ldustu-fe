@@ -26,10 +26,24 @@ var _pri = {
     },
     bindUI: function () {
         $(_pri.node.commentSubmit).on('click', function () {
+            if ($(this).hasClass('disabled')){
+                return;
+            }
+            $(this).addClass('disabled');
+
             var content = $(_pri.node.articleComment).find(_pri.node.contentTextarea).val();
-            _pri.util.submitComment(_pri.conf.articleId, content);
+            if (!content) {
+                toast('warning', '请填写内容！');
+                return;
+            }
+            _pri.util.submitComment(content);
         });
         $(_pri.node.loadMore).on('click', function () {
+             if ($(this).hasClass('disabled')){
+                return;
+            }
+            $(this).addClass('disabled');
+
             _pri.util.getMore();
             $(this).text('正在加载...')
         });
@@ -50,10 +64,12 @@ var _pri = {
                 type: 'post',
                 dataType: 'json',
                 success: function (data) {
+                    $(_pri.node.commentSubmit).removeClass('disabled');
                     if (data.status != 1) {
                         toast('error', errMessage['comment'][data.status]);
                         return;
                     }
+                    $(_pri.node.articleComment).find(_pri.node.contentTextarea).val('');
                     var commentData = {
                         comment_id: data.data,
                         content: content,
@@ -61,7 +77,6 @@ var _pri = {
                         time: ldev.timeFormat(new Date().getTime()),
                         username: ldsn.user.username
                     };
-                    console.log(commentData);
                     var html = ldev.tmpl(_pri.tmpl.commentTpl, commentData);
                     $(html).appendTo($(_pri.node.commentUl));
                 },
@@ -83,6 +98,7 @@ var _pri = {
                 dataType: 'json',
                 success: function (data) {
                     $(_pri.node.loadMore).text('加载更多');
+                    $(_pri.node.loadMore).removeClass('disabled');
                     if (data.status != 1) {
                         _pri.conf.currentPage --;
                         if (data.status == 0) {

@@ -16,7 +16,8 @@ var api = {
     addComment: path + '/comment/add',
     getArticle: path + '/article/show',
     getMoreComment: path + '/comment/get',
-    removeArticle: path + '/article/remove'
-};
+    removeArticle: path + '/article/remove',
+    updateArticle: path + '/article/update_article'
+}
 
 module.exports = api;

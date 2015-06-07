@@ -1,0 +1,25 @@
+.LD_article .head_article {
+    overflow: hidden;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.LD_article .head_article li {
+    float: left;
+    width: 315px;
+    text-indent: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.LD_article .head_article li a {
+	display: block;
+}
+.LD_article .content_box {
+	overflow: hidden;
+	width: 660px;
+	display: block;
+	margin-bottom: 20px;
+	background-color: #fff;
+}

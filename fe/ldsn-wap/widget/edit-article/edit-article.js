@@ -63,7 +63,7 @@ var _pri = {
             }
             var imgSrc = '';
             if(_pri.node.editBox.find("img").length > 0){
-                imgSrc = _pri.node.editBox.find("img").eq(0).attr('_src');
+                imgSrc = _pri.node.editBox.find("img").eq(0).attr('__src');
             }
 
             var data = {

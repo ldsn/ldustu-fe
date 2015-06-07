@@ -1,0 +1,72 @@
+.module-publish {
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+.module-publish h3 {
+    font-size: 15px;
+    border-bottom: 2px solid #0078d7;
+    overflow: hidden;
+}
+
+.module-publish h3 .box{
+    background: #0078d7;
+    padding: 8px 25px;
+    display: block;
+    float: left;
+    color: #fff;
+    font-weight: inherit;
+}
+.module-publish header .title {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.module-publish header .title input {
+    border: 0;
+    line-height: 30px;
+    display: block;
+    margin: 2px;
+    width: 90%;
+    text-indent: 5px;
+}
+.module-publish .submit {
+    float: right;
+    display: block;
+    padding: 14px 20px;
+    background-color: #0078d7;
+    margin-right: 10px;
+    color: #FFF;
+    font-size: 14px;
+    margin: 12px;
+}
+.module-publish .submit {
+    background-color: #0c8ef5;
+}
+.module-publish .close {
+    display: block;
+    padding: 8px;
+    float: right;
+    cursor: pointer;
+}
+.module-publish .info {
+    overflow: hidden;
+    margin: 10px;
+}
+
+.module-publish .column {
+    float: left;
+    display: block;
+    height: 38px;
+    background: none;
+    width: 150px;
+    margin-right: 10px;
+}
+.module-publish .image-upload {
+    display: none;
+}
+.edui-default .edui-editor-toolbarbox {
+    top: 0px !important;
+}

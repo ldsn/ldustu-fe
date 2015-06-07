@@ -38,7 +38,7 @@ var event = {
         var img = document.createElement('img');
         img.src = sourceLink;
         img.className = "article-wap-image";
-        $(img).attr('_src', res.key);
+        $(img).attr('__src', res.key);
         $('<div><br/></div>').appendTo('#editor');
         $(img).appendTo('#editor');
         $('<div><br/></div>').appendTo('#editor');

@@ -4,7 +4,11 @@
             {%foreach from=$articleList item=article_item%}
                 <li class="list" node-type="article-model" data-id="{%$article_item['article_id']%}">
                 <a href="/arc/{%$article_item['article_id']%}" target="_blank" class="l_link">
-                    <img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
+                    {%if ($article_item['thumbnail'])%}
+                        <img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
+                    {%else%}
+                        <img src="/static/common/images/no_pic.jpg" alt="{%$article_item['title']%}" class="l_img" />
+                    {%/if%}
                 </a>
                 <div class="r_wrap">
                     <h3 class="arc_title"><a href="/arc/{%$article_item['article_id']%}" target="_blank" class="arc_link">{%$article_item['title']%}</a></h3>
@@ -43,3 +47,6 @@
             {%/foreach%}
         </ul>
     </section>
+{%script%}
+require('ldsn-pc:widget/list/list.js');
+{%/script%}

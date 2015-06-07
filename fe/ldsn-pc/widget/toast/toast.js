@@ -41,11 +41,16 @@ var _pri = {
 								 .addClass(type);
 		},
 		renderToast: function (type, value, hasClose) {
+			if (type === 'close') {
+				_pri.util.setToastVisible(false);
+				return;
+			}
 			_pri.util.setToastType(type);
 			if (hasClose) {
 				$(_pri.node.remove).show();
 			} else {
 				$(_pri.node.remove).hide();
+				clearTimeout(_pri.conf.clearTime);
 				_pri.conf.clearTime = setTimeout(function () {
 					_pri.util.setToastVisible(false);
 				}, 3000);

@@ -58,6 +58,7 @@
         IMG_DOMAIN: 'http://ldsnv6.qiniudn.com/',
         IMG_400_20: '?imageView2/2/w/400/q/20',
         IMG_400_50: '?imageView2/2/w/400/q/20',
+        IMG__50: '?imageView2/2/q/50',
         IMG_100_50: '?imageView2/2/w/100/q/50'
     }
 
