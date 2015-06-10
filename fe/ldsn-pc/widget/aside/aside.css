@@ -65,3 +65,13 @@
 .LD_aside .login-register .login:hover, .login-register .register:hover {
     background-color: #0c8ef5;
 }
+
+.module-share {
+    position: fixed;
+    bottom: 0;
+    width: 320px;
+    padding-top: 20px;
+    background-color: #fff;
+    padding-left: 58px;
+    padding-bottom: 20px;
+}

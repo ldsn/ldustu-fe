@@ -34,7 +34,8 @@ var _pri = {
     },
     conf: {
         geting: false,
-        isLast: false
+        isLast: false,
+        currentCid: 0
     },
     //绑定元素事件
     bindUI: function () {
@@ -62,9 +63,26 @@ var _pri = {
             listMethod.toColumn(cid);
         });
         ldev.message.listen('to_column', function (cid) {
+            ldsn.currentPage = 'column';
             _pri.node.listMod.scrollTop(0);
             _pri.conf.isLast = false;
+            // ldev.hash('column', cid);
+            var id = ldev.hash('column');
+            if (id != cid) {
+                history.pushState(null, null, '#column=' + cid);
+            }
+            _pri.conf.currentCid = cid;
+            ldev.message.trigger('clear_frame');
             listMethod.toColumn(cid);
+        });
+        ldev.bindHash('column', function (cid) {
+            var id = ldev.hash('column');
+            var aid = ldev.hash('article');
+            if (aid || ldev.hash('page')) return;
+            if (!cid) cid = 0;
+            if (id != _pri.conf.currentCid || ldsn.currentPage != 'column') {
+                ldev.message.trigger('to_column', id);
+            }
         });
     },
     util: {
@@ -72,7 +90,7 @@ var _pri = {
             var item = $(this).closest(_pri.node.listItem);
             var desc = item.find(_pri.node.description).text();
             var title = item.find(_pri.node.title).text();
-            var pics = ldev.context.IMG_DOMAIN + item.find(_pri.node.pic).attr('_src');
+            var pics = ldev.context.IMG_DOMAIN + item.find(_pri.node.pic).attr('__src');
             var obj = {
                 url:location.href,
                 summary: desc,
@@ -188,8 +206,9 @@ var _pri = {
             _pri.conf.geting = false;
         },
         autoColumn: function () {
+            if(ldev.hash('article'))return;
             var cid = ldev.hash('column') || 0;
-            ldev.message.trigger('to_column',cid);
+            ldev.message.trigger('to_column', cid);
         }
     }
 }

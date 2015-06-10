@@ -9,7 +9,7 @@ var api = require('common:widget/api/api.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 var frame = require('ldsn-pc:widget/frame/frame.js');
 var toast = require('ldsn-pc:widget/toast/toast.js');
-var ue = UE.getEditor('updateArticle');
+require('ldsn-pc:widget/upload-image/upload-image.js');
 
 var _pri = {
     node: {
@@ -51,6 +51,7 @@ var _pri = {
             }
 
             var data = {
+                article_id: _pri.conf.aid,
                 column_id: columnId,
                 content: content,
                 title: title,

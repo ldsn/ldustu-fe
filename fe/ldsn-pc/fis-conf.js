@@ -2,8 +2,8 @@ var receiver = "http://www.ldustu.com/fis/";
 fis.config.merge({
 	namespace : 'ldsn-pc',
     pack : {
-        'static/pkg/aio.css' : 'widget/**.css',
-        'static/pkg/aio.js' : 'widget/nav/**.js'
+        'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
+        'pkg/widget.js' : /^\/widget\/.*\/(.*\.js)$/i
     },
     deploy: {
             //使用fis release --dest static来使用这个配置
@@ -28,7 +28,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/Config',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Config',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 },{
                     //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -39,7 +39,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/Plugins/',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Plugins/',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 },{
                     //如果配置了receiver，fis会把文件逐个post到接收端上

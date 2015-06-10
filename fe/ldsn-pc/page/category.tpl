@@ -5,6 +5,9 @@
 {%block name="head-content"%}
 {%require name="ldsn-pc:static/lib/css/common.css"%}
 {%require name="ldsn-pc:static/lib/css/list.css"%}
+{%if $level_status > 0%}
+<script src="/static/common/plupload/plupload.js"></script>
+{%/if%}
 {%/block%}
 {%block name="nav-module"%}
 {%widget name="ldsn-pc:widget/nav/nav.tpl"%}
@@ -14,6 +17,10 @@
 {%widget name="ldsn-pc:widget/top-ad/top-ad.tpl"%}
 {%widget name="ldsn-pc:widget/push-image/push-image.tpl"%}
 {%widget name="ldsn-pc:widget/list/list.tpl"%}
+
+{%if ($level_status > 0)%}
+	{%widget name="ldsn-pc:widget/update-article/update-article.tpl"%}
+{%/if%}
 </section>
 {%/block%}
 {%block name="aside-module"%}

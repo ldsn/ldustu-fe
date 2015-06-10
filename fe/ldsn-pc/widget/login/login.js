@@ -8,19 +8,26 @@
 var api = require('common:widget/api/api.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 var toast = require('ldsn-pc:widget/toast/toast.js');
+var frame = require('ldsn-pc:widget/frame/frame.js');
 
 var _pri = {
     node: {
-        loginBtn: '[node-type="login"]'
+        loginBtn: '[node-type="login"]',
+        register: '.module-register',
+
     },
     conf: {
-        isRender: false
+        isRender: false,
+        openId: null
     },
     bindUI: function () {
         $(_pri.node.loginBtn).on('click', function () {
             // _pri.util.alertLogin();
             QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com'})
         });
+        $('a[node-type="register-submit"]').on('click', function () {
+            _pri.util.registerSub();
+        })
     },
     util: {
         // alertLogin =function  () {
@@ -69,7 +76,8 @@ var _pri = {
                         // ldev.message.trigger('login_end');
                     } else if (data.status == -3) {
                         // panel.build(_pri.tmpl.regTpl);
-                        alert('请注册');
+                        toast('success', '棒棒哒！第一次登陆需要填写信息哦~')
+                        _pri.util.register();
                     }
                 },
                 error: function () {
@@ -77,6 +85,59 @@ var _pri = {
                 }
             });
         },
+        register: function () {
+            _pri.util.setRegisterVisible(true);
+        },
+        setRegisterVisible: function (flag) {
+            if (flag) {
+                $(_pri.node.register).show();
+            } else {
+                $(_pri.node.register).hide();
+            }
+            frame(flag);
+        },
+        registerSub: function () {
+
+            var username = $('#username').val().trim();
+            var password = $('#password').val();
+            if (username.length < 3) {
+                toast('warning', '用户名最少3位哦~');
+                return;
+            }
+            if (password.length < 6) {
+                toast('warning', '密码最少6位哦~');
+                return;
+            }
+            var data = {
+                username: username,
+                password: password,
+                repassword: password,
+                qq: $('#qq').val().trim(),
+                telphone: $('#telphone').val().trim(),
+                email: $('#email').val().trim(),
+                head_pic: $('#headPic').val().trim(),
+                openid: _pri.conf.openId
+            };
+
+
+            $.ajax({
+                url: api.register,
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function(d) {
+                    if (d.status !== 1){
+                        toast('error', errMessage.register[d.status]);
+                        return;
+                    }
+                    toast('success', '登陆成功！');
+                    location.reload();
+                },
+                error: function(err) {
+                    toast('error', '请求错误，请稍后再试。', true);
+                }
+            });
+        }
 
     }
 }
@@ -88,6 +149,6 @@ var init = function () {
     _pri.bindUI();
     _pri.util.checkToken();
 }
-init();
-
-// module.exports.alertLogin = alertLogin;
+$(document).ready(function () {
+    init();
+});

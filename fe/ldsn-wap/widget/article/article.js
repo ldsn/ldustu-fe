@@ -10,6 +10,8 @@ var tmpl = require('ldsn-wap:widget/article/article.tpl.js');
 var api = require('common:widget/api/api.js');
 var toast = require('ldsn-wap:widget/toast/toast.js');
 var errMessage = require('common:widget/error-message/error-message.js');
+var listMethod = require('ldsn-wap:widget/list/list-method.js');
+var header = require('ldsn-wap:widget/header/header.js');
 
     //私有方法
 var _pri = {
@@ -37,14 +39,27 @@ var _pri = {
 	},
     bindListener: function () {
         ldev.message.listen('to_article', function (id) {
-            _pri.util.toArticle(id);
-            ldev.hash('column', null);
-            ldev.hash('article', id);
+            ldev.message.trigger('close_edit');
+            // ldev.hash('article', id);
+            var aid = ldev.hash('article');
+            if (aid != id) {
+                history.pushState(null, null, '#article=' + id);
+            }
             _pri.conf.currentArticle = id;
             _pri.conf.currentPage = 0;
+            _pri.util.toArticle(id);
+            ldsn.currentPage = 'article';
+            header.setGoBack(true);
         });
         ldev.message.listen('clear_frame', function () {
             _pri.util.hide();
+        });
+            
+        ldev.bindHash('article', function (aid) {
+            if (!aid) return;
+            if (aid != _pri.conf.currentArticle || ldsn.currentPage != 'article') {
+                ldev.message.trigger('to_article', aid);
+            }
         });
     },
     util: {
@@ -140,6 +155,11 @@ var _pri = {
             });
         },
         toArticle: function (id) {
+            if (!id) {
+                var col = ldev.hash('column');
+                listMethod.toColumn(col);
+                return;
+            }
             _pri.util.empty();
             _pri.util.getArticle(id);
             _pri.util.show();
@@ -169,7 +189,7 @@ var _pri = {
         renderArticle: function (data) {
             var html = ldev.tmpl(_pri.tmpl.article, data);
             _pri.node.articleMod.html(html);
-            if (data.comment_list.length == data.comment_num) {
+            if (data.comment_list && (data.comment_list.length == data.comment_num)) {
                 _pri.node.articleMod.find(_pri.node.getMoreComment).hide();
                 return;
             }
@@ -189,7 +209,7 @@ var _pri = {
         autoArticle: function () {
             var aid = ldev.hash('article');
             if (aid) {
-                ldev.message.trigger('to_article', aid);
+                ldev.message.trigger('to_article', aid);  
             }
         },
         getMoreComment: function () {
@@ -246,7 +266,7 @@ var _pri = {
     tmpl: {
         article: tmpl.article.join(''),
         comment: tmpl.comment.join('')
-    },
+    }
 }
   
 var init = function () {

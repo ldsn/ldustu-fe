@@ -95,6 +95,7 @@ var _pri = {
          * @param  {number} cid 将要到达的板块id
          */
         toColumn: function (cid) {
+            cid = cid || 0;
             _pri.util.initList();
             _pri.conf.currentColumn = cid;
             _pri.util.getList();

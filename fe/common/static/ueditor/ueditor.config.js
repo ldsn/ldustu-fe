@@ -34,7 +34,7 @@
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         , toolbars: [[
-            'fullscreen', 'fontsize', 'bold', 'italic', 'underline', 'forecolor', 'backcolor', '|', 'blockquote', 'pagebreak', 'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright' ,'justifyjustify', '|', 'rowspacingtop', 'rowspacingbottom', 'lineheight', '|', 'insertorderedlist', 'insertunorderedlist', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|', 'upload'
+            'fullscreen', 'fontsize', 'bold', 'italic', 'underline', 'forecolor', 'backcolor', 'justifyleft', 'justifycenter', 'justifyright' ,'justifyjustify', 'blockquote', 'pagebreak', 'removeformat'
             // 'fullscreen', 'source', '|', 'undo', 'redo', '|',
             // 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
             // 'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
@@ -44,6 +44,9 @@
             // 'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
             // 'insertcode', 'pagebreak', '|',
             // 'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+        ],  [
+             '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|', 'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+            'insertorderedlist', 'insertunorderedlist'
         ]]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{

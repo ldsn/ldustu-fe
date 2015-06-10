@@ -18,6 +18,8 @@ ldev.message.create('to_article');
 ldev.message.create('to_column');
 ldev.message.create('share');
 ldev.message.create('open_share_panel');
+ldev.message.create('clean_hash');
+ldev.message.create('close_edit');
 
 
 //下面是公用message
@@ -27,4 +29,7 @@ ldev.message.listen('login_end', function () {
 });
 ldev.message.listen('logout_end', function () {
     ldsn.loginStatus = false;
+});
+ldev.message.listen('clean_hash', function () {
+	location.hash = '';
 });

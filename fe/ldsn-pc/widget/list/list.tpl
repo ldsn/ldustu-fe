@@ -6,15 +6,13 @@
                 <a href="/arc/{%$article_item['article_id']%}" target="_blank" class="l_link">
                     {%if ($article_item['thumbnail'])%}
                         <img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
-                    {%else%}
-                        <img src="/static/common/images/no_pic.jpg" alt="{%$article_item['title']%}" class="l_img" />
                     {%/if%}
                 </a>
                 <div class="r_wrap">
                     <h3 class="arc_title"><a href="/arc/{%$article_item['article_id']%}" target="_blank" class="arc_link">{%$article_item['title']%}</a></h3>
                     <div class="arc_info">
                         <div class="user_info">
-                            <a href="#">
+                            <a href="/home/{%$article_item['user_info']['user_id']%}">
                                 <img src="http://ldsnv6.qiniudn.com/{%$article_item['user_info']['head_pic']%}?imageView2/2/w/80/q/100" />
                                 <span class="user_name">
                                     {%$article_item['user_info']['username']%}
@@ -46,6 +44,9 @@
             </li>
             {%/foreach%}
         </ul>
+        
+        <a href="javascript:;" class="load-more" node-type="list-load-more" style="display: block;">获取更多文章</a>
+
     </section>
 {%script%}
 require('ldsn-pc:widget/list/list.js');

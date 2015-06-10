@@ -11,6 +11,7 @@
     var hash = require('common:widget/hash/hash.js');
     var message = require('common:widget/message/message.js');
     var errorMessage = require('common:widget/error-message/error-message.js');
+    var onhashchange = require('common:widget/hash/onhashchange.js');
     var timeFormat = function (param) {
         if (!param) {
             return;
@@ -59,16 +60,17 @@
         IMG_400_20: '?imageView2/2/w/400/q/20',
         IMG_400_50: '?imageView2/2/w/400/q/20',
         IMG__50: '?imageView2/2/q/50',
-        IMG_100_50: '?imageView2/2/w/100/q/50'
+        IMG_100_50: '?imageView2/2/w/100/q/50',
+        IMG_200_100: '?imageView2/2/w/200/q/100'
     }
 
     var ldev = {
         tmpl: tmpl,
         hash: hash,
         message: message,
-        errorMessage: errorMessage,
         timeFormat: timeFormat,
-        context: context
+        context: context,
+        bindHash: onhashchange
     };
 
     window.ldev = ldev;

@@ -4,10 +4,11 @@
     position: fixed;
     background-color: #FFF;
     top: 20px;
-    left: 110px;
+    left: 50%;
     overflow-y: scroll;
-    z-index:200;
+    z-index: 200;
     display: none;
+    margin-left: -500px;
 }
 
 .module-update h3 {
@@ -70,4 +71,8 @@
     background: none;
     width: 150px;
     margin-right: 10px;
+}
+
+.module-update .image-upload {
+    display: none;
 }

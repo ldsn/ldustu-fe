@@ -1,0 +1,80 @@
+.module-home h2 {
+    line-height: 37px;
+    font-size: 15px;
+    background-color: #0078d7;
+    float: left;
+    padding: 0 21px;
+    color: #fff;
+}
+.module-home .go-info {
+    float: right;
+    line-height: 32px;
+    background-color: #0078d7;
+    color: #fff;
+    padding: 0 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+.module-home .go-info:hover {
+    background-color: #0c8ef5;
+}
+
+.module-home .mypost {
+    display: block;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #fff;
+    clear: both;
+}
+
+.module-home .mypost li {
+    overflow: hidden;
+    line-height: 27px;
+}
+
+.module-home .mypost li a {
+    display: block;
+    overflow: hidden;
+}
+
+.module-home .mypost .post-time {
+    float: right;
+}
+
+.module-home .mypost li a:hover {
+    background-color: #E2F5FF;
+}
+.module-home .mycomment {
+    display: block;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #fff;
+    clear: both;
+}
+.h2-comment {
+    margin-top: 20px;
+}
+.module-home .mycomment li {
+    overflow: hidden;
+    line-height: 27px;
+}
+
+.module-home .mycomment li a {
+    display: block;
+    overflow: hidden;
+}
+
+.module-home .mycomment .post-time {
+    float: right;
+}
+
+.module-home .mycomment li a:hover {
+    background-color: #E2F5FF;
+}
+
+.module-home .mycomment li h4 {
+    font-size: 14px;
+}
+.module-home .mycomment .comment-content {
+    padding-left: 30px;
+}

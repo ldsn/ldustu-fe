@@ -2,29 +2,26 @@ var receiver = "http://www.ldustu.com/fis/";
 
 fis.config.merge({
     namespace : 'ldsn-wap',
-//     pack : {
-//         'pkg/ldsn-wap-all.js': [
-//             'static/lib/js/zepto.js',
-//             'static/message.js',
-//             'widget/article/*.js',
-//             'widget/comment/*.js',
-//             'widget/edit-article/*.js',
-//             'widget/header/*.js',
-//             'widget/list/list.js',
-//             'widget/list/list.tpl.js',
-//             'widget/menu/*.js',
-//             'widget/share/*.js',
-//             'widget/toast/*.js',
-//             'widget/panel/*.js',
-//             'widget/login/*.js'
-//         ],
-//         'pkg/fast-index.js': [
-//             'static/index/index.js',
-//             'widget/list/list-method.js'
-//         ],
-//         'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
-//         'pkg/static.css' : /^\/static\/.*\/(.*\.css)$/i
-//     },
+    pack : {
+        'pkg/ldsn-wap-all.js': [
+            'static/message.js',
+            'widget/article/*.js',
+            'widget/edit-article/*.js',
+            'widget/header/*.js',
+            'widget/list/*.js',
+            'widget/login/*.js',
+            'widget/menu/*.js',
+            'widget/panel/*.js',
+            'widget/share/*.js',
+            'widget/toast/*.js'
+        ],
+        'pkg/fast-index.js': [
+            'static/lib/js/zepto.js',
+            'static/lib/js/index.js'
+        ],
+        'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
+        'pkg/static.css' : /^\/static\/.*\/(.*\.css)$/i
+    },
     deploy: {
             //使用fis release --dest static来使用这个配置
             remote: [
@@ -48,7 +45,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/Config',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Config',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 },{
                     //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -59,7 +56,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/Plugins/',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Plugins/',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 },{
                     //如果配置了receiver，fis会把文件逐个post到接收端上

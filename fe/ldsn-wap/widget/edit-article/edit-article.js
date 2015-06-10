@@ -27,6 +27,7 @@ var _pri = {
     //绑定元素事件
     bindUI: function () {
         _pri.node.editReset.on("click",function(){
+            history.go(-1);
             _pri.util.hide();
         });
         _pri.node.editSubmit.on("click",function(){
@@ -37,14 +38,24 @@ var _pri = {
             _pri.util.articleRelease();
         });
         _pri.node.editClick.on("click",function () {
-            ldev.message.trigger('check_login','该操作需要登录哦~');
-            if(ldsn.loginStatus) _pri.util.editClick();
+            ldev.message.trigger('check_login','需要登陆才能发布文章哦~');
+            if(!ldsn.loginStatus) return;
+            _pri.util.editClick();
         });
     },
     bindListener: function () {
         ldev.message.listen('clear_frame', function (){
             _pri.util.hide();
         });
+        
+        ldev.message.listen('close_edit', function (){
+            _pri.util.hide();
+        });
+
+        // ldev.bindHash('page', function (v) {
+        //     if (v === 'edit') {
+        //     }
+        // })
     },
     util: {
         articleRelease:function(){
@@ -104,13 +115,15 @@ var _pri = {
             _pri.node.editModule.removeClass('show');
         },
         editClick:function(){
+            ldsn.currentPage = 'edit';
             if (_pri.node.editModule.hasClass('show')) {
+                history.go(-1);
                 _pri.util.hide();
             } else {
+                history.pushState(null,null,'#page=edit');
                 _pri.util.show();
                 require("ldsn-wap:widget/upload-image/upload-image.js");
             }
-                        //ldev.hash('page','editor');
         },
         initSelectColumn: function () {
             var html = '';
@@ -119,6 +132,12 @@ var _pri = {
             }
             _pri.node.selectColumn.html(html);
         }
+        // autoEdit: function () {
+        //     var hash = ldev.hash('page');
+        //     if (hash === 'edit') {
+        //         _pri.util.editClick();
+        //     }
+        // }
     }
 }
 
@@ -131,6 +150,7 @@ var init = function () {
     _pri.bindUI();
     _pri.bindListener();
     _pri.util.initSelectColumn();
+    // _pri.util.autoEdit();
 }
 
 init();

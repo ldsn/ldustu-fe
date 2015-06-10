@@ -1,0 +1,115 @@
+.module-register {
+    position: fixed;
+    left: 50%;
+    top: 120px;
+    background-color: #fff;
+    width: 700px;
+    margin-left: -350px;
+    z-index: 200;
+    display: none;
+}
+.module-register h2 {
+    line-height: 37px;
+    overflow: hidden;
+    border-bottom: 2px solid #0078D7;
+}
+.module-register h2 span{
+    float: left;
+    padding: 0 16px;
+    background-color: #0078D7;
+    font-size: 14px;
+    color: #fff;
+}
+
+.module-register .user-info {
+    height: 300px;
+    font-size: 16px;
+    padding: 20px;
+    line-height: 24px;
+}
+.module-register .user-info a {
+    color: #0078D7;
+}
+
+.module-register .set-item {
+    overflow: hidden;
+    
+    margin-bottom: 15px;
+}
+.module-register .set-info {
+    padding: 20px;
+    overflow: hidden;
+}
+
+.module-register .set-item span {
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-right: 12px;
+    display: block;
+    line-height: 27px;
+}
+
+.module-register .set-item .input-box {
+    overflow: hidden;
+    height: 27px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 50px;
+}
+
+.module-register .set-item .input-box .input {
+    border: 0;
+    padding: 0;
+    height: 27px;
+    width: 100%;
+    text-indent: 10px;
+}
+.module-register .set-head-pic {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.module-register .set-head-pic span {
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-right: 12px;
+    display: block;
+    line-height: 27px;
+}
+.module-register .set-head-pic .head-pic {
+    display: block;
+    width: 200px;
+}
+.module-register .set-head-pic .input-box {
+    float: left;
+}
+
+.module-register .set-head-pic .input-box .change-head-pic {
+    display: block;
+    padding: 0 20px;
+    background-color: #0078D7;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 13px;
+    float: right;
+    line-height: 35px;
+}
+.module-register .set-head-pic .input-box .change-head-pic:hover {
+    background-color: #0c8ef5;
+}
+
+.module-register .save {
+    display: block;
+    padding: 0 20px;
+    background-color: #0078D7;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 13px;
+    float: right;
+    line-height: 35px;
+}
+.module-register .save:hover {
+    background-color: #0c8ef5;
+}

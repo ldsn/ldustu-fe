@@ -1,4 +1,17 @@
-<article class="article_main">
+<article class="article_main" node-type="article-model">
+	{%if $level_status > 0%}
+		文章状态：
+			{%if $article['status'] == 0%}
+				未审核
+			{%/if%}
+
+			{%if $article['status'] == 1%}
+				正常
+			{%/if%}
+			{%if $article['status'] == -1%}
+				删除
+			{%/if%}
+	{%/if%}
 	<header>
 		<h1 class="title">{%$article['title']%}</h1>
 		<section class="info">
@@ -16,8 +29,14 @@
 					<i class="category icon"></i>
 					{%$article['column_name']%}
 				</a>
-				<a class="thumb_num" href="javascript:;">
-					<i class="thumbs up icon"></i><b>赞 ({%$article['favour_num']%})</b>
+				<a class="thumb_num" href="javascript:;" node-type="favour-article">
+					<i class="thumbs up icon"></i><b>
+							{%if ($article['favour_info'])%}
+                            已赞 ({%$article['favour_num']%})
+                            {%else if%}
+                            赞 ({%$article['favour_num']%})
+                            {%/if%}
+                        </b>
 				</a>
                 <a class="comment_num" href="#comment"><i class="edit icon"></i><b>评论 ({%$article['comment_num']%})</b>
                 </a>
@@ -29,6 +48,13 @@
 	<section class="arc_content">
 		{%$article['detail']['content']%}
 	</section>
+
+    {%if ($level_status > 0)%}
+    <div class="arc_manager">
+        <a href="javascript:;" class="modify" node-type="modify-article" data-id="{%$article_item['article_id']%}"><i class="edit icon"></i></a>
+        <a href="javascript:;" class="delete" node-type="delete-article" data-id="{%$article_item['article_id']%}"><i class="remove icon"></i></a>
+    </div>
+    {%/if%}
 </article>
 
 {%script%}

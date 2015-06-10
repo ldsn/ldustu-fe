@@ -1,5 +1,6 @@
 server/Application/Runtime/
 output/
+output.*.*
 .DS_Store
 .idea/
 wap.sh

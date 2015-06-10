@@ -1,4 +1,4 @@
-UE.registerUI('upload', function(editor, uiName) {
+UE.registerUI('上传图片', function(editor, uiName) {
     //注册按钮执行时的command命令，使用命令默认就会带有回退操作
     editor.registerCommand(uiName, {
         execCommand: function() {
@@ -31,4 +31,4 @@ UE.registerUI('upload', function(editor, uiName) {
     });
     //因为你是添加button,所以需要返回这个button
     return btn;
-});
+},[0]);

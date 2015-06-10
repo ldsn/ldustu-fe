@@ -61,4 +61,16 @@ var event = {
         }
     }
 };
-upload('upload-img', event);
+function checkPlupload () {
+    if (typeof window.plupload === 'object') {
+        upload('upload-img', event);
+    } else {
+        setTimeout(function () {
+            toast('tip', '正在加载上传图片插件，请稍后~');
+            checkPlupload();
+        }, 1000);
+    }
+}
+$(document).ready(function () {
+    checkPlupload();
+});

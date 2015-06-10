@@ -53,12 +53,10 @@
 	{%/block%}
 	</section>
 	{%widget name="ldsn-pc:widget/toast/toast.tpl"%}
-	{%if ($level_status > 0)%}
-		{%widget name="ldsn-pc:widget/update-article/update-article.tpl"%}
-	{%/if%}
 </section>
 	{%widget name="ldsn-pc:widget/footer/footer.tpl"%}
 	{%if $json_user_info == 'null'%}
-	<script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" charset="utf-8" data-appid="101199587" data-redirecturi="http://test.wap.ldustu.com/"></script>
+	{%widget name="ldsn-pc:widget/login/login.tpl"%}
+	<script src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" type="text/javascript" charset="utf-8" data-appid="101199587" data-redirecturi="http://www.ldustu.com/"></script>
 	{%/if%}
 {%/block%}

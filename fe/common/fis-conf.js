@@ -3,18 +3,14 @@ var receiver = "http://www.ldustu.com/fis/";
 fis.config.merge({
 	namespace : 'common',
     pack : {
-    	'pkg/common-async.js': [
-    		'widget/upload/qiniu.js',
-    		'widget/upload/upload.js'
-    	],
+    	// 'pkg/common-async.js': [
+    	// 	'widget/upload/qiniu.js',
+    	// 	'widget/upload/upload.js'
+    	// ],
         'pkg/widget.css' : /^\/widget\/.*\/(.*\.css)$/i,
-        'pkg/static.css' : /^\/static\/.*\/(.*\.css)$/i,
-        'pkg/common-static.js': [
-        	'widget/error-message/error-message.js',
-        	'widget/hash/hash.js',
-        	'widget/message/message.js',
-        	'widget/temp/baidu.template.js',
-        	'static/ldev.js',
+        'pkg/widget.js' : [
+            /^\/widget\/.*\/(.*\.js)$/i,
+            'static/ldev.js',
         ]
     },
 	
@@ -41,7 +37,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/Config',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Config',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 },{
                     //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -52,7 +48,7 @@ fis.config.merge({
                     subOnly: true,
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/Application/Pc/Plugins/',
+                    to: '/home/wwwroot/ldustu/server/Application/Pc/View/Plugins/',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 },{
                     //如果配置了receiver，fis会把文件逐个post到接收端上
@@ -64,17 +60,6 @@ fis.config.merge({
                     //保存到远端机器的/home/fis/www/static目录下
                     //这个参数会跟随post请求一起发送
                     to: '/home/wwwroot/ldustu/server/Application/Pc/View/',
-                    exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
-                },{
-                    //如果配置了receiver，fis会把文件逐个post到接收端上
-                    receiver: receiver,
-                    //从产出的结果的static目录下找文件
-                    from: '/static/common/ueditor/php',
-                    //上传目录从static下一级开始不包括static目录
-                    subOnly: true,
-                    //保存到远端机器的/home/fis/www/static目录下
-                    //这个参数会跟随post请求一起发送
-                    to: '/home/wwwroot/ldustu/server/ueditor',
                     exclude: /.*\.(?:svn|cvs|tar|rar|psd).*/
                 }
             ]

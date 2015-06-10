@@ -10,7 +10,8 @@
     z-index: 99999;
 }
 .module-share.show {
-    height: 230px;
+    height: 180px;
+    padding: 20px;
 }
 
 .module-share .share-icon {

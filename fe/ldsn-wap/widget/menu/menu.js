@@ -14,7 +14,7 @@ var _pri = {
     node: {
     	mod: $('menu[node-type="ldsn-menu"]'),
     	menuList: $('section[node-type="menu-list"]'),
-    	menuClick: $("click[node-type='menu-click']"),
+    	menuClick: "click[node-type='menu-click']",
         rightClick: $("click[node-type='right-click']"),
     	ldsnBox: $('section[node-type="ldsn-box"]'),
         ldsnMenu: $('section[node-type="module-menu"]'),
@@ -23,14 +23,14 @@ var _pri = {
         userInfo: 'header[node-type="user-info"]',
         logout: 'click[node-type="logout"]',
         loginBtn: 'click[node-type="login-btn"]',
-
+        header: $('[node-type="module-header"]')
     },
     tmpl: {
         userInfo: userInfoTpl.join('')
     },
     //绑定元素事件
     bindUI: function () {
-    	_pri.node.menuClick.on("click",_pri.util.leftSlide);//菜单点击事件
+    	_pri.node.header.delegate(_pri.node.menuClick, 'click', _pri.util.leftSlide);//菜单点击事件
     	_pri.node.ldsnMainFrame.on("click", function () {
             if (_pri.node.ldsnBox.hasClass('active')){
                 _pri.util.clearLeftSlide();
@@ -45,7 +45,6 @@ var _pri = {
         _pri.node.menuList.delegate('click', 'click', function () {
             var cid = $(this).attr('cid');
             ldev.message.trigger('to_column',cid);
-            ldev.hash('article', null);
             ldev.message.trigger('clear_frame');
             _pri.util.clearLeftSlide();
         });

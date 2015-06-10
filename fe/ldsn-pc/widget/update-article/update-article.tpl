@@ -14,6 +14,7 @@
             </select>
             <div class="title">
                 <input type="text" name="title" id="updateTitle" placeholder="文章标题" id="updateTitle"/>
+        <button id="upload-img" class="image-upload"></button>
             </div>
         </div>
     </header>
@@ -29,6 +30,10 @@
 <script src="/static/common/ueditor/ueditor.config.js"></script>
 <script src="/static/common/ueditor/ueditor.all.js"></script>
 <script src="/static/common/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script src="/static/common/ueditor/uploadBtn.js"></script>
+<script>
+    window.ue = UE.getEditor('updateArticle');
+</script>
 {%script%}
     require('ldsn-pc:widget/update-article/update-article.js');
 {%/script%}

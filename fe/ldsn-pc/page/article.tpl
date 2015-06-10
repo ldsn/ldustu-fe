@@ -5,11 +5,15 @@
 {%block name="head-content"%}
 {%require name="ldsn-pc:static/lib/css/common.css"%}
 {%require name="ldsn-pc:static/lib/css/list.css"%}
+{%if $level_status > 0%}
+<script src="/static/common/plupload/plupload.js"></script>
+{%/if%}
 <meta name="description" content="{%$article['description']%}" />
 {%script%}
-	window.article = {};
-	article.commentNum = {%$article['comment_num']%}
-	article.id = {%$article['article_id']%}
+    window.article = {};
+    article.commentNum = {%$article['comment_num']%}
+    article.favourNum = {%$article['favour_num']%}
+    article.id = {%$article['article_id']%}
 {%/script%}
 {%/block%}
 {%block name="nav-module"%}
@@ -18,8 +22,20 @@
 {%block name="article-module"%}
 <section class="LD_article">
 {%widget name="ldsn-pc:widget/top-ad/top-ad.tpl"%}
-{%widget name="ldsn-pc:widget/article/article.tpl"%}
-{%widget name="ldsn-pc:widget/comment/comment.tpl"%}
+
+{%if $article['status'] == 1%}
+    {%widget name="ldsn-pc:widget/article/article.tpl"%}
+    {%widget name="ldsn-pc:widget/comment/comment.tpl"%}
+{%else if $article['status'] !=1  && $level_status > 0%}
+    {%widget name="ldsn-pc:widget/article/article.tpl"%}
+    {%widget name="ldsn-pc:widget/comment/comment.tpl"%}
+{%else%}
+    {%widget name="ldsn-pc:widget/404/404.tpl"%}
+{%/if%}
+
+{%if ($level_status > 0)%}
+    {%widget name="ldsn-pc:widget/update-article/update-article.tpl"%}
+{%/if%}
 </section>
 {%/block%}
 {%block name="aside-module"%}

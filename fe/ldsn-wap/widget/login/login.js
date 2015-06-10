@@ -34,7 +34,7 @@ var _pri = {
         });
         _pri.node.panel.delegate('click[node-type="register-submit"]', 'click', function () {
             _pri.util.checkRegisterInfo();
-        })
+        });
 
     },
     bindListener: function () {
@@ -127,7 +127,7 @@ var _pri = {
                     script.type = "text/javascript";
                     script.charset = 'utf-8';
                     $(script).attr('data-appid', '101199587');
-                    $(script).attr('data-redirecturi', 'http://test.wap.ldustu.com/');
+                    $(script).attr('data-redirecturi', 'http://www.ldustu.com/');
                     $(script).appendTo('body');
                 }
             },400);

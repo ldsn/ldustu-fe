@@ -1,0 +1,18 @@
+.module-404 {
+	position: relative;
+	background: #FFF;
+	padding: 40px;
+}
+.module-404 img {
+	margin: 0 auto;
+	display: block;
+	width: 426px;
+}
+.module-404 .go-home {
+	position: absolute;
+	right: 236px;
+	top: 409px;
+	color: #94bef8;
+	font-size: 14px;
+	display: block;
+}
