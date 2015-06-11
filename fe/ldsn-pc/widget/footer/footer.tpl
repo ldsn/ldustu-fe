@@ -1,4 +1,4 @@
-<footer class="LD_wrap LD_footer">
+<footer class="LD_footer">
     <div class="flink">
         <h3>
             友情链接：

@@ -1,5 +1,6 @@
 rm -rf ./output
-fisp release -cupd ./output -r ldsn-pc
+rm -rf ./output.tar.gz
+fisp release -coupd ./output -r ldsn-pc
 fisp release -coupd ./output -r ldsn-wap
 fisp release -coupd ./output -r common
 tar zcvf output.tar.gz output

@@ -19,7 +19,7 @@
                                 </span>
                             </a>
                         </div>
-                        <span class="up_time"><i class="refresh icon"></i>{%$article_item['create_time_string']%}</span>
+                        <span class="up_time"><i class="refresh icon"></i>{%$article_item['create_time_string']|escape:none%}</span>
                         <a class="up_from" href="/category/{%$article_item['column_id']%}"><i class="category icon"></i><b>{%$article_item['column_name']%}</b></a>
                     </div>
                     <p class="arc_description">{%$article_item['description']%}</p>

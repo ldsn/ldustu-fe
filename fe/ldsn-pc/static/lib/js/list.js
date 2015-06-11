@@ -5,6 +5,7 @@
  * @version 1.0.0
 */
 var api = require('common:widget/api/api.js');
+var toast = require('ldsn-pc:widget/toast/toast.js');
 if (window.ldsn && window.ldsn.user && window.ldsn.user.level_status) {
     var updateArticle = require('ldsn-pc:widget/update-article/update-article.js');
 }
@@ -37,7 +38,7 @@ $(document).ready(function(){
             
             $(_pri.node.articleFavour).on('click', function () {
                 if (!ldsn.loginStatus) {
-                    login.alertLogin();
+                    toast('warning', '登陆后才能点赞哦~');
                     return;
                 }
                 if ($(this).find('.icon').hasClass('disabled')) {

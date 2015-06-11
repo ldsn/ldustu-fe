@@ -15,7 +15,7 @@ var api = {
     favour: path + '/public/favour',
     addComment: path + '/comment/add',
     getArticle: path + '/article/show',
-    getMoreComment: path + '/comment/get',
+    getMoreComment: path + '/comment/getComments',
     removeArticle: path + '/article/remove',
     updateArticle: path + '/article/update_article',
     updateInfo: path + '/user/up_info'

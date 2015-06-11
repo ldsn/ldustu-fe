@@ -58,12 +58,13 @@ var _pri = {
         qqLogin: function () {
 
             if (ldsn.loginStatus) return;
-            var checkReady = setInterval(function () {
-                if (window.QC) {
-                    clearInterval(checkReady);
-                    QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com'})
-                }
-            },400);
+            // var checkReady = setInterval(function () {
+            //     if (window.QC) {
+            //         clearInterval(checkReady);
+            //         QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com'})
+            //     }
+            // },400);
+            location.href="http://xui.ptlogin2.qq.com/cgi-bin/xlogin?appid=716027609&pt_3rd_aid=101199587&style=35&s_url=http%3A%2F%2Fconnect.qq.com&refer_cgi=authorize&which=&auth_time=1433957520152&client_id=101199587&src=1&state=&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fwww.ldustu.com";
 
         },
         bindQq: function () {
@@ -133,7 +134,7 @@ var _pri = {
             },400);
         },
         alertLogin: function () {
-            _pri.util.asyncAddQqLogin();
+            // _pri.util.asyncAddQqLogin();
             _pri.util.loginBox(true);
         },
         checkRegisterInfo: function () {

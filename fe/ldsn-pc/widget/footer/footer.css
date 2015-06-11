@@ -1,27 +1,28 @@
-.LD_wrap.LD_footer {
+.LD_footer {
     background: #fff;
     height: 100px;
     font-size:12px;
     text-align:center;
+    overflow: hidden;
 }
-.LD_wrap.LD_footer a{
+.LD_footer a{
     font-size:12px;
     margin-left:5px;
 }
-.LD_wrap.LD_footer a:hover{
+.LD_footer a:hover{
     font-size:12px;
 }
-.LD_wrap.LD_footer h3{
+.LD_footer h3{
     display: inline;
     font-size:12px;
     font-weight:100;
 }
-.LD_wrap.LD_footer .flink {
+.LD_footer .flink {
     margin: 29px auto;
     overflow: hidden;
     margin-bottom: 17px;
 }
-.LD_wrap.LD_footer .copyright {
+.LD_footer .copyright {
     margin: 0 auto;
     padding-top: 9px;
     border-top: 1px dotted #cbcccd;

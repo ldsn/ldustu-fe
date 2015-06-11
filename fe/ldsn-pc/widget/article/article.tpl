@@ -23,7 +23,7 @@
 					</span>
 				</a>
 				<span class="create_time">
-					{%$article['create_time_string']%}
+					{%$article['create_time_string']|escape:none%}
 				</span>
 				<a class="column" href="/category/{%$article['column_id']%}">
 					<i class="category icon"></i>
@@ -46,7 +46,7 @@
 		</section>
 	</header>
 	<section class="arc_content">
-		{%$article['detail']['content']%}
+		{%$article['detail']['content']|escape:none%}
 	</section>
 
     {%if ($level_status > 0)%}

@@ -50,7 +50,8 @@ var _pri = {
         
         $(_pri.node.articleList).delegate(_pri.node.articleFavour, 'click', function () {
             if (!ldsn.loginStatus) {
-                login.alertLogin();
+                // login.alertLogin();
+                toast('warning', '请登录后点赞！');
                 return;
             }
             if ($(this).find('.icon').hasClass('disabled')) {

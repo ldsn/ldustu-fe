@@ -117,6 +117,7 @@ var _pri = {
                     _pri.util.renderList(data.data);
                 },
                 error: function () {
+                    $(_pri.node.loadMore).removeClass('disabled');
                         _pri.conf.currentPage --;
                         toast('error', '获取评论遇到错误，请稍后重试！');
                 }

@@ -18,7 +18,7 @@
 
     {%foreach from=$ad_aside item=ad_item%}
     <div class="aside_ad">
-        {%$ad_item['ad_content']%}
+        {%$ad_item['ad_content']|escape:none%}
     </div>
     {%/foreach%}
     <div class="hot_arc">

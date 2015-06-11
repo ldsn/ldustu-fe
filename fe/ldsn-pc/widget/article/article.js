@@ -43,7 +43,7 @@ var _pri = {
         
         $(_pri.node.articleFavour).on('click', function () {
             if (!ldsn.loginStatus) {
-                login.alertLogin();
+                toast('warning', '登陆后才能点赞哦~');
                 return;
             }
             if ($(this).find('.icon').hasClass('disabled')) {

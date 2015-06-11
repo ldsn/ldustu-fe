@@ -23,7 +23,8 @@ var _pri = {
     bindUI: function () {
         $(_pri.node.loginBtn).on('click', function () {
             // _pri.util.alertLogin();
-            QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com'})
+            // QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com'})
+            location.href="http://openapi.qzone.qq.com/oauth/show?which=ConfirmPage&display=pc&client_id=101199587&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fwww.ldustu.com";
         });
         $('a[node-type="register-submit"]').on('click', function () {
             _pri.util.registerSub();
@@ -42,7 +43,6 @@ var _pri = {
             }
         },
         bindQq: function () {
-            console.log(ldsn);
             if (ldsn.loginStatus) return;
             var checkReady = setInterval(function () {
                 if (window.QC) {

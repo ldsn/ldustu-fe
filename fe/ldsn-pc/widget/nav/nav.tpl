@@ -13,6 +13,3 @@
         </ul>
     </div>
 </section>
-{%script%}
-    require("ldsn-pc:widget/nav/nav.js");
-{%/script%}
