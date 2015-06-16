@@ -10,7 +10,9 @@
 {%script%}
 
     window.ldsn = {};
-
+    ldsn.util = {};
+    ldsn.util.goNext = 1;
+    ldsn.util.goBack = 0;
     {%if isset($column)%}
         ldsn.column = $.parseJSON('{%$column%}');
     {%else%}

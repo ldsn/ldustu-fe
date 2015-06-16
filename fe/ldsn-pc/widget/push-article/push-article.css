@@ -8,18 +8,31 @@
 .LD_article .head_article li {
     float: left;
     width: 315px;
-    text-indent: 20px;
-    overflow: hidden;
-    white-space: nowrap;
+    text-indent: 10px;
     text-overflow: ellipsis;
 }
 .LD_article .head_article li a {
-	display: block;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .LD_article .content_box {
-	overflow: hidden;
-	width: 660px;
-	display: block;
-	margin-bottom: 20px;
-	background-color: #fff;
+    overflow: hidden;
+    width: 660px;
+    display: block;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.LD_article .head_article li:before {
+  content: ' ';
+  float: left;
+  font-size: 12px;
+  width: 5px;
+  height: 5px;
+  overflow: hidden;
+  background-color: #b0b0b0;
+  margin-top: 9px;
+  border-radius: 5px;
 }

@@ -100,7 +100,7 @@ var _pri = {
 
             var username = $('#username').val().trim();
             var password = $('#password').val();
-            if (username.length < 3) {
+            if (username.length < 2) {
                 toast('warning', '用户名最少3位哦~');
                 return;
             }

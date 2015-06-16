@@ -5,7 +5,7 @@
  * @version 1.0.0
 */
 var api = require('common:widget/api/api.js');
-if (window.ldsn && window.ldsn.user && window.ldsn.user.level_status) {
+if (window.ldsn && window.ldsn.user && window.ldsn.user.level_status > 0) {
     var updateArticle = require('ldsn-pc:widget/update-article/update-article.js');
 }
 var errMessage = require('common:widget/error-message/error-message.js');

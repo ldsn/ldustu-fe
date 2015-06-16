@@ -20,7 +20,7 @@ var _pri = {
             if (history.length === 1) {
                 location.href="/#column=0";
             } else {
-                history.go(-1);
+                ldev.message.trigger('go_back');
             }
             _pub.setGoBack(false);
         });

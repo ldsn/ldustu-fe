@@ -45,6 +45,7 @@
     margin: 20px 0;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
+    position: relative;
 }
 
 .article-comment .edit-comment {
@@ -93,4 +94,9 @@
   box-shadow: 0 1px 0 #fff inset,0 1px 0 rgba(0,0,0,.1);
   border-radius: 4px;
   margin-bottom: 20px;
+}
+.article-comment .remove-comment {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

@@ -41,11 +41,12 @@
                     <a href="javascript:;" class="change-head-pic" id="changeHead">更换头像</a>
                 </div>
             </div>
-            <a href="javascript:;" class="save" data-type="info-update-save">保存</a>
+            <a href="javascript:;" class="save" node-type="info-update-save">保存</a>
         </div>
+        <a href="javascript:;" class="logout" node-type="logout">退出账号</a>
     {%else if%}
         <h2>
-            <span>{%$home_info['username']%}信息
+            <span>{%$home_info['username']%} 的信息
             </span>
         </h2>
         <div class="user-info">
@@ -56,5 +57,8 @@
 </section>
 
 {%script%}
+    {%if isset($is_me)%}
+    ldsn.isMe = {%$is_me%};
+    {%/if%}
     require('ldsn-pc:widget/info/info.js');
 {%/script%}

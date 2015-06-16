@@ -6,3 +6,6 @@ body{background:#f8f8f8;font-family: "微软雅黑", "Microsoft Yahei";font-size
 .LD_article{width:660px;float:left;overflow: hidden;}
 a{color:#666}
 a:hover{color:#0078d7}
+.section_bg {
+	background-image: url('/static/ldsn-pc/images/section_bg.png');
+}

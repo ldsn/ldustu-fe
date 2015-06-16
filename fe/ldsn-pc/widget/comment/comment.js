@@ -16,7 +16,8 @@ var _pri = {
         commentUl: '.comment-ul',
         contentTextarea: '.comment-textarea',
         commentSubmit: 'a[node-type="article-comment-submit"]',
-        loadMore: 'a[node-type="comment-load-more"]'
+        loadMore: 'a[node-type="comment-load-more"]',
+        removeComment: 'a[node-type="remove-comment"]'
     },
     conf: {
         currentPage: 0,
@@ -47,7 +48,16 @@ var _pri = {
             _pri.util.getMore();
             $(this).text('正在加载...')
         });
+        $(_pri.node.articleComment).delegate(_pri.node.removeComment, 'click', function () {
+            if ($(this).hasClass('disabled')){
+                return;
+            }
+            $(this).addClass('disabled');
 
+            var cid = $(this).attr('data-id');
+            _pri.util.removeComment(cid);
+
+        })
     },
     tmpl: {
         commentTpl: commentTpl.join('')
@@ -66,7 +76,7 @@ var _pri = {
                 success: function (data) {
                     $(_pri.node.commentSubmit).removeClass('disabled');
                     if (data.status != 1) {
-                        toast('error', errMessage['comment'][data.status]);
+                        toast('error', errMessage['removeComment'][data.status]);
                         return;
                     }
                     $(_pri.node.articleComment).find(_pri.node.contentTextarea).val('');
@@ -150,6 +160,28 @@ var _pri = {
             } else {
                 _pri.util.setGetMore(true);
             }
+        },
+        removeComment: function (cid) {
+            var data = {
+                com_id: cid,
+            };
+            $.ajax({
+                url: api.removeComment,
+                data: data,
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    $(_pri.node.removeComment + '[data-id="' + cid + '"]').remove();
+                    if (data.status != 1) {
+                        toast('error', errMessage['comment'][data.status]);
+                        return;
+                    }
+                },
+                error: function  () {
+                    $(_pri.node.removeComment + '[data-id="' + cid + '"]').closest('li').removeClass('disabled');
+                    toast('error', '发表评论遇到错误，请稍后重试！');
+                }
+            });
         }
     }
 }

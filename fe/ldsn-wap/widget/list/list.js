@@ -63,6 +63,7 @@ var _pri = {
             listMethod.toColumn(cid);
         });
         ldev.message.listen('to_column', function (cid) {
+            ldsn.util.goNext = 1;
             ldsn.currentPage = 'column';
             _pri.node.listMod.scrollTop(0);
             _pri.conf.isLast = false;
@@ -76,12 +77,30 @@ var _pri = {
             listMethod.toColumn(cid);
         });
         ldev.bindHash('column', function (cid) {
+            if (ldsn.util.goNext === 1) {
+                ldsn.util.goNext = 0;
+                return;
+            }
+            if (ldsn.util.goBack === 1) {
+                ldsn.util.goBack = 0
+                return;
+            }
             var id = ldev.hash('column');
             var aid = ldev.hash('article');
-            if (aid || ldev.hash('page')) return;
+            if (aid || ldev.hash('page')) {
+                ldsn.util.goNext = 0;
+                ldsn.util.goBack = 0
+                return;
+            }
             if (!cid) cid = 0;
-            if (id != _pri.conf.currentCid || ldsn.currentPage != 'column') {
+            if (id != _pri.conf.currentCid) {
+                ldsn.util.goNext = 0;
+                ldsn.util.goBack = 0;
                 ldev.message.trigger('to_column', id);
+            } else if (id == _pri.conf.currentCid) {
+                ldsn.util.goNext = 0;
+                ldsn.util.goBack = 0;
+                ldev.message.trigger('clear_frame');
             }
         });
     },
@@ -206,7 +225,8 @@ var _pri = {
             _pri.conf.geting = false;
         },
         autoColumn: function () {
-            if(ldev.hash('article'))return;
+            // 解决登陆后和文章自动跳转问题
+            if(ldev.hash('article') || ldev.hash('access_token'))return;
             var cid = ldev.hash('column') || 0;
             ldev.message.trigger('to_column', cid);
         }

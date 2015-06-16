@@ -1,5 +1,5 @@
     <section class="today_update">
-        <h2 class="today_tit"><span class="txt">最新文章</span></h2>
+        <h2 class="today_tit"><span class="txt section_bg">最新文章</span></h2>
         <ul class="article_list" node-type="article-list">
             {%foreach from=$articleList item=article_item%}
                 <li class="list" node-type="article-model" data-id="{%$article_item['article_id']%}">
@@ -32,7 +32,7 @@
                             赞 ({%$article_item['favour_num']%})
                             {%/if%}
                         </b></span>
-                        <a class="comment_num" href="/arc/{%$article_item['article_id']%}" target="_blank"><i class="edit icon"></i><b>评论 ({%$article_item['comment_num']%})</b></a>
+                        <a class="comment_num" href="/arc/{%$article_item['article_id']%}#comment" target="_blank"><i class="edit icon"></i><b>评论 ({%$article_item['comment_num']%})</b></a>
                     </div>
                 </div>
                 {%if ($level_status > 0)%}

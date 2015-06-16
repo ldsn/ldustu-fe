@@ -9,22 +9,28 @@
 var api = require('common:widget/api/api.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 var toast = require('ldsn-pc:widget/toast/toast.js');
-var upload = require('common:widget/upload/upload.js');
+if (ldsn && ldsn.isMe) {
+    var upload = require('common:widget/upload/upload.js');
+}
 
 var _pri = {
     node: {
-        updateBtn: 'a[data-type="info-update-save"]'
+        updateBtn: 'a[node-type="info-update-save"]',
+        logout: 'a[node-type="logout"]'
     },
     bindUI: function () {
         $(_pri.node.updateBtn).on('click', function () {
             _pri.util.updateInfo();
+        });
+        $(_pri.node.logout).on('click', function () {
+            _pri.util.logout();
         });
     },
     util: {
         updateInfo: function () {
             var username = $('#username').val().trim();
             var password = $('#password').val();
-            if (username.length < 3) {
+            if (username.length < 2) {
                 toast('warning', '用户名最少3位哦~');
                 return;
             }
@@ -54,6 +60,11 @@ var _pri = {
                 error: function () {
                     toast('error', '更新失败,请稍后重试！');
                 }
+            });
+        },
+        logout: function () {
+            $.get(api.logout, function () {
+                location.reload();
             });
         }
     }
@@ -112,7 +123,9 @@ var initUpload = function () {
             }
         }
     };
-    upload('changeHead', event);
+    if (ldsn && ldsn.isMe) {
+        upload('changeHead', event);
+    }
 }
 
 $(document).ready(function () {

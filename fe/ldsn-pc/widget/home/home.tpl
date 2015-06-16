@@ -4,13 +4,21 @@
 	{%else if%}
 		<a href="/info/{%$home_info['user_id']%}" class="go-info">查看Ta的资料</a>
 	{%/if%}
-	<h2>我发表的</h2>
+	{%if $is_me%}
+	<h2 class="section_bg section_bg">我发表的</h2>
+	{%else%}
+	<h2 class="section_bg section_bg">Ta发表的</h2>
+	{%/if%}
 	<ul class="mypost">
 		{%foreach from=$articleList item=article%}
 			<li><a href="/arc/{%$article['article_id']%}" target="_blank">{%$article['title']%}<span class="post-time">{%$article['create_time_string']|escape:none%}</span></a></li>
 		{%/foreach%}
 	</ul>
-	<h2 class="h2-comment">我的回复</h2>
+	{%if $is_me%}
+	<h2 class="h2-comment section_bg">我的回复</h2>
+	{%else%}
+	<h2 class="h2-comment section_bg">Ta的回复</h2>
+	{%/if%}
 	<ul class="mycomment">
 		{%foreach from=$comment item=comment_item%}
 			<li><a href="/arc/{%$comment_item['article_id']%}" target="_blank">

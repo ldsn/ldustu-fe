@@ -64,7 +64,7 @@ var _pri = {
             //         QC.Login.showPopup({appId:"101199587", redirectURI: 'http://www.ldustu.com'})
             //     }
             // },400);
-            location.href="http://xui.ptlogin2.qq.com/cgi-bin/xlogin?appid=716027609&pt_3rd_aid=101199587&style=35&s_url=http%3A%2F%2Fconnect.qq.com&refer_cgi=authorize&which=&auth_time=1433957520152&client_id=101199587&src=1&state=&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fwww.ldustu.com";
+            location.href="http://openapi.qzone.qq.com/oauth/show?which=ConfirmPage&display=pc&client_id=101199587&response_type=token&scope=all&redirect_uri=http%3A%2F%2Fwww.ldustu.com";
 
         },
         bindQq: function () {

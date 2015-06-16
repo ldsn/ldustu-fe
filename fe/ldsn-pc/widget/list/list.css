@@ -22,7 +22,7 @@
 
 .LD_article .today_update{overflow: hidden;*zoom:1;background:#fff;}
 .LD_article .today_update .today_tit{border-bottom:2px solid #0078d7;}
-.LD_article .today_update .today_tit .txt{background: #0078d7;width:130px;height:35px;line-height: 35px;display: block;font-size: 18px;color:#fff;text-align:center;}
+.LD_article .today_update .today_tit .txt{width:130px;height:35px;line-height: 35px;display: block;font-size: 18px;color:#fff;text-align:center;}
 .LD_article .article_list .list{width:100%;padding:18px 10px;overflow: hidden;*zoom:1;border-bottom: 2px solid #f8f8f8;position: relative; transition: height .7s linear; -webkit-transition: height .7s linear;}
 .LD_article .article_list .list .l_img{width:180px;}
 .LD_article .article_list .list .l_link{float: left;display: block;overflow: hidden;height: 144px;}

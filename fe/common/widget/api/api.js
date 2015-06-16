@@ -14,11 +14,13 @@ var api = {
     publishArc: path + '/article/publish',
     favour: path + '/public/favour',
     addComment: path + '/comment/add',
-    getArticle: path + '/article/show',
+    getArticle: path + '/article/showArticle',
     getMoreComment: path + '/comment/getComments',
     removeArticle: path + '/article/remove',
     updateArticle: path + '/article/update_article',
-    updateInfo: path + '/user/up_info'
+    updateInfo: path + '/user/up_info',
+    removeComment: path + '/comment/del',
+    logout: path + '/login/logout'
 }
 
 module.exports = api;

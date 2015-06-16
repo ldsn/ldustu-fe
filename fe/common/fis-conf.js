@@ -1,4 +1,4 @@
-var receiver = "http://www.ldustu.com/fis/";
+var receiver = "http://test.ldustu.com/fis/";
 
 fis.config.merge({
 	namespace : 'common',

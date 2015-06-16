@@ -24,9 +24,13 @@ var _pri = {
         commentList: 'ul[node-type="comment-list"]',
         submitComment: 'click[node-type="submit-comment"]',
         commentInput: 'input[node-type="comment-input"]',
-        getMoreComment: 'click[node-type="get-more-comment"]'
+        getMoreComment: 'click[node-type="get-more-comment"]',
+        shareBtn: 'click[node-type="share-btn"]',
+        title: '.article-title',
+        content: '.article-content'
     },
     conf: {
+        article: null,
         currentArticle: 0,
         currentPage: 0,
         commentPage: 0
@@ -36,9 +40,11 @@ var _pri = {
         _pri.node.articleMod.delegate(_pri.node.favourBtn, 'click', _pri.util.setFavour);
         _pri.node.articleMod.delegate(_pri.node.submitComment, 'click', _pri.util.setComment);
         _pri.node.articleMod.delegate(_pri.node.getMoreComment, 'click', _pri.util.getMoreComment);
+        _pri.node.articleMod.delegate(_pri.node.shareBtn, 'click', _pri.util.createShare);
 	},
     bindListener: function () {
         ldev.message.listen('to_article', function (id) {
+            ldsn.util.goNext = 1;
             ldev.message.trigger('close_edit');
             // ldev.hash('article', id);
             var aid = ldev.hash('article');
@@ -55,14 +61,49 @@ var _pri = {
             _pri.util.hide();
         });
             
+        ldev.message.listen('go_back', function () {
+            history.go(-1);
+            ldsn.util.goBack = 1;
+            _pri.util.hide();
+        });
+            
         ldev.bindHash('article', function (aid) {
-            if (!aid) return;
-            if (aid != _pri.conf.currentArticle || ldsn.currentPage != 'article') {
+            if (ldsn.util.goNext === 1) {
+                ldsn.util.goNext = 0;
+                return;
+            }
+            if (ldsn.util.goBack === 1) {
+                ldsn.util.goBack = 0
+                return;
+            }
+            if (!aid) {
+                ldsn.util.goNext = 0;
+                ldsn.util.goBack = 0
+                return;
+            }
+            if (aid != _pri.conf.currentArticle) {
+                ldsn.util.goNext = 0;
+                ldsn.util.goback = 0;
                 ldev.message.trigger('to_article', aid);
             }
         });
     },
     util: {
+        createShare: function () {
+            var item = _pri.node.articleMod;
+            var desc = item.find(_pri.node.content).text();
+            var title = item.find(_pri.node.title).text();
+            var pics = ldev.context.IMG_DOMAIN + item.find(_pri.node.pic).attr('__src');
+            var obj = {
+                url:location.href,
+                summary: desc,
+                desc: '在鲁大学生网上看到一篇文章很赞哦~',
+                title: title,
+                site:'http://www.ldustu.com',
+                pics: pics
+            }
+            ldev.message.trigger('open_share_panel', obj);
+        },
         setFavour: function () {
             if (!ldsn.loginStatus) {
                 ldev.message.trigger('check_login');
@@ -180,6 +221,7 @@ var _pri = {
                     }
                     _pri.conf.commentPage = Math.ceil((data.data.comment_num - 10) / 20);
                     _pri.util.renderArticle(data.data);
+                    _pri.conf.article = data.data;
                 },
                 error: function () {
                     toast('error', '获取失败，请重试!');

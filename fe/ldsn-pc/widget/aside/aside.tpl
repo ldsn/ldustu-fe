@@ -22,7 +22,7 @@
     </div>
     {%/foreach%}
     <div class="hot_arc">
-        <h4 class="title">热门文章</h4>
+        <h4 class="title"><span class="section_bg">热门文章</span></h4>
         <ul class="arc_list">
             {%foreach from=$hotList item=hotList_item%}
             <li class="list">

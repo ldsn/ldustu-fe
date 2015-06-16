@@ -62,7 +62,7 @@ var tmpl = {
                         '<%if(comment_list){%>',
                             '<%for(var i=0;i<comment_list.length;i++){%>',
                                 '<li class="comment-item" comment-id="<%=comment_list[i].comment_id%>">',
-                                    '<img src="' + ldev.context.IMG_DOMAIN + '<%=user_info[\"head_pic\"]%>' + ldev.context.IMG_100_50 + '" class="comment-topic">',
+                                    '<img src="' + ldev.context.IMG_DOMAIN + '<%=comment_list[i].user_info[\"head_pic\"]%>' + ldev.context.IMG_100_50 + '" class="comment-topic">',
                                     '<section class="comment-detail">',
                                         '<section class="comment-info">',
                                             '<time class="comment-time"><%=ldev.timeFormat(comment_list[i].create_time)%></time>',

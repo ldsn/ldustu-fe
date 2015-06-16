@@ -31,7 +31,7 @@ var qiniu = new Qiniu();
 var uploader = qiniu.uploader({
     runtimes: 'html5,flash,html4',    //上传模式,依次退化
     browse_button: btnId,       //上传选择的点选按钮，**必需**
-    uptoken_url: 'http://www.ldustu.com/qiniu/q.php',
+    uptoken_url: '/qiniu/q.php',
         //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
     //uptoken : '-whDl59QdzDoavrzKrQy1YOCRWG6Cho_N5i7IYlf:waI5wxYOBnHH5x9iAlpe0RfQwns=:eyJzY29wZSI6Imxkc252NiIsImRlYWRsaW5lIjoxNDI2MjY0Mjc2fQ==',
         //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
