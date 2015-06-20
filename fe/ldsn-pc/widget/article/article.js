@@ -61,7 +61,7 @@ var _pri = {
             var imgDom = contentDom.find('img[__src]');
             for (var i = 0; i < imgDom.length; i ++) {
                 var thisDom = imgDom.eq(i);
-                var src = ldev.context.IMG_DOMAIN + thisDom.attr('__src');
+                var src = ldev.context.IMG_DOMAIN + thisDom.attr('__src') + '?imageView2/1/q/100|watermark/1/image/aHR0cDovL2xkc252Ni5xaW5pdWRuLmNvbS9tYXJrLmdpZg==/dissolve/100/gravity/SouthEast/dx/10/dy/10';
                 thisDom.attr('src', src);
             }
         },
@@ -75,9 +75,9 @@ var _pri = {
                         if (data && data.status != 1) {
                             toast('error', errMessage['removeArc'][data.status]);
                             $(_pri.node.articleDelete).find('.icon').removeClass('disabled');
-                        } else {
-                            $(_pri.node.articleDelete).find('.icon').removeClass('disabled');
-                        }
+                            return;
+                        } 
+                        location.reload();
                     },
                     error: function () {
                             $(_pri.node.articleDelete).find('.icon').removeClass('disabled');

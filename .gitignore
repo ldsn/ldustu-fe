@@ -6,3 +6,4 @@ output.*.*
 wap.sh
 pc.sh
 common.sh
+wbuild.sh

@@ -36,14 +36,16 @@
     float: right;
     display: block;
     padding: 14px 20px;
-    background-color: #0078d7;
+    background-color: #0c8ef5;
     margin-right: 10px;
     color: #FFF;
     font-size: 14px;
     margin: 12px;
 }
+.module-publish .submit.disabled {
+    background-color: #ccc;
+}
 .module-publish .submit {
-    background-color: #0c8ef5;
 }
 .module-publish .close {
     display: block;

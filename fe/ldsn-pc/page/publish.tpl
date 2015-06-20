@@ -1,6 +1,6 @@
 {%extends file="ldsn-pc/page/layout/layout1.tpl"%}
 {%block name="title"%}
-鲁大学生网，人人都是自媒体
+发表文章-鲁大学生网，人人都是自媒体
 {%/block%}
 {%block name="head-content"%}
 {%require name="ldsn-pc:static/lib/js/jquery-1.10.1.js"%}

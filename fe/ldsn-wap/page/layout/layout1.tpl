@@ -5,8 +5,9 @@
 {%/block%}
 </head>
 {%block name="body"%}
+<img src="/static/common/images/common/logo.png" id="wxImg" style="display:none" />
 <section node-type="ldsn-frame" class="ldsn-frame">
-	<section node-type="ldsn-box" class="ldsn-box" style="">
+	<section node-type="ldsn-box" class="ldsn-box">
 		<menu node-type="ldsn-menu" class="ldsn-menu">
 			{%block name="ldsn-menu"%}{%/block%}
 		</menu>

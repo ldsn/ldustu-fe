@@ -8,6 +8,7 @@
 {%if $level_status > 0%}
 <script src="/static/common/plupload/plupload.js"></script>
 {%/if%}
+<meta name="keywords" content="鲁东大学,鲁大学生网,{%$article['title']%}" />
 <meta name="description" content="{%$article['description']%}" />
 {%script%}
     window.article = {};

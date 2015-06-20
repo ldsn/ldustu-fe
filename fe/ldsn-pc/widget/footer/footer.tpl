@@ -6,8 +6,8 @@
         <a target="_blank" href="http://www.ldu.edu.cn">
             鲁东大学
         </a>
-        <a target="_blank" href="http://www.ldustu.com/a/zhongyaotongzhi/2012/0714/2106.html  ">
-            鲁东大学2014年新生群
+        <a target="_blank" href="http://www.ldustu.com/a/tongzhi/2014/0619/4590.html">
+            鲁东大学新生群
         </a>
         <a target="_blank" href="http://sailboat.ldustu.com">
             团队博客

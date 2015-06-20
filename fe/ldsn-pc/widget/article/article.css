@@ -3,6 +3,7 @@
     display: block;
     padding: 20px;
     position: relative;
+    overflow: hidden;
 }
 .article_main h1.title {
     word-wrap: break-word;

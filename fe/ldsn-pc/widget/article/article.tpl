@@ -16,7 +16,7 @@
 		<h1 class="title">{%$article['title']%}</h1>
 		<section class="info">
 			<section class="user_info">
-				<a href="#" class="user_name_a">
+				<a href="/home/{%$article['user_info']['user_id']%}" class="user_name_a">
 					<img src="http://ldsnv6.qiniudn.com/{%$article['user_info']['head_pic']%}?imageView2/2/w/80/q/100" />
 					<span class="user_name">
 						{%$article['user_info']['username']%}

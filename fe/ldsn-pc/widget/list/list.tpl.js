@@ -2,7 +2,7 @@ var tmpl = [
         '<li class="list" node-type="article-model" data-id="<%=article_id%>">',
             '<a href="/arc/<%=article_id%>" target="_blank" class="l_link">',
                 '<%if (thumbnail) {%>',
-                    '<img src="http://ldsnv6.qiniudn.com/<%=thumbnail%>?imageView2/2/w/200/q/100" alt="<%=title%>" class="l_img" />',
+                    '<img src="http://ldsnv6.qiniudn.com/<%=thumbnail%>?imageView2/1/w/200/h/144/q/100" alt="<%=title%>" class="l_img" />',
                     '<%}%>',
                 // '<%}else{%>',
                 //     '<img src="/static/common/images/no_pic.jpg" alt="<%=title%>" class="l_img" />',

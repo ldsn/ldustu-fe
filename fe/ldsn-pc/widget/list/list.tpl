@@ -5,7 +5,7 @@
                 <li class="list" node-type="article-model" data-id="{%$article_item['article_id']%}">
                 <a href="/arc/{%$article_item['article_id']%}" target="_blank" class="l_link">
                     {%if ($article_item['thumbnail'])%}
-                        <img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/2/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
+                        <img src="http://ldsnv6.qiniudn.com/{%$article_item['thumbnail']%}?imageView2/1/w/200/q/100" alt="{%$article_item['title']%}" class="l_img" />
                     {%/if%}
                 </a>
                 <div class="r_wrap">

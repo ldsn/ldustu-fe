@@ -19,7 +19,7 @@
         var cur = new Date(),
             curYear = cur.getFullYear(),
             curMonth = cur.getMonth(),
-            curDay = cur.getDay(),
+            curDay = cur.getDate(),
             curHours = cur.getHours(),
             curMinutes = cur.getMinutes(),
             curSeconds = cur.getSeconds();
@@ -32,8 +32,8 @@
             return;
         }
         var timeYear = time.getFullYear(),
-            timeMonth = time.getMonth(),
-            timeDay = time.getDay(),
+            timeMonth = time.getMonth() + 1,
+            timeDay = time.getDate(),
             timeHours = time.getHours() > 9 ? time.getHours() : '0' + time.getHours(),
             timeMinutes = time.getMinutes() > 9 ? time.getMinutes() : '0' + time.getMinutes();
         var date;

@@ -10,6 +10,9 @@
                     <a class="category" href="/category/{%$column_item['column_id']%}">{%$column_item['column_name']%}</a>
                 </li>
             {%/foreach%}
+            <li class="list" node-type="nav_list">
+                <a class="category" target="_blank" href="http://www.ldustu.com/a/xueshenghui/">校学生会</a>
+            </li>
         </ul>
     </div>
 </section>

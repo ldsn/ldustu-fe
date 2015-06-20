@@ -7,6 +7,7 @@
         </h3>
         <div class="info">
             <select name="column_id" id="publishColumn" class="column">
+                <option value="">选择栏目</option>
                 {%foreach from=$column item=column_item%}
                 <option value="{%$column_item['column_id']%}">{%$column_item['column_name']%}</option>
                 {%/foreach%}

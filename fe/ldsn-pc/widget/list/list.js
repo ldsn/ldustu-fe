@@ -73,21 +73,22 @@ var _pri = {
                 dataType: 'json',
                 data: {aid: id},
                 success: function (data) {
-                    if (data && data.status !=0) {
-                        var dom = $(_pri.node.articleMod + '[data-id="' + id + '"');
-                        var isList = dom.hasClass('list');
-                        if (isList) {
-                            dom.css('height','0');
-                            setTimeout(function() {
-                                dom.remove();
-                            },1000);
-                            return;
-                        }
-                        dom.remove();
-                    } else {
-                        alert('删除失败！');
+                    if (data && data.status != 1) {
+                        toast('error', errMessage['removeArc'][data.status]);
                         $(_pri.node.articleDelete + '[data-id="' + id + '"').find('.icon').removeClass('disabled');
+                        return;
                     }
+
+                    var dom = $(_pri.node.articleMod + '[data-id="' + id + '"');
+                    var isList = dom.hasClass('list');
+                    if (isList) {
+                        dom.css('height','0');
+                        setTimeout(function() {
+                            dom.remove();
+                        },1000);
+                        return;
+                    }
+                    dom.remove();
                 },
                 error: function () {
                         $(_pri.node.articleDelete + '[data-id="' + id + '"').find('.icon').removeClass('disabled');

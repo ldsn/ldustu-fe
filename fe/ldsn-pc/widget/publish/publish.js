@@ -25,10 +25,18 @@ var _pri = {
     },
     util: {
         articleSubmit: function () {
+            if ($(_pri.node.publishSub).hasClass('disabled')) {
+                return;
+            }
+
             var title = $('#publishTitle').val().trim();
             var columnId = $('#publishColumn').val();
             var content = ue.getContent();
 
+            if (!columnId) {
+                toast('warning', '要选择一个栏目哦~');
+                return;
+            }
             if (!title) {
                 toast('warning', '要写一个题目哦~');
                 return;
@@ -38,11 +46,8 @@ var _pri = {
                 return;
             }
 
-            if ($(_pri.node.publishSub).hasClass('disabled')) {
-                return;
-            }
             $(_pri.node.publishSub).addClass('disabled');
-
+            toast('warning', '正在发布，请稍后', true);
             var thumbnail;
             var _img = $(ue.document.body).find('img[__src]').eq(0);
             var __img = $(ue.document.body).find('img').eq(0);

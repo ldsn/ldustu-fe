@@ -29,7 +29,8 @@
 .LD_article .article_list .list .r_wrap{overflow: hidden;*zoom:1;padding:0 20px;}
 .LD_article .list .r_wrap .arc_title{margin-top:10px;  white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden;}
+  overflow: hidden;
+  line-height: 22px}
 .LD_article .article_list .list .arc_link{color: #322725;font-weight: bold;font-size: 20px;}
 .LD_article .article_list .list a.arc_link:hover{color:#0078d7;}
 .LD_article .list .r_wrap .arc_info{margin-top:10px;color:#999;line-height: 30px}

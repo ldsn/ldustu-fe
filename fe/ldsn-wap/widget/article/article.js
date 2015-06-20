@@ -12,6 +12,7 @@ var toast = require('ldsn-wap:widget/toast/toast.js');
 var errMessage = require('common:widget/error-message/error-message.js');
 var listMethod = require('ldsn-wap:widget/list/list-method.js');
 var header = require('ldsn-wap:widget/header/header.js');
+var wxShare = require('ldsn-wap:widget/wx-share/wx-share.js');
 
     //私有方法
 var _pri = {
@@ -238,6 +239,7 @@ var _pri = {
             if (_pri.node.articleMod.find(_pri.node.getMoreComment).length > 0) {
                 _pri.util.getMoreComment();
             }
+            wxShare(data.title, data.thumbnail);
         },
         hide: function () {
             _pri.node.articleMod.removeClass("active");
